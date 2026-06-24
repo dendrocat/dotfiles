@@ -1,9 +1,9 @@
 *
 !.gitignore
 
-# !git
-# !git/**
-#
+!git
+!git/**
+
 # !fish
 # !fish/**
 #

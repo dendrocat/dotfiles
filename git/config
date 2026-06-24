@@ -1,0 +1,13 @@
+[core]
+	editor = nvim
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[init]
+	defaultbranch = main
+[alias]
+	lg = log --graph --pretty=format:'%C(auto)%h %C(green)%an %C(cyan)%ad%C(auto)%d %C(reset)%s' --date=format:'%d.%m.%Y' --decorate 
+[include]
+    path = config.local
