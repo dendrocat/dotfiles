@@ -10,9 +10,9 @@
 !kitty
 !kitty/**
 
-# !tmux
-# !tmux/**
-#
+!tmux
+!tmux/**
+
 # !nvim
 # !nvim/**
 #
