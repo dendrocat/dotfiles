@@ -1,0 +1,17 @@
+{
+	"General class": {
+		"prefix": "class",
+		"description": "Creates a standard class.",
+		"body": ["public class ${TM_FILENAME_BASE} {", "\t$0", "}"]
+	},
+	"General interface": {
+		"prefix": "interface",
+		"description": "Creates a standard interface.",
+		"body": ["public interface ${TM_FILENAME_BASE} {", "\t$0", "}"]
+	},
+	"General struct": {
+		"prefix": "struct",
+		"description": "Creates a standard struct.",
+		"body": ["public struct ${TM_FILENAME_BASE} {", "\t$0", "}"]
+	}
+}

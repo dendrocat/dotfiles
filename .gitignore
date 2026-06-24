@@ -13,9 +13,9 @@
 !tmux
 !tmux/**
 
-# !nvim
-# !nvim/**
-#
+!nvim
+!nvim/**
+
 # !fastfetch
 # !fastfetch/**
 
