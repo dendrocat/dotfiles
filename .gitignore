@@ -7,9 +7,9 @@
 !fish
 !fish/**
 
-# !kitty
-# !kitty/**
-#
+!kitty
+!kitty/**
+
 # !tmux
 # !tmux/**
 #
