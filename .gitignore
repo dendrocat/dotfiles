@@ -4,9 +4,9 @@
 !git
 !git/**
 
-# !fish
-# !fish/**
-#
+!fish
+!fish/**
+
 # !kitty
 # !kitty/**
 #
