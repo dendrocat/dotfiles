@@ -1,0 +1,21 @@
+*
+!.gitignore
+
+# !git
+# !git/**
+#
+# !fish
+# !fish/**
+#
+# !kitty
+# !kitty/**
+#
+# !tmux
+# !tmux/**
+#
+# !nvim
+# !nvim/**
+#
+# !fastfetch
+# !fastfetch/**
+
