@@ -16,6 +16,6 @@
 !nvim
 !nvim/**
 
-# !fastfetch
-# !fastfetch/**
+!fastfetch
+!fastfetch/**
 
