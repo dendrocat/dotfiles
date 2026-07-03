@@ -34,4 +34,6 @@ if status is-interactive
 	function su
 	   command su --shell=/usr/bin/fish $argv
 	end
+
+	zoxide init fish | source
 end
