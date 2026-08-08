@@ -1,0 +1,34 @@
+{
+	"bluetooth": {
+		"format": "󰂯",
+		"tooltip-format": "{controller_alias} {status}",
+
+		"format-connected": "󰂱",
+		"tooltip-format-connected": "󰐻  {num_connections} Connected:\n{device_enumerate}",
+		"tooltip-format-enumerate-connected-battery": "󰂱  {device_alias} (󰠠  {device_battery_percentage}%)",
+
+		"format-disabled": "󰂲",
+		"on-click": "blueman-manager",
+	},
+
+	"network": {
+		"format-wifi": "{icon}",
+		"format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+		"tooltip-format-wifi": "󱄙  {essid} ({signalStrength}%)\n\n󰐻  Freq: {frequency}GHz\n  {bandwidthDownBytes}   {bandwidthUpBytes}",
+
+		"format-ethernet": "",
+		"tooltip-format-ethernet": "󰈀  {ifname} (Connected)\n  {bandwidthDownBytes}   {bandwidthUpBytes}",
+
+		"format-linked": "󱘖",
+		"tooltip-format-linked": "󱘖 {ifname}: No IP Address",
+
+		"format-disconnected": "󰤣",
+		"tooltip-format-disconnected": "No Connection",
+
+		"format-disabled": "󰤮",
+		"tooltip-format-disabled": "Wi-Fi is OFF",
+
+		"on-click": "nm-applet --indicator",
+		"on-click-right": "pkill nm-applet",
+	},
+}

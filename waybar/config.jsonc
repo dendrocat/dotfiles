@@ -1,0 +1,50 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 32,
+
+	"include": ["./modules/*"],
+
+	"modules-left": ["hyprland/workspaces"],
+	"modules-center": ["hyprland/window"],
+	"modules-right": [
+		"tray",
+		"memory",
+		"hyprland/language",
+		"bluetooth",
+		"network",
+		"pulseaudio",
+		"battery",
+		"clock",
+		"custom/power",
+	],
+
+	"hyprland/workspaces": {
+		"persistent-workspaces": {
+			"*": 5,
+		},
+	},
+
+	"hyprland/window": {
+		"max-length": 60,
+		"separate-outputs": true,
+	},
+
+	"tray": {
+		"icon-size": 19,
+		"spacing": 10,
+	},
+
+	"memory": {
+		"format": "{used} GB",
+	},
+
+	"hyprland/language": {
+		"format": "{short}",
+	},
+
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format-alt": "{:%d.%m.%Y}",
+	},
+}
