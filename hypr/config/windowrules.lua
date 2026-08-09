@@ -2,7 +2,7 @@
 hl.window_rule({
 	name = "Picture-in-Picture",
 	match = {
-		title = [[^([Pp]icture[-\s]?[Ii]n[-\s]?[Pp]icture)(.*)$]]
+		title = [[^([Pp]icture[-\s][Ii]n[-\s][Pp]icture)|([Кк]артинка[-\s][Вв][-\s][Кк]артинке).*$]]
 	},
 	float = true,
 	pin = true,

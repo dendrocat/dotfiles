@@ -1,12 +1,22 @@
+@import "./colors.css";
+
+@define-color color @primary;
+@define-color back @background;
+@define-color border-color @surface_bright;
+
+@define-color workspace-hover-color @secondary;
+@define-color workspace-hover-back @secondary_container;
+
 * {
+	min-height: 0;
+
 	font-family: 'JetBrainsMono Nerd Font', monospace;
 	font-size: 11pt;
-	min-height: 0;
 }
 
 window#waybar {
 	background: transparent;
-	color: #cdd6f4;
+	color: @color;
 }
 
 .modules-left,
@@ -16,7 +26,7 @@ window#waybar {
 	border: none;
 	border-radius: 0;
 	padding: 0;
-	margin: 10px 0 0 0;
+	margin: 10px 0 0;
 }
 
 .modules-left {
@@ -38,9 +48,10 @@ window#waybar {
 #cpu,
 #language,
 #keyboard-state,
+#backlight,
 #custom-power {
-	background: #1e1e2e;
-	border: 1px solid #313244;
+	background: @back;
+	border: 1px solid @border-color;
 	border-radius: 10px;
 	padding: 3px 9px 2px;
 	margin: 0 4px;
@@ -48,8 +59,8 @@ window#waybar {
 
 #workspaces {
 	padding: 3px 5px;
-	background: #1e1e2e;
-	border: 1px solid #313244;
+	background: @back;
+	border: 1px solid @border-color;
 	border-radius: 10px;
 }
 
@@ -63,17 +74,13 @@ window#waybar {
 }
 
 #workspaces button.active {
-	color: #1e1e2e;
-	background: #89b4fa;
+	color: @back;
+	background: @color;
 }
 
 #workspaces button:hover {
-	background: #45475a;
-	color: #cdd6f4;
-}
-
-#window {
-	color: #a6adc8;
+	color: @workspace-hover-color;
+	background: @workspace-hover-back;
 }
 
 #clock {
@@ -112,9 +119,9 @@ window#waybar {
 }
 
 tooltip {
-	background-color: #1e1e2e;
-	color: #cdd6f4;
-	border: 1px solid #45475a;
+	background-color: @back;
+	color: @color;
+	border: 1px solid @border-color;
 	border-radius: 8px;
 	opacity: 1;
 	box-shadow: none;
@@ -123,6 +130,6 @@ tooltip {
 
 tooltip label {
 	background-color: transparent;
-	color: #cdd6f4;
+	color: @color;
 	text-shadow: none;
 }

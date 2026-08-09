@@ -24,3 +24,8 @@
 
 !waybar
 !waybar/**
+
+color*
+
+!matugen
+!matugen/**

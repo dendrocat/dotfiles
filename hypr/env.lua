@@ -1,15 +1,17 @@
+-- Nvidia variables
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("GBM_BACKEND", "nvidia-drm")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 
+-- Locale variables
+hl.env("LANG", "ru_RU.UTF-8")
+hl.env("LC_ALL", "ru_RU.UTF-8")
 hl.config({
 	general = {
-		locale = "ru_RU"
-	}
+		locale = "ru_RU.UTF-8",
+	},
 })
-
 
 -- Wayland variables
 hl.env("OZONE_PLATFORM", "wayland")
@@ -46,7 +48,7 @@ hl.env("SDL_VIDEODRIVER", "wayland")
 
 -- Force zero scaling for XWayland
 hl.config({
-  xwayland = {
-    force_zero_scaling = true
-  }
+	xwayland = {
+		force_zero_scaling = true
+	}
 })

@@ -8,21 +8,27 @@ hl.config({
 
 		border_size   = 2,
 		allow_tearing = false,
+
+		col           = {
+			active_border   = { colors = { Secondary, OnSecondary }, angle = 45 },
+			inactive_border = OnSecondary,
+		}
 	},
 })
 
 -- Decorations
 hl.config({
 	decoration = {
-		rounding           = 10,
+		rounding           = 5,
+		rounding_power     = 2,
+
 		active_opacity     = 1.0,
 		inactive_opacity   = 0.9,
 		fullscreen_opacity = 1.0,
-		rounding_power     = 2,
 
 		shadow             = {
 			enabled      = true,
-			range        = 32,
+			range        = 16,
 			render_power = 2,
 			color        = "rgba(00000050)",
 		},
