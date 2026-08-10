@@ -4,6 +4,7 @@
 @define-color back @background;
 @define-color border-color @surface_bright;
 
+@define-color workspace-color @inverse_primary;
 @define-color workspace-hover-color @secondary;
 @define-color workspace-hover-back @secondary_container;
 
@@ -39,17 +40,16 @@ window#waybar {
 #workspaces,
 #window,
 #clock,
+#wifi-blue-bat,
 #memory,
-#bluetooth,
-#network,
 #pulseaudio,
-#battery,
 #tray,
 #cpu,
 #language,
 #keyboard-state,
 #backlight,
-#custom-power {
+#custom-power,
+#custom-notification {
 	background: @back;
 	border: 1px solid @border-color;
 	border-radius: 10px;
@@ -65,15 +65,15 @@ window#waybar {
 }
 
 #workspaces button {
-	color: #6c7086;
+	color: @workspace-color;
 	background: transparent;
 	border: none;
 	border-radius: 7px;
-	padding: 0 7px;
+	padding: 0 12px 0 7px;
 	margin: 0 2px;
 }
 
-#workspaces button.active {
+#workspaces button.visible {
 	color: @back;
 	background: @color;
 }
@@ -95,6 +95,9 @@ window#waybar {
 	color: #94e2d5;
 	padding-right: 14px;
 }
+#bluetooth {
+	padding-right: 12px;
+}
 
 #pulseaudio {
 	color: #fab387;
@@ -115,6 +118,10 @@ window#waybar {
 }
 
 #custom-power {
+	padding-right: 11px;
+}
+
+#custom-notification {
 	padding-right: 11px;
 }
 
