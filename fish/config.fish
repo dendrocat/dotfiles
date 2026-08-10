@@ -31,6 +31,8 @@ if status is-interactive
 	abbr -a pccca "sudo pacman -Scc" # clear all cache
 	abbr -a pcru "sudo pacman -Rns \$(pacman -Qtdq)" # clear unused deps
 
+	set --universal tide_git_icon 
+
 	function su
 	   command su --shell=/usr/bin/fish $argv
 	end
