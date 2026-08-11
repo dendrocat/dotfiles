@@ -25,10 +25,13 @@
 !waybar
 !waybar/**
 
-!matugen
-!matugen/**
-
 !swaync
 !swaync/**
 
+!rofi
+!rofi/**
+
 color*
+
+!matugen
+!matugen/**

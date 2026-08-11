@@ -1,0 +1,5 @@
+* {
+<* for name, value in colors *>
+	{{ name | kebab_case | replace: "background", "bg" }}: {{ value.default.hex }};
+<* endfor *>
+}

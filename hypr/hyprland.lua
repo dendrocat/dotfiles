@@ -1,8 +1,7 @@
 TERMINAL = "kitty"
 FILE_MANAGER = "dolphin"
 BROWSER = "zen-browser"
-DRUN = "rofi -show drun"
-WINDOW = "rofi -show window -p ''"
+LAUNCHER = "~/.config/hypr/scripts/launcher.sh"
 
 require("env")
 

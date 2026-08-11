@@ -4,10 +4,10 @@ local mod = "SUPER"
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(TERMINAL))
 hl.bind(mod .. " + B", hl.dsp.exec_cmd(BROWSER))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(FILE_MANAGER))
-hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(DRUN))
+hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(LAUNCHER .. " drun"))
 
 -- Window focus
-hl.bind(mod .. " + TAB", hl.dsp.exec_cmd(WINDOW))
+hl.bind(mod .. " + TAB", hl.dsp.exec_cmd(LAUNCHER .. " window"))
 hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }), { description = "Move focus left" })
 hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }), { description = "Move focus right" })
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }), { description = "Move focus up" })
@@ -71,4 +71,4 @@ end, { description = "Take screenshot" })
 hl.bind(mod .. " + F10", hl.dsp.exec_cmd("hyprlock"), { description = "Lock screen" })
 
 -- Cliphistory
-hl.bind(mod .. " + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/cliphist.sh"), { description = "Open clipboard history" })
+hl.bind(mod .. " + V", hl.dsp.exec_cmd(LAUNCHER .. " cliphist"), { description = "Open clipboard history" })
