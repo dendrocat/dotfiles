@@ -25,7 +25,10 @@
 !waybar
 !waybar/**
 
-color*
-
 !matugen
 !matugen/**
+
+!swaync
+!swaync/**
+
+color*

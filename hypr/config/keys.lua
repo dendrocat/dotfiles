@@ -7,6 +7,7 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd(FILE_MANAGER))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(DRUN))
 
 -- Window focus
+hl.bind(mod .. " + TAB", hl.dsp.exec_cmd(WINDOW))
 hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }), { description = "Move focus left" })
 hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }), { description = "Move focus right" })
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }), { description = "Move focus up" })
@@ -40,23 +41,10 @@ hl.bind(mod .. " + T", hl.dsp.window.float({ action = "toggle" }), { description
 -- Close window
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 
--- Reload waybar
-hl.bind(mod .. " + R", hl.dsp.exec_cmd("(pkill waybar || true) && waybar & disown"))
-
 -- Mouse
 hl.bind("ALT + mouse:272", hl.dsp.window.drag(), { mouse = true, description = "Move window with the left mouse" })
 hl.bind("ALT + mouse:273", hl.dsp.window.resize(), { mouse = true, description = "Resize window with the right mouse" })
 hl.bind("ALT + mouse:274", hl.dsp.window.resize({ keep_aspect_ratio = 1 }), { mouse = true, description = "Resize with aspect ratio window with the middle mouse" })
-
--- Screenshot
-hl.bind("Print", function()
-	local mon = hl.get_active_monitor()
-	local n = mon and mon.id or 0
-	hl.exec_cmd("flameshot screen --number " .. n .. " --edit")
-end, { description = "Take screenshot" })
-
--- Lock screen
-hl.bind(mod .. " + F10", hl.dsp.exec_cmd("hyprlock"), { description = "Lock screen" })
 
 
 -- Volume
@@ -68,3 +56,19 @@ hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 -- Brightness
 hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true, description = "Increase brightness" })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true, description = "Decrease brightness" })
+
+-- Reload waybar
+hl.bind(mod .. " + R", hl.dsp.exec_cmd("(pkill waybar || true) && waybar & disown"), { description = "Reload waybar" })
+
+-- Screenshot
+hl.bind("Print", function()
+	local mon = hl.get_active_monitor()
+	local n = mon and mon.id or 0
+	hl.exec_cmd("flameshot screen --number " .. n .. " --edit")
+end, { description = "Take screenshot" })
+
+-- Lock screen
+hl.bind(mod .. " + F10", hl.dsp.exec_cmd("hyprlock"), { description = "Lock screen" })
+
+-- Cliphistory
+hl.bind(mod .. " + V", hl.dsp.exec_cmd("~/.config/hypr/scripts/cliphist.sh"), { description = "Open clipboard history" })

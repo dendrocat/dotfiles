@@ -1,0 +1,216 @@
+@import "colors.css";
+
+/* Алиасы цветов Matugen.
+ * Не переопределяем имена @primary, @surface и т. д.
+ */
+@define-color bg @surface;
+@define-color bg-alt @surface_container;
+@define-color bg-high @surface_container_high;
+
+@define-color fg @on_surface;
+@define-color fg-muted @on_surface_variant;
+
+@define-color accent @primary;
+@define-color accent-fg @on_primary;
+
+@define-color accent-container @primary_container;
+@define-color accent-container-fg @on_primary_container;
+
+@define-color border @outline;
+@define-color danger @error;
+@define-color danger-fg @on_error;
+
+
+.control-center {
+    padding: 12px;
+
+    color: @fg;
+    background: alpha(@bg, 0.4);
+
+    border: 1px solid alpha(@border, 0.2);
+    border-radius: 16px;
+}
+
+/* Title */
+.widget-title {
+    margin: 0 0 8px 0;
+    padding: 10px 12px;
+
+    color: @fg;
+    background: alpha(@bg-alt, 0.4);
+
+    border: 1px solid alpha(@border, 0.2);
+    border-radius: 12px;
+}
+
+.widget-title > label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.widget-title > button {
+    padding: 6px 10px;
+
+    color: @accent-container-fg;
+    background: @accent-container;
+
+    border-radius: 8px;
+}
+
+.widget-title > button:hover {
+    color: @accent-fg;
+    background: @accent;
+}
+
+
+/* Dnd */
+.widget-dnd {
+    margin: 8px 0;
+    padding: 10px;
+
+    color: @fg;
+    background: alpha(@bg-alt, 0.4);
+
+    border: 1px solid alpha(@border, 0.2);
+    border-radius: 12px;
+}
+
+.widget-dnd > switch {
+    background: @bg-high;
+    border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+    background: @accent;
+}
+
+
+/* Notification */
+.widget-notifications {
+    margin: 0;
+    padding: 0px;
+}
+
+.notification-row {
+    margin: 5px 0;
+    padding: 0 10px 0 0;
+    outline: none;
+    background: transparent;
+}
+
+.notification-group {
+	background: transparent;
+}
+
+.notification {
+    color: @fg;
+    background: alpha(@bg-high, 0.88);
+
+    border: 1px solid alpha(@border, 0.35);
+    border-radius: 14px;
+}
+
+.notification-content {
+    padding: 12px;
+    border-radius: 14px;
+}
+
+.app-name {
+    color: @accent;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.time {
+    color: @fg-muted;
+
+    font-size: 11px;
+}
+
+/* Notification title */
+.summary {
+    color: @fg;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Notification text */
+.body {
+    color: @fg-muted;
+
+    font-size: 13px;
+	background: transparent;
+}
+
+.notification-icon {
+    min-width: 42px;
+    min-height: 42px;
+
+    margin-right: 10px;
+
+    border-radius: 10px;
+}
+
+.notification-image {
+    margin-top: 8px;
+
+    border-radius: 10px;
+}
+
+.close-button {
+    min-width: 24px;
+    min-height: 24px;
+
+    margin: 0;
+    padding: 3px;
+
+    color: @fg-muted;
+    background: transparent;
+
+    border-radius: 7px;
+}
+
+.close-button:hover {
+    color: @danger-fg;
+    background: @danger;
+}
+
+.notification-default-action {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 14px;
+}
+
+.notification-default-action:hover {
+    background: alpha(@accent, 0.12);
+}
+
+.notification-action {
+    min-height: 30px;
+    margin: 8px 4px 0 0;
+    padding: 5px 10px;
+    color: @accent-container-fg;
+    background: @accent-container;
+    border-radius: 8px;
+}
+
+.notification-action:hover {
+    color: @accent-fg;
+    background: @accent;
+}
+
+.notification.critical {
+    background: alpha(@danger, 0.18);
+    border-color: alpha(@danger, 0.75);
+}
+
+.notification.critical .summary {
+    color: @danger;
+}
+
+.notification.low {
+    opacity: 0.78;
+}

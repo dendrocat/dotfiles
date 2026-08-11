@@ -48,3 +48,24 @@ hl.window_rule({
 	center = true,
 	size = { 800, 600 },
 })
+
+hl.layer_rule({
+    match = {
+        namespace = "^(swaync-control-center)$",
+    },
+
+    blur = true,
+    ignore_alpha = 0.2,
+    animation = "slide right",
+})
+
+-- Всплывающие уведомления
+hl.layer_rule({
+    match = {
+        namespace = "^(swaync-notification-window)$",
+    },
+
+    blur = true,
+    ignore_alpha = 0.2,
+    animation = "slide right",
+})

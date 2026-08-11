@@ -1,0 +1,50 @@
+{
+	"$schema": "/etc/xdg/swaync/configSchema.json",
+
+	"positionX": "right",
+	"positionY": "top",
+
+	"control-center-positionX": "none",
+	"control-center-positionY": "none",
+	"control-center-margin-top": 10,
+	"control-center-margin-bottom": 10,
+	"control-center-margin-right": 10,
+	"control-center-margin-left": 0,
+	"control-center-width": 500,
+	"notification-window-width": 500,
+
+	"fit-to-screen": true,
+	"layer-shell-cover-screen": true,
+
+	"layer-shell": true,
+	"layer": "overlay",
+	"control-center-layer": "overlay",
+	"cssPriority": "user",
+
+	"notification-body-image-height": 100,
+	"notification-body-image-width": 200,
+	"notification-inline-replies": true,
+
+	"timeout": 0,
+	"image-visibility": "when-available",
+	"transition-time": 50,
+
+	"hide-on-clear": true,
+	"hide-on-action": true,
+	"script-fail-notify": true,
+
+	"widgets": ["title", "dnd", "notifications"],
+	"widget-config": {
+		"title": {
+			"text": "Уведомления",
+			"clear-all-button": true,
+			"button-text": "Очистить"
+		},
+		"dnd": {
+			"text": "Не беспокоить"
+		},
+		"notifications": {
+			"vexpand": true
+		}
+	}
+}

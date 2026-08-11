@@ -1,7 +1,8 @@
 TERMINAL = "kitty"
 FILE_MANAGER = "dolphin"
 BROWSER = "zen-browser"
-DRUN = "wofi --show drun"
+DRUN = "rofi -show drun"
+WINDOW = "rofi -show window -p ''"
 
 require("env")
 
