@@ -1,5 +1,5 @@
 configuration {
-	modi:						"drun,window";
+	modi:						"drun";
 	case-sensitive:				false;
 	cycle:						true;
 	filter:						"";
@@ -11,24 +11,6 @@ configuration {
 	normalize-match:			true;
 	matching:					"normal";
 	tokenize:					true;
-
-	// drun
-	drun-match-fields:			"name,generic,exec,categories,keywords";
-	drun-show-actions:			false;
-	drun-url-launcher:			"xdg-open";
-	drun-use-desktop-cache:		false;
-	drun-reload-desktop-cache:	false;
-	drun {
-		parse-user:				true;
-		parse-system:			true;
-
-		fallback-icon:			"application-x-addon";
-	}
-
-	/*---------- Window switcher settings ----------*/
-	window-match-fields:		"class,title";
-	window-format:				"{w} {c} {t:0}";
-	window-thumbnail:			true;
 
 	/*---------- History and Sorting ----------*/
 	disable-history:			false;

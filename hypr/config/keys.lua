@@ -7,7 +7,6 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd(FILE_MANAGER))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(LAUNCHER .. " drun"))
 
 -- Window focus
-hl.bind(mod .. " + TAB", hl.dsp.exec_cmd(LAUNCHER .. " window"))
 hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }), { description = "Move focus left" })
 hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }), { description = "Move focus right" })
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }), { description = "Move focus up" })

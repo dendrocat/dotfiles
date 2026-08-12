@@ -1,1 +1,1 @@
-cliphist list | rofi -dmenu -p '' -no-custom | cliphist decode | wl-copy
+cliphist list | rofi -dmenu -theme ~/.config/rofi/style/cliphist.rasi | cliphist decode | wl-copy
