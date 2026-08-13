@@ -1,147 +1,147 @@
-@import                          "colors.rasi"
+@import                         "colors.rasi"
 
 * {
-	font:						 "JetBrainsMono NF 11";
+	font:						"JetBrainsMono NF 11";
 
-	fg:							 @primary;
-	bg:							 @surface-container-low;
-	bg-input:				     @surface-container-high;
-	selection:					 @primary;
-	brc:		                 @surface-bright;
+	fg:							@primary;
+	bg:							@surface-container-low;
+	bg-alt:						@surface-container-high;
+	selection:					@primary;
+	brc:		                @surface-bright;
 }
 
 // Window
 window {
-    margin:                      0px;
-    padding:                     0px;
+    margin:                     0px;
+    padding:                    0px;
 
-    fullscreen:                  false;
+    fullscreen:                 false;
 
-    border:                      2px solid;
-    border-radius:               15px;
-	border-color:				 @brc;
+    border:                     2px solid;
+    border-radius:              15px;
+	border-color:				@brc;
 
-    background-color:            @bg;
-    transparency:                "real";
+    background-color:           @bg;
+    transparency:               "real";
 
-    cursor:                      "default";
+    cursor:                     "default";
 }
 
 mainbox {
-    margin:                      0px;
-    padding:                     20px;
+    margin:                     0px;
+    padding:                    20px;
 
-    spacing:                     20px;
+    spacing:                    20px;
 
-	background-color:			 transparent;
+	background-color:			transparent;
 }
 
 // Input
 inputbar {
-    margin:                      0px;
-    padding:                     15px;
+    margin:                     0px;
+    padding:                    15px;
 
-    spacing:                     10px;
+    spacing:                    10px;
 
-    border:                      none;
-    border-radius:               12px;
-    border-color:                @selection;
+    border:                     none;
+    border-radius:              12px;
+    border-color:               @selection;
 
-    text-color:                  @fg;
-    background-color:            @bg-input;
+    text-color:                 @fg;
+    background-color:           @bg-alt;
 }
 
 prompt {
-    text-color:                  inherit;
-    background-color:            inherit;
+    text-color:                 inherit;
+    background-color:           inherit;
 }
 
 entry {
-    placeholder:                 "";
-    placeholder-color:           inherit;
+    placeholder:                "";
+    placeholder-color:          inherit;
 
-    text-color:                  inherit;
-    background-color:            inherit;
+    text-color:                 inherit;
+    background-color:           inherit;
 
-    cursor:                      text;
+    cursor:                     text;
 }
 
 
 // List
 listview {
-    margin:                      0px;
-    padding:                     0px;
+    margin:                     0px;
+    padding:                    0px;
 
-    spacing:                     5px;
+    spacing:                    5px;
 
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
 
-    text-color:                  @fg;
-    background-color:            transparent;
+    text-color:                 @fg;
+    background-color:           transparent;
 
-    cursor:                      "default";
+    cursor:                     "default";
 }
 
 // Element
 element {
-    margin:                      0px;
-    padding:                     5px 10px;
+    margin:                     0px;
+    padding:                    10px 20px;
 
-    spacing:                     10px;
+    spacing:                    10px;
 
-    border:                      none;
-    border-radius:               12px;
+    border:                     none;
+    border-radius:              12px;
 
-    text-color:                  @fg;
-    background-color:            transparent;
+    text-color:                 @fg;
+    background-color:           transparent;
 
-    cursor:                      pointer;
+    cursor:                     pointer;
 }
 
 element normal.normal {
-    text-color:                  @fg;
-    background-color:            @bg;
+    text-color:                 @fg;
+    background-color:           transparent;
 }
 
 element selected.normal {
-    text-color:                  @bg;
-    background-color:            @selection;
+    text-color:                 @bg;
+    background-color:           @selection;
 }
 
 element-icon {
-    size:                        32px;
+    size:                       32px;
 
-    text-color:                  inherit;
-    background-color:            transparent;
+    text-color:                 inherit;
+    background-color:           transparent;
 
-    cursor:                      inherit;
+    cursor:                     inherit;
 }
 
 element-text {
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
 
-    text-color:                  inherit;
-    background-color:            transparent;
+    text-color:                 inherit;
+    background-color:           transparent;
 
-    cursor:                      inherit;
+    cursor:                     inherit;
 }
 
 // Message
 error-message {
-    padding:                     15px;
+    padding:                    15px;
 
-    text-color:                  @fg;
-    background-color:            transparent;
+    text-color:                 @fg;
+    background-color:           transparent;
 }
 
 textbox {
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-    highlight:                   none;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+    highlight:                  none;
 
-    text-color:                  inherit;
-    background-color:            inherit;
+    text-color:                 inherit;
+    background-color:           inherit;
 }

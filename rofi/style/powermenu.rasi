@@ -1,0 +1,80 @@
+// original config: https://github.com/adi1090x/rofi/blob/master/files/powermenu/type-2/style-6.rasi
+
+@import							"shared.rasi"
+
+configuration {
+	show-icons: false;
+}
+
+// Window
+window {
+    location:                   center;
+    anchor:                     center;
+    x-offset:                   100px;
+    y-offset:					0px;
+
+	width:						600px;
+}
+
+mainbox {
+    children:                   [ "message", "listview" ];
+}
+
+// Uptime label
+message {
+	margin:						0px;
+	padding:					12px;
+
+    border:                     0 2px dash;
+    border-radius:              12px;
+	border-color:				@selection;
+
+	text-color:					@fg;
+	background-color:			@bg-alt;
+}
+
+textbox {
+	font:						"JetBrainsMono NF Bold 13";
+
+	vertical-align:				0.5;
+	horizontal-align:			0.5;
+
+	text-color:					inherit;
+	background-color:			inherit;
+}
+
+// List
+listview {
+	columns:					5;
+	fixed-columns:				true;
+
+	lines:						1;
+	fixed-height:				true;
+
+	spacing: 10px;
+}
+
+element {
+	margin:						0px;
+	padding:					20px 0px 20px 15px;
+
+	spacing:					0px;
+
+	border:						none;
+	border-radius:				35px 15px;
+
+	text-color:					@fg;
+	background-color:			@bg-alt;
+}
+
+element-text {
+	font:						"JetBrainsMono NF Bold 28";
+
+	vertical-align:				0.5;
+	horizontal-align:			0.5;
+}
+
+element normal.normal {
+    text-color:                 @fg;
+    background-color:           @bg-alt;
+}

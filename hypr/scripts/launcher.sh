@@ -2,4 +2,4 @@
 
 launcher=rofi
 
-source "$HOME/.config/$launcher/scripts/$1.sh"
+(pkill rofi || true) && "$HOME/.config/$launcher/scripts/$1.sh"

@@ -1,9 +1,9 @@
 // original config: https://github.com/adi1090x/rofi/blob/master/files/launchers/type-2/style-2.rasi
 
-@import "shared.rasi"
+@import							"shared.rasi"
 
 configuration {
-    display-drun:               " ";
+    display-drun:				" ";
 	drun-display-format:        "{name}";
 
 	drun-match-fields:			"name,generic,exec,categories,keywords";

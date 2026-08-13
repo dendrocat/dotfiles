@@ -1,28 +1,28 @@
-@import							 "shared.rasi"
+@import							"shared.rasi"
 
 configuraion {
-	promt:						 "";
+	promt:						"";
 }
 
 window {
-	location:					 south;
-	anchor:						 south;
+	location:					south;
+	anchor:						south;
 
-	y-offset:					 -20px;
+	y-offset:					-20px;
 }
 
 inputbar {
-    children:                    [ "entry", "num-rows" ];
+    children:                   [ "entry", "num-rows" ];
 }
 
 num-rows {
-	text-color:					 inherit;
-	background-color:			 inherit;
+	text-color:					inherit;
+	background-color:			inherit;
 }
 
 listview {
-	lines:						 8;
-	fixed-height:				 true;
+	lines:						8;
+	fixed-height:				true;
 
-    layout:                      vertical;
+    layout:                     vertical;
 }
