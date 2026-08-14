@@ -31,7 +31,10 @@
 !rofi
 !rofi/**
 
-color*
+!quickshell
+!quickshell/**
+
+[cC]olor*
 
 !matugen
 !matugen/**

@@ -16,29 +16,29 @@ config.lua_ls = {
 	}
 }
 
-config.omnisharp = {
-	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()),
-		"-z", "--loglevel", "error" },
-	settings = {
-		FormattingOptions = {
-			EnableEditorConfigSupport = false,
-			OrganizeImports = true,
-		},
-		Sdk = {
-			IncludePrereleases = true,
-		},
-		RoslynExtensionsOptions = {
-			EnableAnalyzersSupport = false,
-			EnableEditorConfigSupport = false,
-			EnableDecompilationSupport = true,
-			EnableImportCompletion = true,
-		},
-		OmniSharp = {
-			EnableAsyncCompletion = true,
-			EnableEditorVisualizerSupport = true,
-			EnableRoslynAnalyzers = false,
-		},
-	},
-}
+-- config.omnisharp = {
+-- 	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()),
+-- 		"-z", "--loglevel", "error" },
+-- 	settings = {
+-- 		FormattingOptions = {
+-- 			EnableEditorConfigSupport = false,
+-- 			OrganizeImports = true,
+-- 		},
+-- 		Sdk = {
+-- 			IncludePrereleases = true,
+-- 		},
+-- 		RoslynExtensionsOptions = {
+-- 			EnableAnalyzersSupport = false,
+-- 			EnableEditorConfigSupport = false,
+-- 			EnableDecompilationSupport = true,
+-- 			EnableImportCompletion = true,
+-- 		},
+-- 		OmniSharp = {
+-- 			EnableAsyncCompletion = true,
+-- 			EnableEditorVisualizerSupport = true,
+-- 			EnableRoslynAnalyzers = false,
+-- 		},
+-- 	},
+-- }
 
 return config
