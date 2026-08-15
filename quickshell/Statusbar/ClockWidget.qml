@@ -1,6 +1,6 @@
 import Quickshell
 import QtQuick
-import qs.Theme
+import qs.Config
 
 Item {
 	id: clock
@@ -16,7 +16,7 @@ Item {
 		precision: SystemClock.Minutes
 	}
 
-	Text {
+	StyledText {
 		id: timeText
 
 		anchors {
@@ -25,12 +25,5 @@ Item {
 		}
 
 		text: Qt.formatDateTime(sysClock.date, clock.timeFormat + " " + clock.dateFormat)
-
-		color: Theme.colors.primary
-
-		font {
-			family: Theme.font.family
-			pixelSize: Theme.font.size
-		}
 	}
 }

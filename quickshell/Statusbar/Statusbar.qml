@@ -2,94 +2,83 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
-import qs.Theme
+import qs.Config
 
-PanelWindow {
-    id: bar
+Scope {
+    Variants {
+        model: Quickshell.screens
+        delegate: Component {
+            PanelWindow {
+                id: bar
 
-    implicitHeight: Theme.sizes.barHeight + Theme.sizes.barRounding
-	// implicitHeight: 100
+                required property var modelData
+                screen: modelData
 
-    anchors {
-        top: true
-        left: true
-        right: true
-    }
+                implicitHeight: Theme.bar.height + Theme.bar.rounding
 
-    margins {
-        bottom: -Theme.sizes.barRounding
-    }
+                anchors {
+                    top: true
+                    left: true
+                    right: true
+                }
 
-    color: "transparent"
+                margins {
+                    bottom: -Theme.bar.rounding
+                }
 
-    Rectangle {
-        anchors {
-            top: barContent.top
-            bottom: barContent.bottom
-            left: barContent.left
-            right: barContent.right
-        }
+                color: "transparent"
 
-        color: Theme.colors.bg
-    }
+                Rectangle {
+                    anchors {
+                        top: barContent.top
+                        bottom: barContent.bottom
+                        left: barContent.left
+                        right: barContent.right
+                    }
 
-    Item {
-        anchors {
-            top: barContent.bottom
-            left: parent.left
-            right: parent.right
-        }
+                    color: Theme.colors.bg
+                }
 
-        RoundCorner {
-            id: leftCorner
-            anchors {
-                top: parent.top
-                bottom: parent.bottom
-                left: parent.left
+                Item {
+                    anchors {
+                        top: barContent.bottom
+                        left: parent.left
+                        right: parent.right
+                    }
+
+                    RoundCorner {
+                        id: leftCorner
+                        anchors {
+                            top: parent.top
+                            bottom: parent.bottom
+                            left: parent.left
+                        }
+
+                        corner: RoundCorner.CornerEnum.TopLeft
+
+                        implicitSize: Theme.bar.rounding
+                        color: Theme.colors.bg
+                    }
+
+                    RoundCorner {
+                        id: rightCorner
+                        anchors {
+                            top: parent.top
+                            bottom: parent.bottom
+                            right: parent.right
+                        }
+
+                        corner: RoundCorner.CornerEnum.TopRight
+
+                        implicitSize: Theme.bar.rounding
+                        color: Theme.colors.bg
+                    }
+                }
+
+                BarContent {
+                    id: barContent
+                }
             }
-
-            corner: RoundCorner.CornerEnum.TopLeft
-
-            implicitSize: Theme.sizes.barRounding
-            color: Theme.colors.bg
-        }
-
-        RoundCorner {
-            id: rightCorner
-            anchors {
-                top: parent.top
-                bottom: parent.bottom
-                right: parent.right
-            }
-
-            corner: RoundCorner.CornerEnum.TopRight
-
-            implicitSize: Theme.sizes.barRounding
-            color: Theme.colors.bg
-        }
-    }
-
-    Item {
-        id: barContent
-
-        anchors {
-            top: parent.top
-            left: parent.left
-            right: parent.right
-        }
-
-        implicitHeight: Theme.sizes.barHeight
-
-        RowLayout {
-            anchors.right: parent.right
-            anchors.rightMargin: 16
-            anchors.verticalCenter: parent.verticalCenter
-            spacing: Theme.sizes.barSpacing
-
-
-            ClockWidget {}
-
-            Battery {}
         }
     }
 }
