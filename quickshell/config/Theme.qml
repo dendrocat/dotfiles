@@ -40,8 +40,9 @@ Singleton {
 		readonly property string chargeIcon: "󱐋"
 		readonly property string pluggedIcon: ""
 
-        readonly property color lowColor: "yellow"
-        readonly property color criticalColor: "red"
+        readonly property color lowColor: "#f3f353"
+        readonly property color criticalColor: "#ff5555"
+		readonly property color chargeColor: "#80ff80"
 		readonly property color color: root._colors.primary
     }
 }

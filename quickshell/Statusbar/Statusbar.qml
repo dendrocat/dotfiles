@@ -2,7 +2,7 @@ import Quickshell
 import Quickshell.Io
 import QtQuick
 import QtQuick.Layouts
-import qs.Config
+import qs.config
 
 Scope {
     Variants {

@@ -1,7 +1,7 @@
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import qs.Config
+import qs.config
 
 Item {
     id: root

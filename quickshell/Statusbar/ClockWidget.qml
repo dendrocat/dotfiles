@@ -1,20 +1,11 @@
 import Quickshell
 import QtQuick
-import qs.Config
+import qs.config
+import qs.services
 
 Item {
-	id: clock
-
-	property string timeFormat: "HH:mm"
-
-	property string dateFormat: "dd.MM.yyyy"
-
+	id: root
 	implicitWidth: timeText.implicitWidth
-
-	SystemClock {
-		id: sysClock
-		precision: SystemClock.Minutes
-	}
 
 	StyledText {
 		id: timeText
@@ -24,6 +15,12 @@ Item {
 			verticalCenter: parent.verticalCenter
 		}
 
-		text: Qt.formatDateTime(sysClock.date, clock.timeFormat + " " + clock.dateFormat)
+		text: DateTime.time
+	}
+
+	StyledText {
+		id: dateText
+
+		text: DateTime.date
 	}
 }

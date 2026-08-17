@@ -1,8 +1,8 @@
 import Quickshell
-import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
-import qs.Config
+import qs.config
+import qs.services
 
 Item {
     id: root
@@ -10,14 +10,11 @@ Item {
     implicitWidth: row.implicitWidth
     implicitHeight: Theme.bar.height
 
-    readonly property real value: UPower.displayDevice.percentage
-    readonly property int low: Config.battery.low
-    readonly property int critical: Config.battery.critical
-
-    readonly property bool isLow: value <= low / 100
-    readonly property bool isCritical: value <= critical / 100
-    readonly property bool isCharging: UPower.displayDevice.state == UPowerDeviceState.Charging
-    readonly property bool isPlugged: UPower.displayDevice.state == UPowerDeviceState.PendingCharge
+    readonly property real value: Battery.value
+    readonly property bool isCritical: Battery.isCritical
+    readonly property bool isLow: Battery.isLow
+    readonly property bool isCharging: Battery.isCharging
+    readonly property bool isPlugged: Battery.isPlugged
 
     RowLayout {
         id: row
@@ -25,46 +22,20 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
 
         ClippedProgressBar {
-            implicitWidth: root.implicitHeight * 1.3
-            implicitHeight: root.implicitHeight * 0.5
+            implicitWidth: root.implicitHeight
+            implicitHeight: root.implicitHeight * 0.40
 
             value: root.value
 
             progressColor: {
+				if (root.isCharging) return Theme.battery.chargeColor;
                 if (root.isCritical) return Theme.battery.criticalColor;
                 if (root.isLow) return Theme.battery.lowColor;
                 return Theme.battery.color;
             }
 
-            backgroundColor: Theme.colors.bg_alt
-
-            StyledText {
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    bottom: parent.bottom
-
-                    leftMargin: 5
-                }
-                topPadding: 0
-
-                monospace: true
-                size: Theme.font.size - 1
-
-                visible: root.isCharging || !root.isPlugged
-
-                text: {
-                    if (root.isCharging) return Theme.battery.chargeIcon;
-                    return Theme.battery.pluggedIcon;
-                }
-
-				color: {
-					if (root.isLow) return Theme._colors.inverse_primary
-					return Theme.colors.bg
-				}
-            }
+            backgroundColor: Theme.colors.bg_alt;
         }
-
         Item {
             Layout.alignment: Qt.AlignVCenter
             implicitWidth: metric.width
@@ -78,7 +49,7 @@ Item {
 
             StyledText {
                 id: perText
-                text: Math.round(UPower.displayDevice.percentage * 100)
+                text: Math.round(value * 100)
                 anchors.centerIn: parent
             }
         }
