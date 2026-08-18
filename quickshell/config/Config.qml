@@ -13,4 +13,8 @@ Singleton {
 	readonly property QtObject workspace : QtObject {
 		readonly property int persistent: 5
 	}
+
+	readonly property QtObject audio : QtObject {
+		readonly property real volumeStep: 0.02
+	}
 }

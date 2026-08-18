@@ -1,26 +1,42 @@
 import Quickshell
 import QtQuick
+import QtQuick.Layouts
 import qs.config
 import qs.services
 
 Item {
-	id: root
-	implicitWidth: timeText.implicitWidth
+    id: root
 
-	StyledText {
-		id: timeText
+    implicitHeight: Theme.bar.height
+    implicitWidth: layout.width
 
-		anchors {
-			horizontalCenter: parent.horizontalCenter
-			verticalCenter: parent.verticalCenter
-		}
+    RowLayout {
+        id: layout
 
-		text: DateTime.time
-	}
+		anchors.centerIn: parent
 
-	StyledText {
-		id: dateText
+        spacing: 3
 
-		text: DateTime.date
-	}
+        StyledText {
+            id: timeText
+
+            text: DateTime.time
+
+			size: Theme.font.sizes.large
+        }
+
+        StyledText {
+            monospace: true
+
+            text: "•"
+        }
+
+        StyledText {
+            id: dateText
+
+            font.pixelSize: Theme.font.sizes.small
+
+            text: DateTime.date
+        }
+    }
 }

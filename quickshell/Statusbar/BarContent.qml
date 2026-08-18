@@ -3,8 +3,12 @@ import QtQuick
 import QtQuick.Layouts
 import qs.config
 
+import Quickshell.Services.UPower
+
 Item {
     id: root
+
+    implicitHeight: Theme.bar.height
 
     anchors {
         top: parent.top
@@ -12,7 +16,15 @@ Item {
         right: parent.right
     }
 
-    implicitHeight: Theme.bar.height
+    RowLayout {
+        anchors.left: parent.left
+        anchors.leftMargin: 16
+        anchors.verticalCenter: parent.verticalCenter
+        spacing: Theme.bar.spacing
+
+		Volume {}
+    }
+
 
     RowLayout {
         anchors.right: parent.right
@@ -20,8 +32,8 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         spacing: Theme.bar.spacing
 
-        ClockWidget {}
-
         Battery {}
+
+        ClockWidget {}
     }
 }

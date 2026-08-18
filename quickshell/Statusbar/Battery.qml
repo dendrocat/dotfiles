@@ -7,8 +7,8 @@ import qs.services
 Item {
     id: root
 
-    implicitWidth: row.implicitWidth
     implicitHeight: Theme.bar.height
+    implicitWidth: row.implicitWidth
 
     readonly property real value: Battery.value
     readonly property bool isCritical: Battery.isCritical
@@ -18,8 +18,7 @@ Item {
 
     RowLayout {
         id: row
-
-        anchors.verticalCenter: parent.verticalCenter
+		anchors.centerIn: parent
 
         ClippedProgressBar {
             implicitWidth: root.implicitHeight
@@ -36,21 +35,20 @@ Item {
 
             backgroundColor: Theme.colors.bg_alt;
         }
+
         Item {
-            Layout.alignment: Qt.AlignVCenter
             implicitWidth: metric.width
-            implicitHeight: perText.implicitHeight
 
             TextMetrics {
                 id: metric
                 text: "000"
-                font.pointSize: Theme.font.size
+                font.pixelSize: Theme.font.sizes.normal
             }
 
             StyledText {
                 id: perText
-                text: Math.round(value * 100)
                 anchors.centerIn: parent
+                text: Math.round(value * 100)
             }
         }
     }

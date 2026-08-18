@@ -8,12 +8,14 @@ import qs.config
 Singleton {
     id: root
 
+	readonly property bool disableNotification: true
+
     readonly property real value: UPower.displayDevice.percentage
 
 	readonly property bool isAvailable: UPower.displayDevice.ready;
 
-    readonly property bool isCritical: isAvailable && value <= Config.battery.critical / 100
-    readonly property bool isLow: isAvailable && value <= Config.battery.low / 100
+    readonly property bool isCritical: isAvailable && (value <= Config.battery.critical / 100)
+    readonly property bool isLow: isAvailable && (value <= Config.battery.low / 100)
 
     readonly property bool isPlugged: isAvailable && UPower.displayDevice.state == UPowerDeviceState.PendingCharge
     readonly property bool isCharging: isAvailable && UPower.displayDevice.state == UPowerDeviceState.Charging
@@ -23,6 +25,7 @@ Singleton {
     property real timeToFull: UPower.displayDevice.timeToFull
 
     function nofify(title, msg, level = "normal") {
+		if (disableNotification) return;
         Quickshell.execDetached(["notify-send", title, msg, "--transient", "-u", level]);
     }
 

@@ -5,7 +5,7 @@ Text {
 	id: root
 
 	property bool monospace: false
-	property int size: Theme.font.size
+	property int size: Theme.font.sizes.normal
 
 	verticalAlignment: Text.AlignVCenter
 
@@ -14,7 +14,7 @@ Text {
 
 	font {
 		family: monospace ? Theme.font.monospace : Theme.font.family
-		pointSize: size
+		pixelSize: size
 	}
 
 	color: Theme.colors.fg
