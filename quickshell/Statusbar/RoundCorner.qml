@@ -43,16 +43,16 @@ Item {
             pathHints: ShapePath.PathSolid & ShapePath.PathNonIntersecting
 
             startX: switch (root.corner) {
-                case RoundCorner.CornerEnum.TopLeft:
-                case RoundCorner.CornerEnum.BottomLeft: return 0;
-                case RoundCorner.CornerEnum.TopRight:
-                case RoundCorner.CornerEnum.BottomRight: return root.implicitSize;
+            case RoundCorner.CornerEnum.TopLeft:
+            case RoundCorner.CornerEnum.BottomLeft: return 0;
+            case RoundCorner.CornerEnum.TopRight:
+            case RoundCorner.CornerEnum.BottomRight: return root.implicitSize;
             }
             startY: switch (root.corner) {
-                case RoundCorner.CornerEnum.TopLeft:
-                case RoundCorner.CornerEnum.TopRight: return 0;
-                case RoundCorner.CornerEnum.BottomLeft:
-                case RoundCorner.CornerEnum.BottomRight: return root.implicitSize;
+            case RoundCorner.CornerEnum.TopLeft:
+            case RoundCorner.CornerEnum.TopRight: return 0;
+            case RoundCorner.CornerEnum.BottomLeft:
+            case RoundCorner.CornerEnum.BottomRight: return root.implicitSize;
             }
             PathAngleArc {
                 moveToStart: false
@@ -61,10 +61,10 @@ Item {
                 radiusX: root.implicitSize
                 radiusY: root.implicitSize
                 startAngle: switch (root.corner) {
-                    case RoundCorner.CornerEnum.TopLeft: return 180;
-                    case RoundCorner.CornerEnum.TopRight: return -90;
-                    case RoundCorner.CornerEnum.BottomLeft: return 90;
-                    case RoundCorner.CornerEnum.BottomRight: return 0;
+                case RoundCorner.CornerEnum.TopLeft: return 180;
+                case RoundCorner.CornerEnum.TopRight: return -90;
+                case RoundCorner.CornerEnum.BottomLeft: return 90;
+                case RoundCorner.CornerEnum.BottomRight: return 0;
                 }
                 sweepAngle: 90
             }
@@ -74,5 +74,4 @@ Item {
             }
         }
     }
-
 }

@@ -9,18 +9,19 @@ Singleton {
 
     readonly property QtObject font: QtObject {
         readonly property string family: "DejaVu Sans"
-		readonly property string monospace: "JetBrainsMono NF"
+        readonly property string monospace: "JetBrainsMono NF"
 
-		readonly property QtObject sizes: QtObject {
-			readonly property int smaller: 14
-			readonly property int small: 15
-			readonly property int normal: 16
-			readonly property int large: 17
-		}
+        readonly property QtObject sizes: QtObject {
+            readonly property int smaller: 14
+            readonly property int small: 15
+            readonly property int normal: 16
+            readonly property int large: 17
+        }
     }
 
     readonly property QtObject bar: QtObject {
         readonly property int height: 35
+        readonly property int inner_height: 25
         readonly property int rounding: 15
 
         readonly property int spacing: 15
@@ -37,19 +38,19 @@ Singleton {
     }
 
     readonly property QtObject workspace: QtObject {
-        readonly property color color: root._colors.inverse_primary
-
-        readonly property color hover_color: root._colors.secondary
-        readonly property color hover_bg: root._colors.secondary_container
+        readonly property color bg: root._colors.surface_container_high
+        readonly property color inactive: root._colors.surface_variant
+        readonly property color hover: root._colors.inverse_primary
+        readonly property color active: root._colors.primary
     }
 
     readonly property QtObject battery: QtObject {
-		readonly property string chargeIcon: "󱐋"
-		readonly property string pluggedIcon: ""
+        readonly property string chargeIcon: "󱐋"
+        readonly property string pluggedIcon: ""
 
         readonly property color criticalColor: "#dc143c"
         readonly property color lowColor: "#f5c71a"
-		readonly property color chargeColor: "#3cb371"
-		readonly property color color: root._colors.primary
+        readonly property color chargeColor: "#3cb371"
+        readonly property color color: root._colors.primary
     }
 }

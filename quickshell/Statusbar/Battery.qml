@@ -7,7 +7,7 @@ import qs.services
 Item {
     id: root
 
-    implicitHeight: Theme.bar.height
+    implicitHeight: Theme.bar.inner_height
     implicitWidth: row.implicitWidth
 
     readonly property real value: Battery.value
@@ -18,22 +18,22 @@ Item {
 
     RowLayout {
         id: row
-		anchors.centerIn: parent
+        anchors.centerIn: parent
 
         ClippedProgressBar {
-            implicitWidth: root.implicitHeight
-            implicitHeight: root.implicitHeight * 0.40
+            implicitWidth: root.implicitHeight * 1.2
+            implicitHeight: root.implicitHeight * 0.6
 
             value: root.value
 
             progressColor: {
-				if (root.isCharging) return Theme.battery.chargeColor;
+                if (root.isCharging) return Theme.battery.chargeColor;
                 if (root.isCritical) return Theme.battery.criticalColor;
                 if (root.isLow) return Theme.battery.lowColor;
                 return Theme.battery.color;
             }
 
-            backgroundColor: Theme.colors.bg_alt;
+            backgroundColor: Theme.colors.bg_alt
         }
 
         Item {

@@ -8,8 +8,6 @@ import qs.config
 Singleton {
     id: root
 
-	readonly property bool disableNotification: true
-
     readonly property real value: UPower.displayDevice.percentage
 
 	readonly property bool isAvailable: UPower.displayDevice.ready;
@@ -25,7 +23,6 @@ Singleton {
     property real timeToFull: UPower.displayDevice.timeToFull
 
     function nofify(title, msg, level = "normal") {
-		if (disableNotification) return;
         Quickshell.execDetached(["notify-send", title, msg, "--transient", "-u", level]);
     }
 

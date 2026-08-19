@@ -13,7 +13,7 @@ Item {
     RowLayout {
         id: layout
 
-		anchors.centerIn: parent
+        anchors.centerIn: parent
 
         spacing: 3
 
@@ -22,7 +22,7 @@ Item {
 
             text: DateTime.time
 
-			size: Theme.font.sizes.large
+            size: Theme.font.sizes.large
         }
 
         StyledText {
