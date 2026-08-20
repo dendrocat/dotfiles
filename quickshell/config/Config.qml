@@ -15,6 +15,6 @@ Singleton {
 	}
 
 	readonly property QtObject audio : QtObject {
-		readonly property real volumeStep: 0.02
+		readonly property real step: 0.02
 	}
 }

@@ -8,14 +8,18 @@ Singleton {
     readonly property Colors _colors: Colors {}
 
     readonly property QtObject font: QtObject {
-        readonly property string family: "DejaVu Sans"
-        readonly property string monospace: "JetBrainsMono NF"
+        readonly property QtObject family: QtObject {
+            readonly property string normal: "Adwaita Sans"
+            readonly property string monospace: "JetBrainsMono NF"
+            readonly property string icon: "Material Symbols Rounded"
+        }
 
         readonly property QtObject sizes: QtObject {
-            readonly property int smaller: 14
-            readonly property int small: 15
-            readonly property int normal: 16
-            readonly property int large: 17
+            property int smallest: 10
+            property int smaller: 12
+            property int small: 15
+            property int normal: 16
+            property int large: 17
         }
     }
 
@@ -31,7 +35,7 @@ Singleton {
         readonly property color fg: root._colors.primary
         readonly property color bg: root._colors.surface_container_low
         // readonly property color bg_alt: root._colors.surface_container_high
-        readonly property color bg_alt: root._colors.primary_container
+        readonly property color on_bg: root._colors.primary_container
         readonly property color brc: root._colors.surface_bright
 
         readonly property color error: root._colors.error

@@ -14,9 +14,10 @@ Singleton {
 
     readonly property bool isCritical: isAvailable && (value <= Config.battery.critical / 100)
     readonly property bool isLow: isAvailable && (value <= Config.battery.low / 100)
+	readonly property bool isFull: isAvailable && (value >= 1)
 
-    readonly property bool isPlugged: isAvailable && UPower.displayDevice.state == UPowerDeviceState.PendingCharge
-    readonly property bool isCharging: isAvailable && UPower.displayDevice.state == UPowerDeviceState.Charging
+    property bool isCharging: UPower.displayDevice.state == UPowerDeviceState.Charging
+    readonly property bool isPlugged: isCharging || UPower.displayDevice.state == UPowerDeviceState.PendingCharge
 
     property real energyRate: UPower.displayDevice.changeRate
     property real timeToEmpty: UPower.displayDevice.timeToEmpty
@@ -37,7 +38,7 @@ Singleton {
     }
 
     onIsChargingChanged: {
-        if (isCharging) return;
+        if (!isFull || isCharging) return;
         nofify("Battery charged", "Please unplug the charger");
     }
 }

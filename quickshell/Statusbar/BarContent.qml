@@ -4,8 +4,6 @@ import QtQuick
 import QtQuick.Layouts
 import qs.config
 
-import Quickshell.Services.UPower
-
 Item {
     id: root
 
@@ -23,8 +21,6 @@ Item {
         anchors.leftMargin: 16
         anchors.verticalCenter: parent.verticalCenter
         spacing: Theme.bar.spacing
-
-        Volume {}
     }
 
     // Center
@@ -32,14 +28,6 @@ Item {
         anchors.centerIn: parent
 
         ClockWidget {}
-
-        CircularProgress {
-            size: Theme.bar.inner_height
-            value: 0.6
-
-            progressColor: Theme.colors.fg
-            backgroundColor: Theme.colors.bg_alt
-        }
     }
 
     // Right
@@ -48,6 +36,8 @@ Item {
         anchors.rightMargin: 16
         anchors.verticalCenter: parent.verticalCenter
         spacing: Theme.bar.spacing
+
+        AudioControls {}
 
         Battery {}
 
