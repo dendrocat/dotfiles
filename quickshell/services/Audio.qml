@@ -2,7 +2,6 @@ pragma Singleton
 
 import Quickshell
 import Quickshell.Services.Pipewire
-import QtQuick
 import qs.config
 
 Singleton {
@@ -29,11 +28,11 @@ Singleton {
 	}
 
     function decrementVolume(node: PwNode) {
-        setVolume(node, node.audio.volume - Config.audio.step);
+        setVolume(node, node.audio.volume - Config.audio.step); // qmllint disable missing-property
     }
 
     function incrementVolume(node: PwNode) {
-        setVolume(node, node.audio.volume + Config.audio.step);
+        setVolume(node, node.audio.volume + Config.audio.step); // qmllint disable missing-property
     }
 
     function toggleMute(node: PwNode) {

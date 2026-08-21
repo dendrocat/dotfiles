@@ -1,13 +1,13 @@
-import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import qs.config
+import Quickshell
 import qs.services
+import qs.config
 
 RowLayout {
     id: root
 
-    spacing: Theme.bar.spacing
+    spacing: Theme.bar.spacing / 2 // qmllint disable missing-property
 
     AudioControl {
         node: Audio.sink

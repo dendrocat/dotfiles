@@ -3,8 +3,8 @@ import QtQuick
 MouseArea {
     id: root
 
-    signal scrollUp(delta: int)
-    signal scrollDown(delta: int)
+    signal scrollUp()
+    signal scrollDown()
 
     property bool scrollTracking: false
 
@@ -17,7 +17,7 @@ MouseArea {
     }
 
     onWheel: event => {
-        if (event.angleDelta.y > 0) root.scrollUp(event.angleDelta.y);
-        if (event.angleDelta.y < 0) root.scrollDown(event.angleDelta.y);
+        if (event.angleDelta.y > 0) root.scrollUp();
+        if (event.angleDelta.y < 0) root.scrollDown();
     }
 }

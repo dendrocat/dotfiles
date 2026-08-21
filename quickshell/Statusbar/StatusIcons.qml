@@ -6,15 +6,15 @@ import qs.config
 Item {
     id: root
 
-    implicitHeight: Theme.bar.inner_height
-    implicitWidth: layout.implicitWidth + 18
+    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
+    implicitWidth: layout.implicitWidth + Theme.bar.margin // qmllint disable missing-property
 
     Rectangle {
         anchors.fill: parent
 
-        radius: Theme.bar.rounding
+        radius: Theme.bar.rounding // qmllint disable missing-property
 
-        color: Theme.workspace.bg
+        color: Theme.workspace.bg // qmllint disable missing-property
     }
 
     RowLayout {
@@ -22,7 +22,7 @@ Item {
 
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
-        spacing: Theme.bar.spacing
+        spacing: Theme.bar.spacing // qmllint disable missing-property
 
         StyledText {
             id: iconNetwork

@@ -7,8 +7,10 @@ hl.bind(mod .. " + E",		hl.dsp.exec_cmd(FILE_MANAGER),			{ description = "Open f
 hl.bind(mod .. " + SPACE",	hl.dsp.exec_cmd(LAUNCHER .. " drun"),	{ description = "Open application laucher" })
 
 -- Window focus
-hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }),	{ description = "Move focus left" })
-hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }),	{ description = "Move focus right" })
+-- hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }),	{ description = "Move focus left" })
+-- hl.bind(mod .. " + L", hl.dsp.focus({ direction = "right" }),	{ description = "Move focus right" })
+hl.bind(mod .. " + H", hl.dsp.layout("focus l"),				{ description = "Move focus left" })
+hl.bind(mod .. " + L", hl.dsp.layout("focus r"),				{ description = "Move focus right" })
 hl.bind(mod .. " + K", hl.dsp.focus({ direction = "up" }),		{ description = "Move focus up" })
 hl.bind(mod .. " + J", hl.dsp.focus({ direction = "down" }),	{ description = "Move focus down" })
 

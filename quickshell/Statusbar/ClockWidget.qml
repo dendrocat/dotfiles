@@ -1,14 +1,13 @@
-import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.widgets
-import qs.config
 import qs.services
+import qs.config
 
 Item {
     id: root
 
-    implicitHeight: Theme.bar.height
+    implicitHeight: Theme.bar.height // qmllint disable missing-property
     implicitWidth: layout.width
 
     RowLayout {
@@ -22,8 +21,7 @@ Item {
             id: timeText
 
             text: DateTime.time
-
-            size: Theme.font.sizes.large
+            size: Theme.font.sizes.large // qmllint disable missing-property
         }
 
         StyledText {
@@ -35,9 +33,8 @@ Item {
         StyledText {
             id: dateText
 
-            font.pixelSize: Theme.font.sizes.small
-
             text: DateTime.date
+            size: Theme.font.sizes.small // qmllint disable missing-property
         }
     }
 }

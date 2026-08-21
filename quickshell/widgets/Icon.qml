@@ -4,9 +4,9 @@ import qs.config
 Text {
     id: root
 
-    property string icon
+    required property string icon
 
-    property int size: Theme.font.sizes.small
+    property int size: Theme.font.sizes.smaller // qmllint disable missing-property
     readonly property int pixelSize: size * 1.5
 
     property real weight: Font.Normal
@@ -17,7 +17,7 @@ Text {
     rightPadding: 2
 
     font {
-        family: Theme.font.family.icon
+        family: Theme.font.family.icon // qmllint disable missing-property
         pixelSize: root.pixelSize
         weight: root.weight
     }
@@ -28,4 +28,6 @@ Text {
         // "GRAD": 0,
         "opsz": root.pixelSize
     }
+
+	color: Theme.colors.bg // qmllint disable missing-property
 }

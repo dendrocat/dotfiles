@@ -1,4 +1,3 @@
-import Quickshell
 import QtQuick
 import qs.widgets
 import qs.services
@@ -6,7 +5,8 @@ import qs.config
 
 ScrollMouseArea {
     id: root
-    property int size: Theme.bar.inner_height
+    property int size: Theme.bar.inner_height // qmllint disable missing-property
+
     implicitHeight: size
     implicitWidth: size
 
@@ -24,8 +24,8 @@ ScrollMouseArea {
     FilledCircularProgress {
         size: root.implicitHeight
 
-        progressColor: Theme.colors.fg
-        backgroundColor: Theme.colors.on_bg
+        progressColor: Theme.colors.fg // qmllint disable missing-property
+        backgroundColor: Theme.colors.on_bg // qmllint disable missing-property
 
         value: root.value
 
@@ -38,13 +38,11 @@ ScrollMouseArea {
                 const idx = Math.min(n - 1, Math.floor(root.value * n));
                 return root.icons[idx];
             }
-
-            color: Theme.colors.bg
         }
     }
 
-    onScrollUp: delta => Audio.incrementVolume(node)
-    onScrollDown: delta => Audio.decrementVolume(node)
+    onScrollUp: Audio.incrementVolume(node)
+    onScrollDown: Audio.decrementVolume(node)
 
 	onClicked: event => {
 		if (event.button === Qt.LeftButton) Audio.toggleMute(node)

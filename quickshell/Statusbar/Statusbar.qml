@@ -1,84 +1,83 @@
 import Quickshell
-import Quickshell.Io
 import QtQuick
-import QtQuick.Layouts
 import qs.widgets
 import qs.config
 
 Scope {
     Variants {
         model: Quickshell.screens
-        delegate: Component {
-            PanelWindow {
-                id: bar
 
-                required property var modelData
-                screen: modelData
+        delegate: PanelWindow {
+            id: bar
 
-                implicitHeight: Theme.bar.height + Theme.bar.rounding
+            required property ShellScreen modelData
+            screen: modelData
 
+            implicitHeight: Theme.bar.height + Theme.bar.rounding // qmllint disable missing-property
+
+            anchors {
+                top: true
+                left: true
+                right: true
+            }
+
+            margins {
+                bottom: -Theme.bar.rounding // qmllint disable missing-property
+            }
+
+            color: "transparent"
+
+            Rectangle {
                 anchors {
-                    top: true
-                    left: true
-                    right: true
+                    top: barContent.top
+                    bottom: barContent.bottom
+                    left: barContent.left
+                    right: barContent.right
                 }
 
-                margins {
-                    bottom: -Theme.bar.rounding
+                color: Theme.colors.bg // qmllint disable missing-property
+            }
+
+            Item {
+                anchors {
+                    top: barContent.bottom
+                    left: parent.left
+                    right: parent.right
                 }
 
-                color: "transparent"
-
-                Rectangle {
+                RoundCorner {
+                    id: leftCorner
                     anchors {
-                        top: barContent.top
-                        bottom: barContent.bottom
-                        left: barContent.left
-                        right: barContent.right
+                        top: parent.top
+                        bottom: parent.bottom
+                        left: parent.left
                     }
 
-                    color: Theme.colors.bg
+                    corner: RoundCorner.CornerEnum.TopLeft
+
+                    implicitSize: Theme.bar.rounding // qmllint disable missing-property
+                    color: Theme.colors.bg // qmllint disable missing-property
                 }
 
-                Item {
+                RoundCorner {
+                    id: rightCorner
                     anchors {
-                        top: barContent.bottom
-                        left: parent.left
+                        top: parent.top
+                        bottom: parent.bottom
                         right: parent.right
                     }
 
-                    RoundCorner {
-                        id: leftCorner
-                        anchors {
-                            top: parent.top
-                            bottom: parent.bottom
-                            left: parent.left
-                        }
+                    corner: RoundCorner.CornerEnum.TopRight
 
-                        corner: RoundCorner.CornerEnum.TopLeft
-
-                        implicitSize: Theme.bar.rounding
-                        color: Theme.colors.bg
-                    }
-
-                    RoundCorner {
-                        id: rightCorner
-                        anchors {
-                            top: parent.top
-                            bottom: parent.bottom
-                            right: parent.right
-                        }
-
-                        corner: RoundCorner.CornerEnum.TopRight
-
-                        implicitSize: Theme.bar.rounding
-                        color: Theme.colors.bg
-                    }
+                    implicitSize: Theme.bar.rounding // qmllint disable missing-property
+                    color: Theme.colors.bg // qmllint disable missing-property
                 }
+            }
 
-                BarContent {
-                    id: barContent
-                }
+            BarContent {
+                id: barContent
+
+				screen: bar.screen
             }
         }
     }

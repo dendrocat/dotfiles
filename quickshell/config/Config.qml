@@ -17,4 +17,8 @@ Singleton {
 	readonly property QtObject audio : QtObject {
 		readonly property real step: 0.02
 	}
+
+	readonly property QtObject brightness : QtObject {
+		readonly property real step: 0.05
+	}
 }
