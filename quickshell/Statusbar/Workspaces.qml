@@ -1,24 +1,85 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Hyprland
+import qs.widgets
+import qs.services
 import qs.config
 
 Item {
-	id: root
-    required property ShellScreen screen
-	readonly property HyprlandMonitor monitor: Hyprland.monitorFor(screen)
+    id: root
 
-	implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
-	implicitWidth: row.implicitWidth + Theme.bar.margin // qmllint disable missing-property
+    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
+    implicitWidth: row.implicitWidth + Theme.bar.margin // qmllint disable missing-property
 
-	Rectangle {
-		anchors.fill: parent
-		color: Theme.workspace.bg // qmllint disable missing-property
-		radius: Theme.bar.rounding // qmllint disable missing-property
-	}
+    Rectangle {
+        anchors.fill: parent
+        color: Theme.workspace.bg // qmllint disable missing-property
+        radius: Theme.bar.rounding // qmllint disable missing-property
+    }
 
-	RowLayout {
-		id: row
-	}
+    RowLayout {
+        id: row
+        anchors.centerIn: parent
+
+        Repeater {
+            model: HyprWorkspaces.workspaces.length
+            delegate: MouseArea {
+                id: workspaceItem
+                hoverEnabled: true
+
+                required property int index
+                readonly property var workspace: HyprWorkspaces.workspaces[index]
+                readonly property int ws_id: workspace?.id ?? workspaceItem.index + 1
+
+                property int size: Theme.bar.inner_height - Theme.bar.margin / 2.5 // qmllint disable missing-property
+                implicitWidth: {
+                    if (workspace && workspace.focused)
+                        return size * 2;
+                    return size;
+                }
+                implicitHeight: size
+
+                Rectangle {
+                    anchors.fill: parent
+                    radius: workspaceItem.size
+
+                    readonly property bool isEmpty: !workspaceItem.workspace
+                    readonly property bool isHovered: workspaceItem.containsMouse
+                    readonly property bool isFocused: !isEmpty && workspaceItem.workspace.focused
+
+                    color: {
+                        if (isEmpty) return isHovered ? Theme.workspace.hover : Theme.workspace.inactive; // qmllint disable missing-property
+                        if (isFocused) return Theme.workspace.active; // qmllint disable missing-property
+                        if (isHovered) return Theme.workspace.hover; // qmllint disable missing-property
+                        return Theme.workspace.active; // qmllint disable missing-property
+                    }
+
+                    Behavior on color {
+                        ColorAnimation {
+                            duration: 100
+                        }
+                    }
+                }
+
+                StyledText {
+                    anchors.fill: parent
+
+                    text: workspaceItem.ws_id
+                    size: Theme.font.sizes.small // qmllint disable missing-property
+
+                    color: Theme.colors.bg // qmllint disable missing-property
+                }
+
+                onClicked: {
+                    if (workspace && workspace.focused) return;
+                    HyprWorkspaces.focusOnWorkspaceWithId(ws_id);
+                }
+
+                Behavior on implicitWidth {
+                    PropertyAnimation {
+                        duration: 100
+                    }
+                }
+            }
+        }
+    }
 }

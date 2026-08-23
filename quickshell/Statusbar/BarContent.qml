@@ -1,12 +1,9 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
 import qs.config
 
 Item {
     id: root
-
-	required property ShellScreen screen
 
     implicitHeight: Theme.bar.height // qmllint disable missing-property
 
@@ -23,9 +20,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         spacing: Theme.bar.spacing // qmllint disable missing-property
 
-		Workspaces {
-			screen: root.screen
-		}
+		Workspaces { }
     }
 
     // Center

@@ -15,8 +15,8 @@ Singleton {
         }
 
         readonly property QtObject sizes: QtObject {
-            property int smallest: 12
-            property int smaller: 14
+            property int smallest: 11
+            property int smaller: 13
             property int small: 15
             property int normal: 16
             property int large: 17
@@ -26,7 +26,8 @@ Singleton {
     readonly property QtObject bar: QtObject {
         readonly property int height: 35
 		readonly property int margin: 15
-        readonly property int inner_height: 25
+        readonly property int inner_height: 23
+		readonly property int inner_margin: 15
         readonly property int rounding: 15
 
         readonly property int spacing: 15

@@ -76,8 +76,6 @@ Scope {
 
             BarContent {
                 id: barContent
-
-				screen: bar.screen
             }
         }
     }

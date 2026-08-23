@@ -5,8 +5,8 @@ import qs.config
 
 Item {
     id: root
-    implicitHeight: Theme.bar.inner_height
-    implicitWidth: metrics.width + Theme.bar.margin
+    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
+    implicitWidth: metrics.width + Theme.bar.margin // qmllint disable missing-property
 
     Rectangle {
         anchors.fill: parent
@@ -27,7 +27,7 @@ Item {
         id: txt
         anchors.centerIn: parent
 
-        text: HyprlandKb.layout
-        size: Theme.font.sizes.smaller
+        text: HyprKb.layout
+        size: Theme.font.sizes.small // qmllint disable missing-property
     }
 }
