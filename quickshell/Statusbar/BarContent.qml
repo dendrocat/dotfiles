@@ -20,7 +20,9 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         spacing: Theme.bar.spacing // qmllint disable missing-property
 
-		Workspaces { }
+        Workspaces {}
+
+        Tray {}
     }
 
     // Center

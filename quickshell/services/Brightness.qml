@@ -7,18 +7,27 @@ import qs.config
 
 Singleton {
     id: root
-    property real brightness: 0;
+    property real brightness: 0
 
     readonly property Process initProc: Process {
-        running: false;
-        command: ["sh", "-c", "echo $(brightnessctl g) $(brightnessctl m)"];
+        running: false
+        command: ["sh", "-c", "echo $(brightnessctl g) $(brightnessctl m)"]
         stdout: StdioCollector {
             onStreamFinished: {
                 const [cur, max] = text.split(" ");
                 root.brightness = cur / max;
+                updateTimer.running = true;
             }
         }
     }
+
+    Timer {
+        id: updateTimer
+        interval: 1000
+        repeat: true
+        onTriggered: root.initProc.running = true
+    }
+
 
     function setBrightness(value: real) {
         value = Math.max(0, Math.min(1, value));
