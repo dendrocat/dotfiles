@@ -19,7 +19,7 @@ Item {
     ClippedProgressBar {
         id: bar
         anchors.centerIn: parent
-        implicitWidth: Theme.bar.inner_height * 1.8 // qmllint disable missing-property
+        implicitWidth: Theme.bar.inner_height * 2 // qmllint disable missing-property
         implicitHeight: Theme.bar.inner_height * 0.8 // qmllint disable missing-property
 
         value: root.value
@@ -51,7 +51,6 @@ Item {
             StyledText {
                 text: Math.round(root.value * 100)
                 size: Theme.font.sizes.small // qmllint disable missing-property
-                weight: Font.Bold
 
                 color: Theme.colors.bg // qmllint disable missing-property
             }

@@ -4,8 +4,6 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.SystemTray
-import qs.widgets
-import qs.services
 import qs.config
 
 Item {
@@ -15,6 +13,19 @@ Item {
 
     implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
     implicitWidth: row.implicitWidth + Theme.bar.margin // qmllint disable missing-property
+
+    property var activeMenu: null
+
+    function setActiveWindow(window) {
+        if (root.activeMenu && root.activeMenu != window) {
+            root.activeMenu.close();
+        }
+        root.activeMenu = window;
+    }
+
+    function closeWindow() {
+        root.activeMenu = null;
+    }
 
     Rectangle {
         anchors.fill: parent
@@ -33,8 +44,9 @@ Item {
 
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-                implicitHeight: Theme.bar.inner_height
-                implicitWidth: Theme.bar.inner_height
+				property int size: Theme.bar.inner_height - 2
+                implicitHeight: size
+                implicitWidth: size
 
                 required property int index
                 readonly property SystemTrayItem item: SystemTray.items.values[index]
@@ -46,19 +58,36 @@ Item {
                 }
 
                 onClicked: e => {
-                    if (e.button === Qt.LeftButton)
-                        item.activate();
+                    if (e.button === Qt.LeftButton) item.activate();
                     else {
-                        item.display(trayItem.window, 0, 0);
+                        if (menu.active) menu.item.close();
+                        else menu.open();
                     }
                     e.accepted = true;
                 }
 
                 LazyLoader {
                     id: menu
-                    loading: false
-                    function open() { menu.loading = true; }
-					component: TrayMenu {}
+                    active: false
+                    function open() {
+                        menu.active = true;
+                    }
+                    component: TrayMenu {
+                        Component.onCompleted: this.open()
+                        menuHandle: trayItem.item.menu
+                        anchor {
+                            window: root.QsWindow.window
+                            item: root
+							rect.y: Theme.bar.height - 7
+                        }
+
+                        onMenuOpened: w => root.setActiveWindow(w)
+
+                        onMenuClosed: {
+                            menu.active = false;
+                            root.closeWindow();
+                        }
+                    }
                 }
             }
         }
