@@ -24,11 +24,7 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         spacing: Theme.bar.spacing // qmllint disable missing-property
 
-        StyledText {
-            id: iconNetwork
-            monospace: true
-            text: "󰤢"
-        }
+        Network {}
 
         StyledText {
             monospace: true

@@ -27,8 +27,8 @@ window#waybar {
 	border: none;
 	border-radius: 0;
 	padding: 0;
-	margin: 5px 0 0;
-	/* margin: 0 0 5px; */
+	/* margin: 5px 0 0; */
+	margin: 0 0 5px;
 }
 
 .modules-left {
