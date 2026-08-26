@@ -14,55 +14,63 @@ MouseArea {
     required property QsMenuEntry entry
 
     property int itemWidth: 0
+    readonly property int rowWidth: row.implicitWidth
 
-    implicitWidth: loader.item.implicitWidth
-    implicitHeight: loader.item.implicitHeight
+	readonly property int spacing: 10
 
-    Loader {
-        id: loader
-        active: root.entry != null
+    implicitWidth: root.itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.bar.margin
+    implicitHeight: root.isSeparator() ? 1 : row.implicitHeight + 6
 
-        Connections {
-            target: root
-            function onEntryChanged() {
-                loader.active = root.entry != null;
-            }
+    function isSeparator() { return root.entry?.isSeparator ?? true; }
+    function isEnabled() { return root.entry?.enabled ?? false; }
+    function icon() { return root.entry?.icon ?? ""; }
+    function hasSubmenu() { return root.entry?.hasChildren ?? false; }
+
+    Rectangle {
+        anchors.fill: parent
+        color: Theme._colors.primary_container
+        opacity: 0.5
+        border.width: 1
+        border.color: Theme.colors.fg
+        radius: 5
+
+        visible: root.containsMouse && !root.isSeparator() && root.isEnabled()
+    }
+
+    RowLayout {
+        id: row
+        anchors.verticalCenter: parent.verticalCenter
+		spacing: 0
+
+        Image {
+            Layout.leftMargin: root.spacing
+
+            source: root.icon()
+            visible: root.icon() !== ""
         }
 
-        sourceComponent: Item {
-            implicitWidth: root.itemWidth > 0 ? root.itemWidth : row.implicitWidth
-            implicitHeight: root.entry.isSeparator ? 1 : row.implicitHeight + 6
+        StyledText {
+            id: menuText
+            Layout.leftMargin: root.icon() === "" ? root.spacing : 0
+            Layout.fillWidth: true
 
-            Rectangle {
-                anchors.fill: parent
-                color: Theme._colors.primary_container
-                opacity: 0.5
-                border.width: 1
-                border.color: Theme.colors.fg
-                radius: 5
+            text: root.entry?.text ?? ""
+            size: Theme.font.sizes.small
 
-                visible: root.containsMouse && !root.entry.isSeparator && root.entry.enabled
-            }
-
-            RowLayout {
-                id: row
-                anchors.verticalCenter: parent.verticalCenter
-
-                Image {
-                    source: root.entry.icon
-                }
-
-                StyledText {
-                    id: menuText
-                    text: root.entry.text
-                    size: Theme.font.sizes.small
-					color: root.entry.enabled ? Theme.colors.fg : Theme.colors.on_bg
-                }
-            }
+            color: root.isEnabled() ? Theme.colors.fg : Theme.colors.on_bg
         }
     }
-    Component.onCompleted: {
-        console.log(root.entry.text);
+
+    Icon {
+		id: submenuIcon
+
+		anchors.verticalCenter: parent.verticalCenter
+		anchors.right: parent.right
+
+        icon: "chevron_right"
+        visible: root.hasSubmenu()
+
+        color: Theme.colors.fg
     }
 
     signal action

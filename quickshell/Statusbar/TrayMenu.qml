@@ -13,6 +13,19 @@ PopupWindow {
     implicitWidth: stack.implicitWidth + Theme.bar.margin
     implicitHeight: stack.implicitHeight + Theme.bar.margin
 
+    Behavior on implicitWidth {
+        PropertyAnimation {
+            duration: 120
+			easing.type: Easing.InOutSine
+        }
+    }
+    Behavior on implicitHeight {
+        PropertyAnimation {
+            duration: 120
+			easing.type: Easing.InOutSine
+        }
+    }
+
     required property QsMenuHandle menuHandle
 
     signal menuOpened(qsWindow: var)
@@ -95,12 +108,13 @@ PopupWindow {
         Loader {
             Layout.fillWidth: true
             Layout.minimumWidth: 70
+
             active: menuLayout.isSubMenu
             visible: active
             sourceComponent: MouseArea {
-				id: mouse
-				hoverEnabled: true
-                implicitHeight: 30
+                id: mouse
+                hoverEnabled: true
+                implicitHeight: 27
                 acceptedButtons: Qt.LeftButton
                 onClicked: stack.pop()
                 Rectangle {
@@ -114,16 +128,17 @@ PopupWindow {
                     visible: mouse.containsMouse
                 }
                 RowLayout {
-					spacing: 0
-					anchors.verticalCenter: parent.verticalCenter
+                    spacing: 0
+                    anchors.verticalCenter: parent.verticalCenter
                     Icon {
+						Layout.leftMargin: 5
                         icon: "chevron_left"
                         color: Theme.colors.fg
                     }
 
-					StyledText {
-						text: "Back"
-					}
+                    StyledText {
+                        text: "Back"
+                    }
                 }
             }
         }
@@ -131,6 +146,11 @@ PopupWindow {
         Repeater {
             id: repeater
             model: opener.children
+
+            onModelChanged: {
+                if (model.values.length === 0)
+                    stack.pop();
+            }
 
             delegate: TrayMenuEntry {
                 required property var modelData
@@ -145,7 +165,7 @@ PopupWindow {
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);
                     if (item)
-                        max = Math.max(max, item.implicitWidth);
+                        max = Math.max(max, item.rowWidth);
                 }
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);
@@ -160,7 +180,7 @@ PopupWindow {
 
     Timer {
         id: closeTimer
-        interval: 5000
+        interval: 2000
         running: false
         onTriggered: root.close()
     }
