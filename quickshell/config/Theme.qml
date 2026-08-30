@@ -20,16 +20,19 @@ Singleton {
             property int small: 15
             property int normal: 16
             property int large: 17
+
+			property int icon: 19
         }
     }
 
-    readonly property QtObject bar: QtObject {
-        readonly property int height: 35
-		readonly property int margin: 15
-        readonly property int inner_height: 23
-		readonly property int inner_margin: 15
-        readonly property int rounding: 15
+    readonly property QtObject sizes: QtObject {
+        readonly property int height: 36
+        readonly property int margin: 16
 
+        readonly property int inner_height: 26
+        readonly property int inner_margin: 16
+
+        readonly property int rounding: 15
         readonly property int spacing: 15
     }
 

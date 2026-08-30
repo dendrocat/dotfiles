@@ -7,7 +7,7 @@ import qs.config
 Item {
     id: root
 
-    implicitHeight: Theme.bar.height // qmllint disable missing-property
+    implicitHeight: Theme.sizes.height // qmllint disable missing-property
     implicitWidth: layout.width
 
     RowLayout {

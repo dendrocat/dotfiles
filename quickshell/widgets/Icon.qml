@@ -6,19 +6,19 @@ Text {
 
     required property string icon
 
-    property int size: Theme.font.sizes.smaller // qmllint disable missing-property
-    readonly property int pixelSize: size * 1.5
+    property int size: Theme.font.sizes.icon // qmllint disable missing-property
 
     property real weight: Font.Normal
 
     text: icon
 
     verticalAlignment: Text.AlignVCenter
-    rightPadding: 2
+	anchors.horizontalCenterOffset: -0.7
+	anchors.verticalCenterOffset: 0.5
 
     font {
         family: Theme.font.family.icon // qmllint disable missing-property
-        pixelSize: root.pixelSize
+        pixelSize: root.size
         weight: root.weight
     }
 
@@ -26,7 +26,7 @@ Text {
         "FILL": 0,
         "wght": root.weight,
         // "GRAD": 0,
-        "opsz": root.pixelSize
+        "opsz": root.size
     }
 
 	color: Theme.colors.bg // qmllint disable missing-property

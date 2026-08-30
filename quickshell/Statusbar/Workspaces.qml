@@ -7,13 +7,13 @@ import qs.config
 Item {
     id: root
 
-    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
-    implicitWidth: row.implicitWidth + Theme.bar.margin // qmllint disable missing-property
+    implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
+    implicitWidth: row.implicitWidth + Theme.sizes.inner_margin // qmllint disable missing-property
 
     Rectangle {
         anchors.fill: parent
         color: Theme.workspace.bg // qmllint disable missing-property
-        radius: Theme.bar.rounding // qmllint disable missing-property
+        radius: Theme.sizes.rounding // qmllint disable missing-property
     }
 
     RowLayout {
@@ -30,7 +30,7 @@ Item {
                 readonly property var workspace: HyprWorkspaces.workspaces[index]
                 readonly property int ws_id: workspace?.id ?? workspaceItem.index + 1
 
-                property int size: Theme.bar.inner_height - Theme.bar.margin / 2.5 // qmllint disable missing-property
+                property int size: Theme.sizes.inner_height - Theme.sizes.inner_margin / 2 // qmllint disable missing-property
                 implicitWidth: {
                     if (workspace && workspace.focused)
                         return size * 2;

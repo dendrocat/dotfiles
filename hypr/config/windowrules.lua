@@ -4,6 +4,7 @@ hl.window_rule({
 	match = {
 		title = [[^([Pp]icture[-\s][Ii]n[-\s][Pp]icture)|([Кк]артинка[-\s][Вв][-\s][Кк]артинке).*$]]
 	},
+	keep_aspect_ratio = true,
 	float = true,
 	pin = true,
 	focus_on_activate = false,

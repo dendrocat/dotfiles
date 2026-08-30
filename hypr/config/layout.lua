@@ -27,7 +27,7 @@ hl.config({
 		fullscreen_opacity = 1.0,
 
 		shadow             = {
-			enabled      = true,
+			enabled      = false,
 			range        = 16,
 			render_power = 2,
 			color        = "rgba(00000050)",

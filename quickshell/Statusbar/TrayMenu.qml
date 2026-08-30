@@ -10,17 +10,17 @@ import qs.config
 PopupWindow {
     id: root
 
-    implicitWidth: stack.implicitWidth + Theme.bar.margin
-    implicitHeight: stack.implicitHeight + Theme.bar.margin
+    implicitWidth: stack.implicitWidth + Theme.sizes.margin
+    implicitHeight: stack.implicitHeight + Theme.sizes.margin
 
     Behavior on implicitWidth {
-        PropertyAnimation {
+        NumberAnimation {
             duration: 120
 			easing.type: Easing.InOutSine
         }
     }
     Behavior on implicitHeight {
-        PropertyAnimation {
+        NumberAnimation {
             duration: 120
 			easing.type: Easing.InOutSine
         }

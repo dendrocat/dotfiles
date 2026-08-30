@@ -5,7 +5,7 @@ import qs.config
 Item {
     id: root
 
-    implicitHeight: Theme.bar.height // qmllint disable missing-property
+    implicitHeight: Theme.sizes.height // qmllint disable missing-property
 
     anchors {
         top: parent.top
@@ -16,9 +16,9 @@ Item {
     // Left
     RowLayout {
         anchors.left: parent.left
-        anchors.leftMargin: Theme.bar.margin // qmllint disable missing-property
+        anchors.leftMargin: Theme.sizes.margin // qmllint disable missing-property
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Theme.bar.spacing // qmllint disable missing-property
+        spacing: Theme.sizes.spacing // qmllint disable missing-property
 
         Workspaces {}
 
@@ -35,10 +35,10 @@ Item {
     // Right
     RowLayout {
         anchors.right: parent.right
-        anchors.rightMargin: Theme.bar.margin // qmllint disable missing-property
+        anchors.rightMargin: Theme.sizes.margin // qmllint disable missing-property
 
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Theme.bar.spacing // qmllint disable missing-property
+        spacing: Theme.sizes.spacing // qmllint disable missing-property
 
         KbLayout {}
 

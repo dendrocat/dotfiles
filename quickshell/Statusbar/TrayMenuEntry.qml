@@ -18,7 +18,7 @@ MouseArea {
 
 	readonly property int spacing: 10
 
-    implicitWidth: root.itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.bar.margin
+    implicitWidth: root.itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.sizes.margin
     implicitHeight: root.isSeparator() ? 1 : row.implicitHeight + 6
 
     function isSeparator() { return root.entry?.isSeparator ?? true; }

@@ -11,8 +11,8 @@ Item {
 
     visible: SystemTray.items.values.length !== 0
 
-    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
-    implicitWidth: row.implicitWidth + Theme.bar.margin // qmllint disable missing-property
+    implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
+    implicitWidth: row.implicitWidth + Theme.sizes.inner_margin // qmllint disable missing-property
 
     property var activeMenu: null
 
@@ -30,7 +30,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         color: Theme.workspace.bg // qmllint disable missing-property
-        radius: Theme.bar.rounding // qmllint disable missing-property
+        radius: Theme.sizes.rounding // qmllint disable missing-property
     }
 
     RowLayout {
@@ -44,7 +44,7 @@ Item {
 
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-				property int size: Theme.bar.inner_height - 2
+				property int size: Theme.sizes.inner_height - 2
                 implicitHeight: size
                 implicitWidth: size
 
@@ -78,7 +78,7 @@ Item {
                         anchor {
                             window: root.QsWindow.window
                             item: root
-							rect.y: Theme.bar.height - 7
+							rect.y: Theme.sizes.height - 7
                         }
 
                         onMenuOpened: w => root.setActiveWindow(w)

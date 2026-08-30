@@ -6,13 +6,13 @@ import qs.config
 Item {
     id: root
 
-    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
-    implicitWidth: layout.implicitWidth + Theme.bar.margin // qmllint disable missing-property
+    implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
+    implicitWidth: layout.implicitWidth + Theme.sizes.inner_margin // qmllint disable missing-property
 
     Rectangle {
         anchors.fill: parent
 
-        radius: Theme.bar.rounding // qmllint disable missing-property
+        radius: Theme.sizes.rounding // qmllint disable missing-property
 
         color: Theme.workspace.bg // qmllint disable missing-property
     }
@@ -20,21 +20,15 @@ Item {
     RowLayout {
         id: layout
 
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        spacing: Theme.bar.spacing // qmllint disable missing-property
+		anchors.centerIn: parent
+        spacing: Theme.sizes.spacing / 2 // qmllint disable missing-property
 
-        Network {}
+        Network { }
 
-        StyledText {
-            monospace: true
-            text: "󰂯"
-        }
+		Bluetooth {}
 
-        StyledText {
-            rightPadding: 1
-            monospace: true
-            text: "󰂜"
-        }
+		Notifications {
+            Layout.rightMargin: -3
+		}
     }
 }

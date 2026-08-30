@@ -7,7 +7,7 @@ import qs.config
 Item {
     id: root
 
-    implicitHeight: Theme.bar.inner_height // qmllint disable missing-property
+    implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
     implicitWidth: bar.implicitWidth
 
     readonly property real value: Battery.value
@@ -19,8 +19,8 @@ Item {
     ClippedProgressBar {
         id: bar
         anchors.centerIn: parent
-        implicitWidth: Theme.bar.inner_height * 2 // qmllint disable missing-property
-        implicitHeight: Theme.bar.inner_height * 0.8 // qmllint disable missing-property
+        implicitWidth: Theme.sizes.inner_height * 2 // qmllint disable missing-property
+        implicitHeight: Theme.sizes.inner_height * 0.8 // qmllint disable missing-property
 
         value: root.value
 
@@ -36,16 +36,16 @@ Item {
         RowLayout {
             id: row
             anchors.centerIn: parent
-			height: Math.max(parent.implicitHeight, icon.implicitHeight)
-            spacing: 0
+            height: Math.max(parent.implicitHeight, icon.implicitHeight)
+            spacing: 2
 
             Icon {
-				id: icon
+                id: icon
                 Layout.leftMargin: -6
 
                 icon: root.isCharging ? "bolt" : "usb"
-                size: Theme.font.sizes.smallest // qmllint disable missing-property
-                visible: root.isCharging || root.isPlugged
+                size: Theme.font.sizes.normal // qmllint disable missing-property
+                visible: !root.isCharging || root.isPlugged
             }
 
             StyledText {

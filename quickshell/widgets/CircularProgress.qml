@@ -5,7 +5,7 @@ import qs.config
 Item {
     id: root
 
-    property int size: Theme.bar.inner_height // qmllint disable missing-property
+    property int size: Theme.sizes.inner_height // qmllint disable missing-property
     required property real value
 
     property color progressColor: Theme.colors.fg // qmllint disable missing-property

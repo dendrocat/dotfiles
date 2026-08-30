@@ -13,7 +13,7 @@ Scope {
             required property ShellScreen modelData
             screen: modelData
 
-            implicitHeight: Theme.bar.height + Theme.bar.rounding // qmllint disable missing-property
+            implicitHeight: Theme.sizes.height + Theme.sizes.rounding // qmllint disable missing-property
 
             anchors {
                 top: true
@@ -22,7 +22,7 @@ Scope {
             }
 
             margins {
-                bottom: -Theme.bar.rounding // qmllint disable missing-property
+                bottom: -Theme.sizes.rounding // qmllint disable missing-property
             }
 
             color: "transparent"
@@ -55,7 +55,7 @@ Scope {
 
                     corner: RoundCorner.CornerEnum.TopLeft
 
-                    implicitSize: Theme.bar.rounding // qmllint disable missing-property
+                    implicitSize: Theme.sizes.rounding // qmllint disable missing-property
                     color: Theme.colors.bg // qmllint disable missing-property
                 }
 
@@ -69,7 +69,7 @@ Scope {
 
                     corner: RoundCorner.CornerEnum.TopRight
 
-                    implicitSize: Theme.bar.rounding // qmllint disable missing-property
+                    implicitSize: Theme.sizes.rounding // qmllint disable missing-property
                     color: Theme.colors.bg // qmllint disable missing-property
                 }
             }

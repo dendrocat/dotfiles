@@ -7,7 +7,7 @@ import qs.config
 RowLayout {
     id: root
 
-    spacing: Theme.bar.spacing / 2 // qmllint disable missing-property
+    spacing: Theme.sizes.spacing / 2 // qmllint disable missing-property
 
     AudioControl {
         node: Audio.sink

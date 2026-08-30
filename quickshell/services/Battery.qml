@@ -37,7 +37,7 @@ Singleton {
     }
 
     onIsChargingChanged: {
-        if (!isFull || isCharging) return;
+        if (!isPlugged || isCharging) return;
         nofify("Battery charged", "Please unplug the charger");
     }
 }
