@@ -10,7 +10,7 @@ RowLayout {
     spacing: Theme.sizes.spacing / 2 // qmllint disable missing-property
 
     AudioControl {
-        node: Audio.sink
+        node: AudioService.sink
 
         mutedIcon: "volume_off"
         icons: ["volume_mute", "volume_down", "volume_up"]
@@ -21,7 +21,7 @@ RowLayout {
     }
 
     AudioControl {
-        node: Audio.source
+        node: AudioService.source
 
         mutedIcon: "mic_off"
         icons: ["mic"]

@@ -8,7 +8,7 @@ ScrollMouseArea {
     implicitWidth: Theme.sizes.inner_height // qmllint disable missing-property
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
 
-    readonly property real value: Brightness.brightness
+    readonly property real value: BrightnessService.brightness
 
     readonly property list<string> icons: ["wb_twilight", "wb_sunny"]
     FilledCircularProgress {
@@ -25,6 +25,6 @@ ScrollMouseArea {
         }
     }
 
-    onScrollUp: Brightness.increaseBrightness()
-    onScrollDown: Brightness.decreaseBrightness()
+    onScrollUp: BrightnessService.increaseBrightness()
+    onScrollDown: BrightnessService.decreaseBrightness()
 }

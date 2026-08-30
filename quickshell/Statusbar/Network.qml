@@ -13,7 +13,7 @@ MouseArea {
     implicitWidth: Theme.sizes.inner_height - 3
     implicitHeight: Theme.sizes.inner_height - 4
 
-    readonly property real value: Network.strength
+    readonly property real value: NetworkService.strength
 
     readonly property list<string> icons: ["signal_wifi_0_bar", "network_wifi_1_bar", "network_wifi_2_bar", "network_wifi_3_bar", "network_wifi", "signal_wifi_4_bar"]
 
@@ -35,10 +35,8 @@ MouseArea {
         anchors.centerIn: parent
 
         icon: {
-            if (Network.noConnection)
-                return root.iconNoNetwork;
-            if (Network.ethernet)
-                return root.iconEthernet;
+            if (NetworkService.noConnection) return root.iconNoNetwork;
+            if (NetworkService.ethernet) return root.iconEthernet;
             const n = root.icons.length;
             const idx = Math.min(n - 1, Math.floor(root.value * n));
             return root.icons[idx];
@@ -48,10 +46,8 @@ MouseArea {
 
     onClicked: e => {
         let cmd;
-        if (e.button === Qt.LeftButton)
-            cmd = ["nm-applet", "--indicator"];
-        else
-            cmd = ["pkill", "nm-applet"];
+        if (e.button === Qt.LeftButton) cmd = ["nm-applet", "--indicator"];
+        else cmd = ["pkill", "nm-applet"];
         Quickshell.execDetached(cmd);
     }
 }

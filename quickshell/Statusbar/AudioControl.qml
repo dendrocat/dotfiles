@@ -11,8 +11,8 @@ ScrollMouseArea {
     implicitWidth: size
 
     required property var node
-    readonly property bool muted: Audio.isMuted(node)
-    readonly property real value: Audio.volume(node)
+    readonly property bool muted: AudioService.isMuted(node)
+    readonly property real value: AudioService.volume(node)
 
     required property string mutedIcon
     required property list<string> icons
@@ -41,11 +41,11 @@ ScrollMouseArea {
         }
     }
 
-    onScrollUp: Audio.incrementVolume(node)
-    onScrollDown: Audio.decrementVolume(node)
+    onScrollUp: AudioService.incrementVolume(node)
+    onScrollDown: AudioService.decrementVolume(node)
 
 	onClicked: event => {
-		if (event.button === Qt.LeftButton) Audio.toggleMute(node)
+		if (event.button === Qt.LeftButton) AudioService.toggleMute(node)
 		else openControls()
 	}
 

@@ -10,11 +10,11 @@ Item {
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
     implicitWidth: bar.implicitWidth
 
-    readonly property real value: Battery.value
-    readonly property bool isCritical: Battery.isCritical
-    readonly property bool isLow: Battery.isLow
-    readonly property bool isCharging: Battery.isCharging
-    readonly property bool isPlugged: Battery.isPlugged
+    readonly property real value: BatteryService.value
+    readonly property bool isCritical: BatteryService.isCritical
+    readonly property bool isLow: BatteryService.isLow
+    readonly property bool isCharging: BatteryService.isCharging
+    readonly property bool isPlugged: BatteryService.isPlugged
 
     ClippedProgressBar {
         id: bar
@@ -42,10 +42,11 @@ Item {
             Icon {
                 id: icon
                 Layout.leftMargin: -6
+				Layout.alignment: Qt.AlignBaseline
 
                 icon: root.isCharging ? "bolt" : "usb"
                 size: Theme.font.sizes.normal // qmllint disable missing-property
-                visible: !root.isCharging || root.isPlugged
+                visible: root.isCharging || root.isPlugged
             }
 
             StyledText {
