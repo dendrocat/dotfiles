@@ -9,7 +9,6 @@ Text {
     property int weight: Font.Normal
 
     verticalAlignment: Text.AlignVCenter
-    horizontalAlignment: Text.AlignHCenter
 
     font {
         family: monospace ? Theme.font.family.monospace : Theme.font.family.normal // qmllint disable missing-property

@@ -61,7 +61,7 @@ Item {
                 }
 
                 StyledText {
-                    anchors.fill: parent
+                    anchors.centerIn: parent
 
 					monospace: true
                     text: workspaceItem.ws_id

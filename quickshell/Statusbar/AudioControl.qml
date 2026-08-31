@@ -1,5 +1,6 @@
 import QtQuick
 import qs.widgets
+import qs.tooltips
 import qs.services
 import qs.config
 
@@ -18,6 +19,7 @@ ScrollMouseArea {
     required property list<string> icons
 
 	acceptedButtons: Qt.LeftButton | Qt.RightButton
+	hoverEnabled: true
 
 	signal openControls()
 
@@ -47,6 +49,12 @@ ScrollMouseArea {
 	onClicked: event => {
 		if (event.button === Qt.LeftButton) AudioService.toggleMute(node)
 		else openControls()
+	}
+
+	AudioTooltip {
+		anchorItem: root
+		node: root.node
+		visible: root.containsMouse
 	}
 
 }

@@ -22,10 +22,10 @@ Singleton {
         return isMuted(node) ? 0 : node.audio.volume;
     }
 
-	function setVolume(node: PwNode, volume: real) {
+    function setVolume(node: PwNode, volume: real) {
         if (isMuted(node)) return;
-		node.audio.volume = Math.max(0, Math.min(1, volume));
-	}
+        node.audio.volume = Math.max(0, Math.min(1, volume));
+    }
 
     function decrementVolume(node: PwNode) {
         setVolume(node, node.audio.volume - Config.audio.step); // qmllint disable missing-property
@@ -36,7 +36,14 @@ Singleton {
     }
 
     function toggleMute(node: PwNode) {
-		if (node === null) return;
+        if (node === null) return;
         node.audio.muted = !node.audio.muted;
+    }
+
+    function readableName(node: PwNode): string {
+        if (!node) return "";
+        if (node.nickname.length !== 0) return node.nickname;
+        if (node.description.length !== 0) return node.description;
+        return node.name;
     }
 }

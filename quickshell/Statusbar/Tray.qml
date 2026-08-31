@@ -75,11 +75,7 @@ Item {
                     component: TrayMenu {
                         Component.onCompleted: this.open()
                         menuHandle: trayItem.item.menu
-                        anchor {
-                            window: root.QsWindow.window
-                            item: root
-							rect.y: Theme.sizes.height - 7
-                        }
+                        anchorItem: trayItem
 
                         onMenuOpened: w => root.setActiveWindow(w)
 

@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.widgets
+import qs.tooltips
 import qs.services
 import qs.config
 
@@ -36,7 +37,7 @@ MouseArea {
         anchors.centerIn: parent
 
         icon: {
-            if (NetworkService.noConnection) return root.iconNoNetwork;
+            if (!NetworkService.connected) return root.iconNoNetwork;
             if (NetworkService.ethernet) return root.iconEthernet;
             const n = root.icons.length;
             const idx = Math.min(n - 1, Math.floor(root.value * n));
@@ -51,4 +52,9 @@ MouseArea {
         else cmd = ["pkill", "nm-applet"];
         Quickshell.execDetached(cmd);
     }
+
+	NetworkTooltip {
+		anchorItem: root
+		visible: root.containsMouse
+	}
 }

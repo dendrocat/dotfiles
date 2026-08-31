@@ -1,6 +1,7 @@
 import QtQuick
 import Quickshell
 import qs.widgets
+import qs.tooltips
 import qs.services
 import qs.config
 
@@ -25,8 +26,10 @@ MouseArea {
     Icon {
         anchors.centerIn: parent
         icon: {
-            if (!BluetoothService.enabled) return "bluetooth_disabled";
-            if (BluetoothService.connectedDevices.length > 0) return "bluetooth_connected";
+            if (!BluetoothService.enabled)
+                return "bluetooth_disabled";
+            if (BluetoothService.connectedDevices.length > 0)
+                return "bluetooth_connected";
             return "bluetooth";
         }
         color: Theme.colors.fg
@@ -34,5 +37,10 @@ MouseArea {
 
     onClicked: {
         Quickshell.execDetached(["blueman-manager"]);
+    }
+
+    BluetoothTooltip {
+		anchorItem: root
+		visible: BluetoothService.enabled && root.containsMouse
     }
 }

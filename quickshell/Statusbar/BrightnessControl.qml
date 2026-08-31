@@ -1,10 +1,13 @@
 import QtQuick
 import qs.widgets
+import qs.tooltips
 import qs.services
 import qs.config
 
 ScrollMouseArea {
     id: root
+	hoverEnabled: true
+
     implicitWidth: Theme.sizes.inner_height // qmllint disable missing-property
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
 
@@ -28,4 +31,9 @@ ScrollMouseArea {
 
     onScrollUp: BrightnessService.increaseBrightness()
     onScrollDown: BrightnessService.decreaseBrightness()
+
+	BrightnessTooltip {
+		anchorItem: root
+		visible: root.containsMouse
+	}
 }

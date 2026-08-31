@@ -16,12 +16,12 @@ Singleton {
     property DeviceModel activeModel
     property bool wifi: activeModel && activeModel.connected && activeModel.device.type === DeviceType.Wifi
     property bool ethernet: activeModel && activeModel.connected && activeModel.device.type === DeviceType.Wired
-    readonly property bool noConnection: !wifi && !ethernet
+    readonly property bool connected: wifi || ethernet
 
-    readonly property real strength: activeModel?.activeNetwork?.signalStrength ?? 0
-    readonly property string name: activeModel?.activeNetwork?.name ?? ""
+	readonly property real strength: activeModel?.strength ?? 0
+	readonly property string name: activeModel?.name ?? ""
 
-    Component.onCompleted: { root.update(); }
+    Component.onCompleted: root.update();
 
     function update() {
         models = [];
@@ -36,8 +36,16 @@ Singleton {
     component DeviceModel: Item {
         id: model
         required property NetworkDevice device
-        readonly property bool connected: activeNetwork !== null && device.connected
         property var activeNetwork: null
+
+        readonly property bool connected: activeNetwork !== null && device.connected
+        readonly property string name: activeNetwork?.name ?? ""
+        readonly property real strength: {
+            if (!activeNetwork)
+                return 0;
+            return activeNetwork?.hasLink ? 1 : activeNetwork.signalStrength;
+        }
+        readonly property string type: DeviceType.toString(device.type)
 
         function updateActiveNetwork() {
             const dev = model.device;

@@ -7,24 +7,11 @@ import Quickshell
 import qs.widgets
 import qs.config
 
-PopupWindow {
+StyledPopup {
     id: root
 
-    implicitWidth: stack.implicitWidth + Theme.sizes.margin
-    implicitHeight: stack.implicitHeight + Theme.sizes.margin
-
-    Behavior on implicitWidth {
-        NumberAnimation {
-            duration: 120
-			easing.type: Easing.InOutSine
-        }
-    }
-    Behavior on implicitHeight {
-        NumberAnimation {
-            duration: 120
-			easing.type: Easing.InOutSine
-        }
-    }
+    tooltipWidth: stack.implicitWidth
+    tooltipHeight: stack.implicitHeight
 
     required property QsMenuHandle menuHandle
 
@@ -52,6 +39,12 @@ PopupWindow {
 
     color: "transparent"
 
+    component NoAnim: Transition {
+        PropertyAnimation {
+            duration: 0
+        }
+    }
+
     MouseArea {
         anchors.fill: parent
 
@@ -60,21 +53,16 @@ PopupWindow {
         onEntered: closeTimer.stop()
         onExited: closeTimer.restart()
 
-        Rectangle {
-            anchors.fill: parent
-            color: Theme.colors.bg
-            radius: 5
-            border {
-                width: 1
-                color: Theme.colors.brc
-            }
-        }
-
         StackView {
             id: stack
             anchors {
                 centerIn: parent
             }
+
+            pushEnter: NoAnim {}
+            pushExit: NoAnim {}
+            popEnter: NoAnim {}
+            popExit: NoAnim {}
 
             implicitWidth: currentItem.implicitWidth
             implicitHeight: currentItem.implicitHeight
@@ -111,12 +99,15 @@ PopupWindow {
 
             active: menuLayout.isSubMenu
             visible: active
+
             sourceComponent: MouseArea {
                 id: mouse
                 hoverEnabled: true
-                implicitHeight: 27
                 acceptedButtons: Qt.LeftButton
                 onClicked: stack.pop()
+
+                implicitHeight: 27
+
                 Rectangle {
                     anchors.fill: parent
                     color: Theme._colors.primary_container
@@ -131,7 +122,7 @@ PopupWindow {
                     spacing: 0
                     anchors.verticalCenter: parent.verticalCenter
                     Icon {
-						Layout.leftMargin: 5
+                        Layout.leftMargin: 5
                         icon: "chevron_left"
                         color: Theme.colors.fg
                     }
@@ -147,10 +138,7 @@ PopupWindow {
             id: repeater
             model: opener.children
 
-            onModelChanged: {
-                if (model.values.length === 0)
-                    stack.pop();
-            }
+            onModelChanged: { if (model.values.length === 0) stack.pop(); }
 
             delegate: TrayMenuEntry {
                 required property var modelData
@@ -164,13 +152,11 @@ PopupWindow {
                 let max = 0;
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);
-                    if (item)
-                        max = Math.max(max, item.rowWidth);
+                    if (item) max = Math.max(max, item.rowWidth);
                 }
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);
-                    if (item)
-                        item.itemWidth = max;
+                    if (item) item.itemWidth = max;
                 }
             }
             Component.onCompleted: setMaxWidth()

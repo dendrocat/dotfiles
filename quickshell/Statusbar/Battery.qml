@@ -1,11 +1,14 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.widgets
+import qs.tooltips
 import qs.services
 import qs.config
 
-Item {
+MouseArea {
     id: root
+
+	hoverEnabled: true
 
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
     implicitWidth: bar.implicitWidth
@@ -57,4 +60,9 @@ Item {
             }
         }
     }
+
+	BatteryTooltip {
+		anchorItem: root
+		visible: root.containsMouse
+	}
 }
