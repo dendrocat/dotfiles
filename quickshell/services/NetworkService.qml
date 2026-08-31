@@ -1,4 +1,5 @@
 pragma Singleton
+pragma ComponentBehavior: Bound
 
 import Quickshell
 import Quickshell.Networking
@@ -18,10 +19,10 @@ Singleton {
     property bool ethernet: activeModel && activeModel.connected && activeModel.device.type === DeviceType.Wired
     readonly property bool connected: wifi || ethernet
 
-	readonly property real strength: activeModel?.strength ?? 0
-	readonly property string name: activeModel?.name ?? ""
+    readonly property real strength: activeModel?.strength ?? 0
+    readonly property string name: activeModel?.name ?? ""
 
-    Component.onCompleted: root.update();
+    Component.onCompleted: root.update()
 
     function update() {
         models = [];
@@ -64,8 +65,17 @@ Singleton {
         }
 
         Connections {
+            target: model.device
+            function onConnectedChanged() {
+                if (!model.connected && model.device == root.activeModel) { root.update(); return; }
+                model.updateActiveNetwork();
+            }
+        }
+        Connections {
             target: model.device.networks
-            function onValuesChanged() { model.updateActiveNetwork(); }
+            function onValuesChanged() {
+                model.updateActiveNetwork();
+            }
         }
 
         Component.onCompleted: updateActiveNetwork()
