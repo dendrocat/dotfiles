@@ -15,7 +15,7 @@ Item {
     implicitHeight: size
 
     readonly property real degree: Math.max(0, Math.min(1, value)) * 360
-    readonly property real center: size / 2
+    readonly property real center: size / 2 - 0.5
     readonly property real radius: size / 2 - 0.5
 
     Rectangle {

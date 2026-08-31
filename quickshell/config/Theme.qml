@@ -30,9 +30,9 @@ Singleton {
         readonly property int margin: 16
 
         readonly property int inner_height: 26
-        readonly property int inner_margin: 16
+        readonly property int inner_margin: 8
 
-        readonly property int rounding: 15
+        readonly property int rounding: 16
         readonly property int spacing: 15
     }
 

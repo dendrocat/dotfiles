@@ -1,13 +1,12 @@
 import QtQuick
 import QtQuick.Layouts
-import qs.widgets
 import qs.config
 
 Item {
     id: root
 
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
-    implicitWidth: layout.implicitWidth + Theme.sizes.inner_margin // qmllint disable missing-property
+    implicitWidth: layout.implicitWidth + Theme.sizes.inner_margin * 2 // qmllint disable missing-property
 
     Rectangle {
         anchors.fill: parent
@@ -20,15 +19,13 @@ Item {
     RowLayout {
         id: layout
 
-		anchors.centerIn: parent
-        spacing: Theme.sizes.spacing / 2 // qmllint disable missing-property
+        anchors.centerIn: parent
+        spacing: 2 // qmllint disable missing-property
 
-        Network { }
+        Network {}
 
-		Bluetooth {}
+        Bluetooth {}
 
-		Notifications {
-            Layout.rightMargin: -3
-		}
+        Notifications {}
     }
 }

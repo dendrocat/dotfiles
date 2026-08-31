@@ -6,7 +6,7 @@ import qs.config
 Item {
     id: root
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
-    implicitWidth: metrics.width + Theme.sizes.inner_margin // qmllint disable missing-property
+    implicitWidth: metrics.width + Theme.sizes.inner_margin * 2 // qmllint disable missing-property
 
     Rectangle {
         anchors.fill: parent

@@ -11,6 +11,7 @@ ScrollMouseArea {
     readonly property real value: BrightnessService.brightness
 
     readonly property list<string> icons: ["wb_twilight", "wb_sunny"]
+
     FilledCircularProgress {
         anchors.centerIn: parent
         value: root.value

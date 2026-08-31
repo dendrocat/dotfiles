@@ -10,9 +10,8 @@ MouseArea {
     acceptedButtons: Qt.LeftButton | Qt.RightButton
     hoverEnabled: true
 
-    implicitWidth: Theme.sizes.inner_height - 3
-    implicitHeight: Theme.sizes.inner_height - 4
-
+	implicitWidth: Theme.sizes.inner_height
+	implicitHeight: Theme.sizes.inner_height
     readonly property real value: NetworkService.strength
 
     readonly property list<string> icons: ["signal_wifi_0_bar", "network_wifi_1_bar", "network_wifi_2_bar", "network_wifi_3_bar", "network_wifi", "signal_wifi_4_bar"]
@@ -22,12 +21,14 @@ MouseArea {
 
     readonly property string iconEthernet: "lan"
 
-    Rectangle {
-        anchors.fill: parent
-        radius: height / 4
-        visible: root.containsMouse
-        color: Theme.colors.on_bg
-    }
+	Rectangle {
+		anchors.fill: parent
+		anchors.margins: 2
+
+		radius: height / 4
+		color: Theme.colors.on_bg
+		visible: root.containsMouse
+	}
 
     Icon {
         id: iconItem

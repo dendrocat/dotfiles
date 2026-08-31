@@ -13,7 +13,7 @@ Text {
     text: icon
 
     verticalAlignment: Text.AlignVCenter
-	anchors.horizontalCenterOffset: -0.5
+	anchors.horizontalCenterOffset: -0.6
 	anchors.verticalCenterOffset: 0.5
 
     font {
