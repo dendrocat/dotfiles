@@ -8,52 +8,40 @@ import QtQuick
 Singleton {
     id: root
 
-    property list<DeviceModel> models
-    Connections {
-        target: Networking.devices
-        function onValuesChanged() { root.update(); }
-    }
+	readonly property bool noConnection: Networking.connectivity === NetworkConnectivity.Unknown || Networking.connectivity === NetworkConnectivity.None
 
-    property DeviceModel activeModel
-    property bool wifi: activeModel && activeModel.connected && activeModel.device.type === DeviceType.Wifi
-    property bool ethernet: activeModel && activeModel.connected && activeModel.device.type === DeviceType.Wired
-    readonly property bool connected: wifi || ethernet
+    property NetworkDeviceModel device: null
 
-    readonly property real strength: activeModel?.strength ?? 0
-    readonly property string name: activeModel?.name ?? ""
+    readonly property bool isConnected: !noConnection && (device?.connected ?? false)
+    readonly property bool wifi: isConnected && device.isWifi
+    readonly property bool ethernet: isConnected && device.isEthernet
 
-    Component.onCompleted: root.update()
+    readonly property real strength: device?.strength ?? 0
 
-    function update() {
-        models = [];
-        for (const netDevice of Networking.devices.values) {
-            models.push(devModel.createObject(null, { device: netDevice }));
-        }
-        let model = models.find(m => m.device.connected);
-        if (!model) { activeModel = null; return; }
-        activeModel = model;
-    }
+    property list<NetworkDeviceModel> models
 
-    component DeviceModel: Item {
+    component NetworkDeviceModel: Item {
         id: model
+
         required property NetworkDevice device
         property var activeNetwork: null
 
-        readonly property bool connected: activeNetwork !== null && device.connected
-        readonly property string name: activeNetwork?.name ?? ""
+        readonly property bool connected: device.connected && activeNetwork !== null
+        readonly property bool isWifi: device.type === DeviceType.Wifi
+        readonly property bool isEthernet: device.type === DeviceType.Wired
+
         readonly property real strength: {
-            if (!activeNetwork)
-                return 0;
-            return activeNetwork?.hasLink ? 1 : activeNetwork.signalStrength;
+            if (isEthernet) return device.hasLink ? 1 : 0;
+            return activeNetwork?.signalStrength ?? 0;
         }
+        readonly property string name: activeNetwork?.name ?? ""
         readonly property string type: DeviceType.toString(device.type)
 
-        function updateActiveNetwork() {
+        function updateActiveNetwork(e: string) {
             const dev = model.device;
             if (dev.type === DeviceType.Wired) { activeNetwork = dev.network; return; }
 
             activeNetwork = dev.networks.values.find(n => n.connected);
-
             if (!activeNetwork && dev.connected) { retryTimer.restart(); return; }
         }
 
@@ -67,22 +55,41 @@ Singleton {
         Connections {
             target: model.device
             function onConnectedChanged() {
-                if (!model.connected && model.device == root.activeModel) { root.update(); return; }
-                model.updateActiveNetwork();
-            }
-        }
-        Connections {
-            target: model.device.networks
-            function onValuesChanged() {
+                if (!model.connected && model.device == root.device) { root.update(); return; }
                 model.updateActiveNetwork();
             }
         }
 
         Component.onCompleted: updateActiveNetwork()
+		Component.onDestruction: retryTimer.stop()
     }
 
     Component {
-        id: devModel
-        DeviceModel {}
+        id: networkDeviceModel
+        NetworkDeviceModel {}
     }
+
+	function update() {
+		for (const model of models) model.destroy()
+        models = [];
+
+        for (const netDevice of Networking.devices.values)
+            models.push(networkDeviceModel.createObject(null, { device: netDevice }));
+
+        let model = models.find(m => m.device.connected);
+        if (!model) { device = null; return; }
+        device = model;
+    }
+
+    Connections {
+        target: Networking
+        function onConnectivityChanged() { root.update(); }
+    }
+
+    Connections {
+        target: Networking.devices
+        function onValuesChanged() { root.update(); }
+    }
+
+    Component.onCompleted: root.update()
 }

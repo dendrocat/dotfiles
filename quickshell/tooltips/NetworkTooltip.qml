@@ -13,7 +13,7 @@ StyledPopup {
     tooltipHeight: layout.implicitHeight
 
 
-    readonly property bool connected: NetworkService.connected
+    readonly property bool connected: NetworkService.isConnected
 
     ColumnLayout {
         id: layout
@@ -27,6 +27,8 @@ StyledPopup {
 
         Repeater {
             model: NetworkService.models
+			visible: root.connected
+
             delegate: RowLayout {
                 id: networkItem
                 required property int index
@@ -42,7 +44,7 @@ StyledPopup {
                 StyledText {
                     text: {
                         if (modelData.connected)
-                            return `${modelData.activeNetwork?.name ?? ""} (${Math.round(modelData.strength * 100)}%, ${modelData.type})`;
+                            return `${modelData.name} (${Math.round(modelData.strength * 100)}%, ${modelData.type})`;
                         return `No connection (${modelData.type})`;
                     }
                     size: networkItem.size

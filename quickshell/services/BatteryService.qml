@@ -36,22 +36,22 @@ Singleton {
     component BatteryModel: QtObject {
         required property UPowerDevice device
 
-        readonly property real percentage: device.percentage
-        readonly property var state: device.state
+        readonly property real percentage:	device.percentage
+        readonly property var state:		device.state
 
         readonly property bool isAvailable: device.ready
 
-        readonly property bool isCritical: isAvailable && (percentage <= Config.battery.critical / 100) // qmllint disable missing-property
-        readonly property bool isLow: isAvailable && (percentage <= Config.battery.low / 100) // qmllint disable missing-property
-        readonly property bool isFull: isAvailable && (percentage >= 1)
+        readonly property bool isCritical:	isAvailable && (percentage <= Config.battery.critical / 100) // qmllint disable missing-property
+        readonly property bool isLow:		isAvailable && (percentage <= Config.battery.low / 100) // qmllint disable missing-property
+        readonly property bool isFull:		isAvailable && (percentage >= 1)
 
-        readonly property bool isCharging: state === UPowerDeviceState.Charging
-        readonly property bool isPlugged: isCharging || device.state === UPowerDeviceState.PendingCharge
+        readonly property bool isCharging:	state === UPowerDeviceState.Charging
+        readonly property bool isPlugged:	isCharging || device.state === UPowerDeviceState.PendingCharge
 
-		readonly property real energyRate: device.changeRate
+		readonly property real energyRate:	device.changeRate
 		readonly property real timeToEmpty: device.timeToEmpty
-		readonly property real timeToFull: device.timeToFull
-		readonly property real health: device.healthPercentage
+		readonly property real timeToFull:	device.timeToFull
+		readonly property real health:		device.healthPercentage
 
         onIsLowChanged: {
             if (!isLow || isCharging) return;

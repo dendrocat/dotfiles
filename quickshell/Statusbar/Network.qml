@@ -13,6 +13,7 @@ MouseArea {
 
 	implicitWidth: Theme.sizes.inner_height
 	implicitHeight: Theme.sizes.inner_height
+
     readonly property real value: NetworkService.strength
 
     readonly property list<string> icons: ["signal_wifi_0_bar", "network_wifi_1_bar", "network_wifi_2_bar", "network_wifi_3_bar", "network_wifi", "signal_wifi_4_bar"]
@@ -37,7 +38,7 @@ MouseArea {
         anchors.centerIn: parent
 
         icon: {
-            if (!NetworkService.connected) return root.iconNoNetwork;
+            if (!NetworkService.isConnected) return root.iconNoNetwork;
             if (NetworkService.ethernet) return root.iconEthernet;
             const n = root.icons.length;
             const idx = Math.min(n - 1, Math.floor(root.value * n));
