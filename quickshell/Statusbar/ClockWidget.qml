@@ -1,11 +1,15 @@
 import QtQuick
 import QtQuick.Layouts
 import qs.widgets
+import qs.tooltips
 import qs.services
 import qs.config
 
-Item {
+MouseArea {
     id: root
+
+	acceptedButtons: Qt.LeftButton
+	hoverEnabled: true
 
     implicitHeight: Theme.sizes.height // qmllint disable missing-property
     implicitWidth: layout.width
@@ -37,4 +41,9 @@ Item {
             size: Theme.font.sizes.small // qmllint disable missing-property
         }
     }
+
+	TimeTooltip {
+		anchorItem: root
+		visible: root.containsMouse
+	}
 }

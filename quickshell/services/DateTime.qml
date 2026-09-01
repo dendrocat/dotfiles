@@ -14,7 +14,7 @@ Singleton {
 
     readonly property string time: format(clock.date, "hh:mm")
     readonly property string date: format(clock.date, "dd.MM.yyyy")
-    readonly property string long_date: format(clock.date, "dddd, dd MMMM, yyyy")
+    readonly property string long_date: format(clock.date, "dddd, d MMMM yyyy")
 
     function formatSecondsTime(durationSec: int): string {
         const ms = durationSec * 1000;
