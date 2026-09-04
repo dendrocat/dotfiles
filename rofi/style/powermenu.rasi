@@ -27,7 +27,7 @@ message {
 
     border:                     0 2px dash;
     border-radius:              12px;
-	border-color:				@selection;
+	border-color:				@primary;
 
 	text-color:					@fg;
 	background-color:			@bg-alt;
@@ -77,4 +77,9 @@ element-text {
 element normal.normal {
     text-color:                 @fg;
     background-color:           @bg-alt;
+}
+
+element selected.normal {
+	text-color: @bg-alt;
+	background-color: @fg;
 }

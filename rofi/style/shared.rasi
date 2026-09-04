@@ -6,7 +6,7 @@
 	fg:							@primary;
 	bg:							@surface-container-low;
 	bg-alt:						@surface-container-high;
-	selection:					@primary;
+	selection:					@bg-alt;
 	brc:		                @surface-bright;
 }
 
@@ -106,7 +106,7 @@ element normal.normal {
 }
 
 element selected.normal {
-    text-color:                 @bg;
+    text-color:                 @on-surface;
     background-color:           @selection;
 }
 
