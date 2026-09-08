@@ -16,26 +16,25 @@ PopupWindow {
     property real tooltipHeight: 0
 
     implicitWidth: tooltipWidth + Theme.sizes.rounding * 2 + Theme.sizes.inner_margin * 2 // qmllint disable missing-property
-    implicitHeight: tooltipHeight + Theme.sizes.inner_margin * 2 // qmllint disable missing-property
+    implicitHeight: 1 // qmllint disable missing-property
 
     color: "transparent"
-
-    Behavior on implicitWidth {
-        PropertyAnimation {
-            duration: 120
-            easing.type: Easing.OutSine
-        }
-    }
-    Behavior on implicitHeight {
-        PropertyAnimation {
-            duration: 120
-            easing.type: Easing.OutSine
-        }
-    }
 
     property point shift
     Component.onCompleted: {
         shift = anchorItem.mapToGlobal(anchorItem.x, anchorItem.y);
+    }
+
+    onVisibleChanged: {
+        if (visible) implicitHeight = tooltipHeight + Theme.sizes.inner_margin * 2;
+        else implicitHeight = 1;
+    }
+
+    Behavior on implicitHeight {
+        PropertyAnimation {
+            duration: 120
+			easing.type: Easing.InOutSine
+        }
     }
 
     anchor {
