@@ -50,23 +50,29 @@ hl.window_rule({
 	size = { 800, 600 },
 })
 
-hl.layer_rule({
-    match = {
-        namespace = "^(swaync-control-center)$",
-    },
+-- AmneziaVPN
+hl.window_rule({
+	name = "AmneziaVPN",
+	match = { title = "AmneziaVPN" },
 
-    blur = true,
-    ignore_alpha = 0.2,
-    animation = "slide right",
+	float = true,
+	center = true,
+	size = { 350, 600 },
 })
 
--- Всплывающие уведомления
+-- Swaync
 hl.layer_rule({
-    match = {
-        namespace = "^(swaync-notification-window)$",
-    },
+	match = { namespace = "^(swaync-control-center)$" },
 
-    blur = true,
-    ignore_alpha = 0.2,
-    animation = "slide right",
+	blur = true,
+	ignore_alpha = 0.2,
+	animation = "slide right",
+})
+
+hl.layer_rule({
+	match = { namespace = "^(swaync-notification-window)$" },
+
+	blur = true,
+	ignore_alpha = 0.2,
+	animation = "slide right",
 })
