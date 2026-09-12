@@ -1,5 +1,7 @@
 local mod = "SUPER"
 
+local qsIpc = "qs ipc call "
+
 -- Base apps
 hl.bind(mod .. " + Return", hl.dsp.exec_cmd(TERMINAL),				{ description = "Open terminal" })
 hl.bind(mod .. " + B",		hl.dsp.exec_cmd(BROWSER),				{ description = "Open browser" })
@@ -55,8 +57,8 @@ hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_S
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),   { locked = true, repeating = true, description = "Mute microphone" })
 
 -- Brightness
-hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true, description = "Increase brightness" })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true, description = "Decrease brightness" })
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(qsIpc .. "brightness increment "), { locked = true, repeating = true, description = "Increase brightness" })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(qsIpc .. "brightness decrement"), { locked = true, repeating = true, description = "Decrease brightness" })
 
 -- Reload waybar
 hl.bind(mod .. " + R", hl.dsp.exec_cmd("(pkill waybar || true) && waybar & disown"), { description = "Reload waybar" })

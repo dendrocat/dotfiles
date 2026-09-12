@@ -38,9 +38,10 @@ Item {
         anchors.centerIn: parent
 
         Repeater {
-            model: SystemTray.items.values.length
+            model: SystemTray.items
             delegate: MouseArea {
                 id: trayItem
+                required property SystemTrayItem modelData
 
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
 
@@ -48,19 +49,17 @@ Item {
                 implicitHeight: size
                 implicitWidth: size
 
-                required property int index
-                readonly property SystemTrayItem item: SystemTray.items.values[index]
 
                 Image {
                     anchors.fill: parent
                     anchors.margins: 2
-                    source: trayItem.item.icon
+                    source: trayItem.modelData.icon
                 }
 
                 onClicked: e => {
-                    if (e.button === Qt.LeftButton) item.activate();
+                    if (e.button === Qt.LeftButton) modelData.activate();
                     else {
-                        if (menu.active) menu.item.close();
+                        if (menu.active) menu.modelData.close();
                         else menu.open();
                     }
                     e.accepted = true;
@@ -74,7 +73,7 @@ Item {
                     }
                     sourceComponent: TrayMenu {
                         Component.onCompleted: this.open()
-                        menuHandle: trayItem.item.menu
+                        menuHandle: trayItem.modelData.menu
                         anchorItem: trayItem
 
                         onMenuOpened: w => root.setActiveWindow(w)

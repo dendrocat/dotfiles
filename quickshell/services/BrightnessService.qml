@@ -23,18 +23,16 @@ Singleton {
 
     Timer {
         id: updateTimer
-        interval: 1000
+        interval: 10000
         repeat: true
         onTriggered: root.initProc.running = true
     }
-
 
     function setBrightness(value: real) {
         value = Math.max(0, Math.min(1, value));
         const rounded = Math.round(value * 100);
 
-        if (Math.round(brightness * 100) === rounded)
-            return;
+        if (Math.round(brightness * 100) === rounded) return;
         brightness = value;
         Quickshell.execDetached(["brightnessctl", "s", `${rounded}%`]);
     }
@@ -49,5 +47,14 @@ Singleton {
 
     Component.onCompleted: {
         initProc.running = true;
+    }
+
+    IpcHandler {
+        target: "brightness"
+
+        function increment()	{ root.increaseBrightness(); }
+        function decrement()	{ root.decreaseBrightness(); }
+		function low()			{ root.setBrightness(Config.brightness.low); }
+		function restore()		{ root.setBrightness(Config.brightness.base); }
     }
 }

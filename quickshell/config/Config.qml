@@ -1,7 +1,7 @@
 pragma Singleton
 
-import Quickshell
 import QtQuick
+import Quickshell
 
 Singleton {
 	id: root
@@ -20,5 +20,8 @@ Singleton {
 
 	readonly property QtObject brightness : QtObject {
 		readonly property real step: 0.05
+
+		readonly property real low: 0.1
+		readonly property real base: 0.8
 	}
 }
