@@ -20,4 +20,9 @@ return {
 			'hrsh7th/vim-vsnip'
 		}
 	},
+	{
+		"seblyng/roslyn.nvim",
+		ft = "cs",
+		opts = {},
+	}
 }

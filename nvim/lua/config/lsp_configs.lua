@@ -16,29 +16,8 @@ config.lua_ls = {
 	}
 }
 
--- config.omnisharp = {
--- 	cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()),
--- 		"-z", "--loglevel", "error" },
--- 	settings = {
--- 		FormattingOptions = {
--- 			EnableEditorConfigSupport = false,
--- 			OrganizeImports = true,
--- 		},
--- 		Sdk = {
--- 			IncludePrereleases = true,
--- 		},
--- 		RoslynExtensionsOptions = {
--- 			EnableAnalyzersSupport = false,
--- 			EnableEditorConfigSupport = false,
--- 			EnableDecompilationSupport = true,
--- 			EnableImportCompletion = true,
--- 		},
--- 		OmniSharp = {
--- 			EnableAsyncCompletion = true,
--- 			EnableEditorVisualizerSupport = true,
--- 			EnableRoslynAnalyzers = false,
--- 		},
--- 	},
--- }
-
+config.roslyn = {
+	cmd = { "/home/uki/.local/share/nvim/mason/bin/roslyn-language-server", "--stdio", "--daemon-mode", "--clientProcessId", tostring(vim.fn.getpid()) },
+	filetypes = { "cs" },
+}
 return config

@@ -8,8 +8,9 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local lsps = { 'clangd', 'pyright', 'lua_ls',
-	-- 'omnisharp',
-	'qmlls' }
+	'roslyn',
+	'qmlls',
+}
 local configs = require("config.lsp_configs")
 
 for _, lsp in ipairs(lsps) do
@@ -26,16 +27,26 @@ vim.api.nvim_create_user_command("LspInfo",
 		vim.cmd("checkhealth vim.lsp")
 		vim.cmd("LualineRenameTab lsp.info")
 	end,
-	{
-		desc = "Checkhealth lsp",
-		nargs = 0,
-	})
+	{ desc = "Checkhealth lsp", nargs = 0, }
+)
 
 vim.api.nvim_create_user_command("LspLog",
 	function()
 		vim.cmd("tabedit " .. vim.lsp.log.get_filename())
 	end,
-	{
-		desc = "Open lsp log file",
-		nargs = 0,
-	})
+	{ desc = "Open lsp log file", nargs = 0, }
+)
+
+vim.api.nvim_create_user_command("LspStart", function(opts)
+		print(vim.inspect(opts))
+		vim.lsp.enable(opts["args"])
+	end,
+	{ desc = "Start concrete lsp", nargs = 1 }
+)
+
+vim.api.nvim_create_user_command("LspStop", function()
+		local clients = vim.lsp.get_clients({ bufnr = 0 })
+		for _, client in ipairs(clients) do client:stop(false) end
+	end,
+	{ desc = "Stop all lsp for current buffer", nargs = 0 }
+)
