@@ -66,13 +66,13 @@ Item {
                     e.accepted = true;
                 }
 
-                LazyLoader {
+                Loader {
                     id: menu
                     active: false
                     function open() {
                         menu.active = true;
                     }
-                    component: TrayMenu {
+                    sourceComponent: TrayMenu {
                         Component.onCompleted: this.open()
                         menuHandle: trayItem.item.menu
                         anchorItem: trayItem

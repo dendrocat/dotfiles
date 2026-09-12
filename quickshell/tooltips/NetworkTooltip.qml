@@ -9,10 +9,6 @@ StyledPopup {
 
     side: StyledPopup.WindowSide.Right
 
-    tooltipWidth: layout.implicitWidth
-    tooltipHeight: layout.implicitHeight
-
-
     readonly property bool connected: NetworkService.isConnected
 
     ColumnLayout {

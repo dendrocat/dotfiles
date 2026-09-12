@@ -4,9 +4,6 @@ import qs.services
 StyledPopup {
     id: root
 
-    tooltipWidth: text.implicitWidth
-    tooltipHeight: text.implicitHeight
-
     side: StyledPopup.WindowSide.Right
 
     StyledText {

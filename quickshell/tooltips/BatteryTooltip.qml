@@ -7,9 +7,6 @@ import qs.config
 StyledPopup {
     id: root
 
-    tooltipWidth: layout.implicitWidth
-    tooltipHeight: layout.implicitHeight
-
     side: StyledPopup.WindowSide.Right
 
     ColumnLayout {

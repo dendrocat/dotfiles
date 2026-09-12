@@ -9,9 +9,6 @@ StyledPopup {
 
     side: StyledPopup.WindowSide.Right
 
-    tooltipHeight: layout.implicitHeight
-    tooltipWidth: layout.implicitWidth
-
     readonly property bool noConnected: BluetoothService.connectedDevices.length === 0
 
     ColumnLayout {

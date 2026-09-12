@@ -14,11 +14,11 @@ MouseArea {
     required property QsMenuEntry entry
 
     property int itemWidth: 0
-    readonly property int rowWidth: row.implicitWidth
+    readonly property int rowWidth: row.width
 
 	readonly property int spacing: 10
 
-    implicitWidth: root.itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.sizes.margin
+    implicitWidth: itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.sizes.margin
     implicitHeight: root.isSeparator() ? 1 : row.implicitHeight + 6
 
     function isSeparator() { return root.entry?.isSeparator ?? true; }

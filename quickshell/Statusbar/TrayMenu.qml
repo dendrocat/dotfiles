@@ -10,9 +10,6 @@ import qs.config
 StyledPopup {
     id: root
 
-    tooltipWidth: stack.implicitWidth
-    tooltipHeight: stack.implicitHeight
-
     required property QsMenuHandle menuHandle
 
     signal menuOpened(qsWindow: var)
@@ -25,8 +22,7 @@ StyledPopup {
 
     function close() {
         root.visible = false;
-        while (stack.depth > 1)
-            stack.pop();
+        while (stack.depth > 1) stack.pop();
         root.menuClosed();
     }
 
@@ -45,8 +41,10 @@ StyledPopup {
         }
     }
 
-    MouseArea {
-        anchors.fill: parent
+	MouseArea {
+		anchors.centerIn: parent
+		implicitWidth: stack.implicitWidth
+		implicitHeight: stack.implicitHeight
 
         hoverEnabled: true
         acceptedButtons: Qt.NoButton
@@ -55,9 +53,7 @@ StyledPopup {
 
         StackView {
             id: stack
-            anchors {
-                centerIn: parent
-            }
+            anchors.centerIn: parent
 
             pushEnter: NoAnim {}
             pushExit: NoAnim {}
@@ -152,7 +148,7 @@ StyledPopup {
                 let max = 0;
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);
-                    if (item) max = Math.max(max, item.rowWidth);
+                    if (item) max = Math.max(max, Math.round(item.rowWidth));
                 }
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);

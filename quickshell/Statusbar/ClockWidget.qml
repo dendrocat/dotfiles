@@ -44,6 +44,7 @@ MouseArea {
 
 	TimeTooltip {
 		anchorItem: root
+		side: StyledPopup.WindowSide.Center
 		visible: root.containsMouse
 	}
 }

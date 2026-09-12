@@ -6,9 +6,6 @@ StyledPopup {
 
     required property var node
 
-    tooltipWidth: text.implicitWidth
-    tooltipHeight: text.implicitHeight
-
     side: StyledPopup.WindowSide.Right
 
     StyledText {

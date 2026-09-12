@@ -64,5 +64,6 @@ MouseArea {
 	BatteryTooltip {
 		anchorItem: root
 		visible: root.containsMouse
+		// visible: true
 	}
 }
