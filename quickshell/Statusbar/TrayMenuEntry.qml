@@ -19,7 +19,7 @@ MouseArea {
 	readonly property int spacing: 10
 
     implicitWidth: itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.sizes.margin
-    implicitHeight: root.isSeparator() ? 1 : row.implicitHeight + 6
+    implicitHeight: root.isSeparator() ? spacing : row.implicitHeight + 6
 
     function isSeparator() { return root.entry?.isSeparator ?? true; }
     function isEnabled() { return root.entry?.enabled ?? false; }
@@ -36,6 +36,16 @@ MouseArea {
 
         visible: root.containsMouse && !root.isSeparator() && root.isEnabled()
     }
+
+	Rectangle {
+		anchors.centerIn: parent
+
+		implicitHeight: 1
+		implicitWidth: root.implicitWidth
+
+		color: Theme.colors.brc
+		visible: root.isSeparator()
+	}
 
     RowLayout {
         id: row

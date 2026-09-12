@@ -8,9 +8,13 @@ PopupWindow {
     id: root
 
     required property Item anchorItem
-	default property alias contentData : content.data
+    default property alias contentData: content.data
 
-    enum WindowSide { Left, Center, Right }
+    enum WindowSide {
+        Left,
+        Center,
+        Right
+    }
     property var side: StyledPopup.WindowSide.Left
     property bool isLeft: side === StyledPopup.WindowSide.Left
     property bool isCenter: side === StyledPopup.WindowSide.Center
@@ -19,8 +23,8 @@ PopupWindow {
     property real tooltipWidth: contentRect.implicitWidth
     property real tooltipHeight: contentRect.implicitHeight
 
-	readonly property real hPadding: Theme.sizes.rounding + Theme.sizes.inner_margin
-	readonly property real vPadding: Theme.sizes.inner_margin
+    readonly property real hPadding: Theme.sizes.rounding + Theme.sizes.inner_margin
+    readonly property real vPadding: Theme.sizes.inner_margin
 
     implicitWidth: contentRect.implicitWidth + hPadding * 2
     implicitHeight: visible ? contentRect.implicitHeight + vPadding * 2 : 1
@@ -34,7 +38,7 @@ PopupWindow {
 
     component Anim: PropertyAnimation {
         duration: 240
-        easing.type: Easing.OutCubic
+        easing.type: Easing.OutQuad
     }
     Behavior on implicitHeight { Anim {} }
 
@@ -101,15 +105,19 @@ PopupWindow {
     Rectangle {
         id: contentRect
 
-		anchors.centerIn: parent
-		anchors.leftMargin: root.hPadding
-		anchors.rightMargin: root.hPadding
-		anchors.topMargin: root.vPadding
-		anchors.bottomMargin: root.vPadding
+        anchors {
+			top: parent.top
+			left: parent.left 
 
-		color: "transparent"
+            leftMargin: root.hPadding
+            rightMargin: root.hPadding
+            topMargin: root.vPadding
+            bottomMargin: root.vPadding
+        }
 
-		clip: true
+        color: "transparent"
+
+        clip: true
 
         implicitWidth: content.childrenRect.width
         implicitHeight: content.childrenRect.height

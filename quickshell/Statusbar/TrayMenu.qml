@@ -41,10 +41,10 @@ StyledPopup {
         }
     }
 
-	MouseArea {
+    MouseArea {
 		anchors.centerIn: parent
-		implicitWidth: stack.implicitWidth
-		implicitHeight: stack.implicitHeight
+        implicitWidth: stack.implicitWidth
+        implicitHeight: stack.implicitHeight
 
         hoverEnabled: true
         acceptedButtons: Qt.NoButton
@@ -134,7 +134,10 @@ StyledPopup {
             id: repeater
             model: opener.children
 
-            onModelChanged: { if (model.values.length === 0) stack.pop(); }
+            onModelChanged: {
+                if (model.values.length === 0)
+                    stack.pop();
+            }
 
             delegate: TrayMenuEntry {
                 required property var modelData
