@@ -1,3 +1,10 @@
+hl.window_rule({
+	name = "Zen-no-blur-opacity",
+	match = { class = "zen", },
+	no_blur = true,
+	opacity = "1.0 override",
+})
+
 -- Picture-in-Picture
 hl.window_rule({
 	name = "Picture-in-Picture",

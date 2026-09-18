@@ -25,7 +25,7 @@ StyledPopup {
 
         Rectangle {
             Layout.fillWidth: true
-            color: Theme.colors.fg
+            color: Theme.colors.brc
             implicitHeight: 1
             visible: !root.noConnected
         }

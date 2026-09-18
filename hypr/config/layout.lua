@@ -10,8 +10,8 @@ hl.config({
 		allow_tearing = false,
 
 		col           = {
-			active_border   = { colors = { Secondary, OnSecondary }, angle = 45 },
-			inactive_border = OnSecondary,
+			active_border   = PrimaryContainer,
+			inactive_border = SurfaceContainerHighest,
 		}
 	},
 })
