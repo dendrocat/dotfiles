@@ -9,7 +9,7 @@ hl.env("LANG", "ru_RU.UTF-8")
 hl.env("LC_ALL", "ru_RU.UTF-8")
 hl.config({
 	general = {
-		locale = "ru_RU.UTF-8",
+		locale = "ru_RU",
 	},
 })
 

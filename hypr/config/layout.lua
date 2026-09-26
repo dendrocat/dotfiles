@@ -3,8 +3,8 @@ hl.config({
 	general = {
 		layout        = "scrolling",
 
-		gaps_out      = 7,
-		gaps_in       = 5,
+		gaps_out      = 5,
+		gaps_in       = 2,
 
 		border_size   = 2,
 		allow_tearing = false,
@@ -19,28 +19,15 @@ hl.config({
 -- Decorations
 hl.config({
 	decoration = {
-		rounding           = 5,
-		rounding_power     = 2,
+		rounding       = 5,
+		rounding_power = 2,
 
-		active_opacity     = 1.0,
-		inactive_opacity   = 0.9,
-		fullscreen_opacity = 1.0,
-
-		shadow             = {
-			enabled      = false,
-			range        = 16,
-			render_power = 2,
-			color        = "rgba(00000050)",
+		shadow         = {
+			enabled = false,
 		},
 
-		blur               = {
-			enabled           = true,
-			size              = 4,
-			passes            = 4,
-			new_optimizations = true,
-			ignore_opacity    = true,
-			xray              = true,
-			vibrancy          = 0.1696,
+		blur           = {
+			enabled = false,
 		},
 	},
 })
