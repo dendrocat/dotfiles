@@ -29,8 +29,8 @@ ScrollMouseArea {
         }
     }
 
-    onScrollUp: BrightnessService.increaseBrightness()
-    onScrollDown: BrightnessService.decreaseBrightness()
+    onScrollUp: BrightnessService.incrementBrightness()
+    onScrollDown: BrightnessService.decrementBrightness()
 
 	BrightnessTooltip {
 		anchorItem: root

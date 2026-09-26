@@ -31,7 +31,7 @@ Singleton {
         readonly property bool isEthernet: device.type === DeviceType.Wired
 
         readonly property real strength: {
-            if (isEthernet) return device.hasLink ? 1 : 0;
+            if (isEthernet) return device.hasLink ? 1 : 0; // qmllint disable missing-property
             return activeNetwork?.signalStrength ?? 0;
         }
         readonly property string name: activeNetwork?.name ?? ""
@@ -39,7 +39,7 @@ Singleton {
 
         function updateActiveNetwork(e: string) {
             const dev = model.device;
-            if (dev.type === DeviceType.Wired) { activeNetwork = dev.network; return; }
+            if (dev.type === DeviceType.Wired) { activeNetwork = dev.network; return; } // qmllint disable missing-property
 
             activeNetwork = dev.networks.values.find(n => n.connected);
             if (!activeNetwork && dev.connected) { retryTimer.restart(); return; }

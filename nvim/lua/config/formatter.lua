@@ -19,7 +19,7 @@ config.formatters.prettier = {
 		'--require-pragma', 'false',
 		'--semi', 'false',
 		'--single-quote', 'true',
-		'--tab-width', '2',
+		'--tab-width', '4',
 		'--trailing-comma', 'es5',
 		'--use-tabs', 'true',
 		'--embedded-language-formatting', 'auto',

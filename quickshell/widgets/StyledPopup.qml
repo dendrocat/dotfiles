@@ -1,5 +1,4 @@
 import QtQuick
-import Qt5Compat.GraphicalEffects
 import Quickshell
 import qs.widgets
 import qs.config
@@ -23,8 +22,8 @@ PopupWindow {
     property real tooltipWidth: contentRect.implicitWidth
     property real tooltipHeight: contentRect.implicitHeight
 
-    readonly property real hPadding: Theme.sizes.rounding + Theme.sizes.inner_margin
-    readonly property real vPadding: Theme.sizes.inner_margin
+    readonly property real hPadding: Theme.sizes.rounding + Theme.sizes.inner_margin // qmllint disable missing-property 
+    readonly property real vPadding: Theme.sizes.inner_margin // qmllint disable missing-property
 
     implicitWidth: contentRect.implicitWidth + hPadding * 2
     implicitHeight: visible ? contentRect.implicitHeight + vPadding * 2 : 1
@@ -47,9 +46,9 @@ PopupWindow {
     anchor {
         item: root.anchorItem
         rect.x: {
-            if (isLeft) return -Theme.sizes.rounding;
+            if (isLeft) return -Theme.sizes.rounding; // qmllint disable missing-property
             if (isCenter) return anchorItem.width / 2;
-            return anchorItem.width + Theme.sizes.rounding;
+            return anchorItem.width + Theme.sizes.rounding; // qmllint disable missing-property
         }
         rect.y: Theme.sizes.height - shift.y // qmllint disable missing-property
         edges: { // qmllint disable missing-type

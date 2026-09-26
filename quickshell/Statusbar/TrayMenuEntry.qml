@@ -16,41 +16,41 @@ MouseArea {
     property int itemWidth: 0
     readonly property int rowWidth: row.width
 
-	readonly property int spacing: 10
+    readonly property int spacing: 10
 
-    implicitWidth: itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.sizes.margin
+    implicitWidth: itemWidth + (submenuIcon.implicitWidth + root.spacing) + Theme.sizes.margin // qmllint disable missing-property
     implicitHeight: root.isSeparator() ? spacing : row.implicitHeight + 6
 
-    function isSeparator() { return root.entry?.isSeparator ?? true; }
-    function isEnabled() { return root.entry?.enabled ?? false; }
-    function icon() { return root.entry?.icon ?? ""; }
-    function hasSubmenu() { return root.entry?.hasChildren ?? false; }
+    function isSeparator()	{ return root.entry?.isSeparator ?? true; }
+    function isEnabled()	{ return root.entry?.enabled ?? false; }
+    function icon()			{ return root.entry?.icon ?? ""; }
+    function hasSubmenu()	{ return root.entry?.hasChildren ?? false; }
 
     Rectangle {
         anchors.fill: parent
         color: Theme._colors.primary_container
         opacity: 0.5
         border.width: 1
-        border.color: Theme.colors.fg
+        border.color: Theme.colors.fg // qmllint disable missing-property
         radius: 5
 
         visible: root.containsMouse && !root.isSeparator() && root.isEnabled()
     }
 
-	Rectangle {
-		anchors.centerIn: parent
+    Rectangle {
+        anchors.centerIn: parent
 
-		implicitHeight: 1
-		implicitWidth: root.implicitWidth
+        implicitHeight: 1
+        implicitWidth: root.implicitWidth
 
-		color: Theme.colors.brc
-		visible: root.isSeparator()
-	}
+        color: Theme.colors.sep // qmllint disable missing-property
+        visible: root.isSeparator()
+    }
 
     RowLayout {
         id: row
         anchors.verticalCenter: parent.verticalCenter
-		spacing: 0
+        spacing: 0
 
         Image {
             Layout.leftMargin: root.spacing
@@ -65,22 +65,22 @@ MouseArea {
             Layout.fillWidth: true
 
             text: root.entry?.text ?? ""
-            size: Theme.font.sizes.small
+            size: Theme.font.sizes.small // qmllint disable missing-property
 
-            color: root.isEnabled() ? Theme.colors.fg : Theme.colors.on_bg
+            color: root.isEnabled() ? Theme.colors.fg : Theme.colors.on_bg // qmllint disable missing-property
         }
     }
 
     Icon {
-		id: submenuIcon
+        id: submenuIcon
 
-		anchors.verticalCenter: parent.verticalCenter
-		anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
 
         icon: "chevron_right"
         visible: root.hasSubmenu()
 
-        color: Theme.colors.fg
+        color: Theme.colors.fg // qmllint disable missing-property
     }
 
     signal action

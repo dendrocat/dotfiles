@@ -15,7 +15,7 @@ hl.bind(mod .. " + K", hl.dsp.layout("focus u"),	{ description = "Move focus up"
 hl.bind(mod .. " + J", hl.dsp.layout("focus d"),	{ description = "Move focus down" })
 
 -- Widnow resize
-hl.bind(mod .. " + CTRL + R",	hl.dsp.layout("colresize +conf"),								{ repeating = true, description = "Resize column" })
+hl.bind(mod .. " + R",	hl.dsp.layout("colresize +conf"),								{ repeating = true, description = "Resize column" })
 hl.bind(mod .. " + CTRL + L",	hl.dsp.window.resize({ x = 100,	 y = 0,		relative = true }),	{ repeating = true, description = "Increase window width with keyboard" })
 hl.bind(mod .. " + CTRL + H",	hl.dsp.window.resize({ x = -100, y = 0,		relative = true }),	{ repeating = true, description = "Reduce window width with keyboard" })
 hl.bind(mod .. " + CTRL + K",	hl.dsp.window.resize({ x = 0,	 y = 100,	relative = true }),	{ repeating = true, description = "Increase window height with keyboard" })
@@ -48,14 +48,14 @@ hl.bind("ALT + mouse:273", hl.dsp.window.resize(),							{ mouse = true, descrip
 hl.bind("ALT + mouse:274", hl.dsp.window.resize({ keep_aspect_ratio = 1 }), { mouse = true, description = "Resize with aspect ratio window with the middle mouse" })
 
 -- Volume
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(qsIpc .. "audio increment"),	{ locked = true, repeating = true, description = "Raise volume" })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(qsIpc .. "audio decrement"),	{ locked = true, repeating = true, description = "Lower volume" })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(qsIpc .. "audio increment"),	{ locked = true, repeating = true, description = "Increment volume" })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(qsIpc .. "audio decrement"),	{ locked = true, repeating = true, description = "Decrement volume" })
 hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(qsIpc .. "audio mute"),			{ locked = true, repeating = true, description = "Mute audio" })
 hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd(qsIpc .. "micro mute"),			{ locked = true, repeating = true, description = "Mute microphone" })
 
 -- Brightness
-hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(qsIpc .. "brightness increment "), { locked = true, repeating = true, description = "Increase brightness" })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(qsIpc .. "brightness decrement"),	{ locked = true, repeating = true, description = "Decrease brightness" })
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(qsIpc .. "brightness increment"),	{ locked = true, repeating = true, description = "Increment brightness" })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(qsIpc .. "brightness decrement"),	{ locked = true, repeating = true, description = "Decrement brightness" })
 
 -- Screenshot
 hl.bind("Print", function()

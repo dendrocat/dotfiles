@@ -1,7 +1,7 @@
 pragma Singleton
-
 import Quickshell
 import Quickshell.Services.Pipewire
+import Quickshell.Io
 import qs.config
 
 Singleton {
@@ -46,4 +46,19 @@ Singleton {
         if (node.description.length !== 0) return node.description;
         return node.name;
     }
+
+	IpcHandler {
+		target: "audio"
+
+		function increment()	{ root.incrementVolume(root.sink);	}
+		function decrement()	{ root.decrementVolume(root.sink);	}
+		function mute()			{ root.toggleMute(root.sink);		}
+	}
+	IpcHandler {
+		target: "micro"
+
+		function increment()	{ root.incrementVolume(root.source);	}
+		function decrement()	{ root.decrementVolume(root.source);	}
+		function mute()			{ root.toggleMute(root.source);			}
+	}
 }

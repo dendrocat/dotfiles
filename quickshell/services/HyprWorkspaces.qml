@@ -12,7 +12,7 @@ Singleton {
 
     function updateWorkspaces() {
         const ws = Hyprland.workspaces.values;
-        const persistent = Config.workspace.persistent;
+        const persistent = Config.workspace.persistent; // qmllint disable missing-property
 
 		const normal = Array.from({ length: persistent }, () => undefined);
 		const after = [];

@@ -11,7 +11,7 @@ Item {
     Rectangle {
         anchors.fill: parent
         radius: root.implicitHeight
-		color: Theme.workspace.bg
+		color: Theme.workspace.bg // qmllint disable missing-property
     }
 
     TextMetrics {

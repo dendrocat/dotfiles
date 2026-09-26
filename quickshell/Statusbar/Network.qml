@@ -11,8 +11,8 @@ MouseArea {
     acceptedButtons: Qt.LeftButton | Qt.RightButton
     hoverEnabled: true
 
-	implicitWidth: Theme.sizes.inner_height
-	implicitHeight: Theme.sizes.inner_height
+	implicitWidth: Theme.sizes.inner_height // qmllint disable missing-property
+	implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
 
     readonly property real value: NetworkService.strength
 
@@ -28,7 +28,7 @@ MouseArea {
 		anchors.margins: 2
 
 		radius: height / 4
-		color: Theme.colors.on_bg
+		color: Theme.colors.on_bg // qmllint disable missing-property
 		visible: root.containsMouse
 	}
 
@@ -44,7 +44,7 @@ MouseArea {
             const idx = Math.min(n - 1, Math.floor(root.value * n));
             return root.icons[idx];
         }
-        color: Theme.colors.fg
+        color: Theme.colors.fg // qmllint disable missing-property
     }
 
     onClicked: e => {

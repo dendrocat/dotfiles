@@ -15,28 +15,27 @@ StyledPopup {
 
         StyledText {
             text: `Battery ${BatteryService.battery?.device.model ?? ""}`
-
         }
 
         Rectangle {
             Layout.fillWidth: true
-            color: Theme.colors.brc
+            color: Theme.colors.sep
             implicitHeight: 1
         }
 
         StyledText {
             text: `Empty in ${DateTime.formatSecondsTime(BatteryService.timeToEmpty)}`
-			visible: BatteryService.isOnBattery
+            visible: BatteryService.isOnBattery
         }
         StyledText {
             text: `Full in ${DateTime.formatSecondsTime(BatteryService.timeToFull)}`
-			visible: BatteryService.isPlugged
+            visible: BatteryService.isPlugged
         }
         StyledText {
-			text: `Usage: ${BatteryService.energyRate.toFixed(2)} W`
+            text: `Usage: ${BatteryService.energyRate.toFixed(2)} W`
         }
         StyledText {
-			text: `Condition: ${BatteryService.health.toFixed(2)}%`
+            text: `Condition: ${BatteryService.health.toFixed(2)}%`
         }
     }
 }

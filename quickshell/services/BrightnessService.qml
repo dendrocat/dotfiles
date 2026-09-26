@@ -37,11 +37,11 @@ Singleton {
         Quickshell.execDetached(["brightnessctl", "s", `${rounded}%`]);
     }
 
-    function increaseBrightness() {
+    function incrementBrightness() {
         setBrightness(brightness + Config.brightness.step); // qmllint disable missing-property
     }
 
-    function decreaseBrightness() {
+    function decrementBrightness() {
         setBrightness(brightness - Config.brightness.step); // qmllint disable missing-property
     }
 
@@ -52,9 +52,9 @@ Singleton {
     IpcHandler {
         target: "brightness"
 
-        function increment()	{ root.increaseBrightness(); }
-        function decrement()	{ root.decreaseBrightness(); }
-		function low()			{ root.setBrightness(Config.brightness.low); }
-		function restore()		{ root.setBrightness(Config.brightness.base); }
+        function increment()	{ root.incrementBrightness(); }
+        function decrement()	{ root.decrementBrightness(); }
+        function low()			{ root.setBrightness(Config.brightness.low); } // qmllint disable missing-property
+        function restore()		{ root.setBrightness(Config.brightness.base); } // qmllint disable missing-property
     }
 }

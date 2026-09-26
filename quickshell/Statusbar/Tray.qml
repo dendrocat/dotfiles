@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import QtQuick.Layouts
-import Quickshell
 import Quickshell.Services.SystemTray
 import qs.config
 
@@ -45,7 +44,7 @@ Item {
 
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
 
-				property int size: Theme.sizes.inner_height - Theme.sizes.inner_margin / 2
+				property int size: Theme.sizes.inner_height - Theme.sizes.inner_margin / 2 // qmllint disable missing-property
                 implicitHeight: size
                 implicitWidth: size
 
@@ -59,7 +58,7 @@ Item {
                 onClicked: e => {
                     if (e.button === Qt.LeftButton) modelData.activate();
                     else {
-                        if (menu.active) menu.modelData.close();
+                        if (menu.active) menu.modelData.close(); // qmllint disable missing-property
                         else menu.open();
                     }
                     e.accepted = true;

@@ -21,7 +21,7 @@ Singleton {
             property int normal: 16
             property int large: 17
 
-			property int icon: 19
+            property int icon: 19
         }
     }
 
@@ -32,7 +32,7 @@ Singleton {
         readonly property int inner_height: 26
         readonly property int inner_margin: 8
 
-        readonly property int rounding: 16
+        readonly property int rounding: 10
         readonly property int spacing: 15
     }
 
@@ -41,7 +41,7 @@ Singleton {
         readonly property color bg: root._colors.surface_container_low
         // readonly property color bg_alt: root._colors.surface_container_high
         readonly property color on_bg: root._colors.secondary_container
-        readonly property color brc: root._colors.surface_bright
+        readonly property color sep: root._colors.surface_bright
 
         readonly property color error: root._colors.error
     }

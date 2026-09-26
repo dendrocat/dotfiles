@@ -64,7 +64,7 @@ StyledPopup {
             implicitHeight: currentItem.implicitHeight
 
             initialItem: Menu {
-                handle: root.menuHandle
+                handle: root.menuHandle // qmllint disable missing-property
             }
         }
     }
@@ -109,7 +109,7 @@ StyledPopup {
                     color: Theme._colors.primary_container
                     opacity: 0.5
                     border.width: 1
-                    border.color: Theme.colors.fg
+                    border.color: Theme.colors.fg // qmllint disable missing-property
                     radius: 5
 
                     visible: mouse.containsMouse
@@ -120,7 +120,7 @@ StyledPopup {
                     Icon {
                         Layout.leftMargin: 5
                         icon: "chevron_left"
-                        color: Theme.colors.fg
+                        color: Theme.colors.fg // qmllint disable missing-property
                     }
 
                     StyledText {
@@ -151,7 +151,7 @@ StyledPopup {
                 let max = 0;
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);
-                    if (item) max = Math.max(max, Math.round(item.rowWidth));
+                    if (item) max = Math.max(max, Math.round(item.rowWidth)); // qmllint disable missing-property
                 }
                 for (let i = 0; i < repeater.count; ++i) {
                     const item = repeater.itemAt(i);

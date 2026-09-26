@@ -11,6 +11,6 @@ StyledPopup {
     StyledText {
         id: text
 		anchors.centerIn: parent
-        text: `${AudioService.readableName(node)} ${Math.round(AudioService.volume(node) * 100)}%`
+        text: `${AudioService.readableName(root.node)} ${Math.round(AudioService.volume(root.node) * 100)}%`
     }
 }
