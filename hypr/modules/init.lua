@@ -1,10 +1,10 @@
-require("config.monitors")
-require("config.keys")
-require("config.input")
+require("modules.monitors")
+require("modules.keys")
+require("modules.input")
 
-require("config.layout")
-require("config.animations")
-require("config.windowrules")
+require("modules.layout")
+require("modules.animations")
+require("modules.windowrules")
 
 -- Misc
 hl.config({

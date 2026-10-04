@@ -5,6 +5,12 @@ hl.window_rule({
 	opacity = "1.0 override",
 })
 
+hl.window_rule({
+	name = "float-center",
+	match = { float = true },
+	center = true,
+})
+
 -- Picture-in-Picture
 hl.window_rule({
 	name = "Picture-in-Picture",

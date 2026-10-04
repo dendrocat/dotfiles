@@ -3,16 +3,17 @@ local mod = "SUPER"
 local qsIpc = "qs ipc call "
 
 -- Base apps
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd(TERMINAL),				{ description = "Open terminal" })
-hl.bind(mod .. " + B",		hl.dsp.exec_cmd(BROWSER),				{ description = "Open browser" })
-hl.bind(mod .. " + E",		hl.dsp.exec_cmd(FILE_MANAGER),			{ description = "Open filemanager" })
-hl.bind(mod .. " + SPACE",	hl.dsp.exec_cmd(LAUNCHER .. " drun"),	{ description = "Open application laucher" })
+hl.bind(mod .. " + Return",		hl.dsp.exec_cmd(TERMINAL),				{ description = "Open terminal" })
+hl.bind(mod .. " + B",			hl.dsp.exec_cmd(BROWSER),				{ description = "Open browser" })
+hl.bind(mod .. " + SHIFT + B",	hl.dsp.exec_cmd(ALT_BROWSER),			{ description = "Open alternative browser" })
+hl.bind(mod .. " + E",			hl.dsp.exec_cmd(FILE_MANAGER),			{ description = "Open filemanager" })
+hl.bind(mod .. " + SPACE",		hl.dsp.exec_cmd(LAUNCHER .. " drun"),	{ description = "Open application laucher" })
 
 -- Window focus
-hl.bind(mod .. " + H", hl.dsp.layout("focus l"),	{ description = "Move focus left" })
-hl.bind(mod .. " + L", hl.dsp.layout("focus r"),	{ description = "Move focus right" })
-hl.bind(mod .. " + K", hl.dsp.layout("focus u"),	{ description = "Move focus up" })
-hl.bind(mod .. " + J", hl.dsp.layout("focus d"),	{ description = "Move focus down" })
+hl.bind(mod .. " + H", hl.dsp.layout("focus l"),		{ description = "Move focus left" })
+hl.bind(mod .. " + L", hl.dsp.layout("focus r"),		{ description = "Move focus right" })
+hl.bind(mod .. " + K", hl.dsp.focus({direction = "u"}),	{ description = "Move focus up" })
+hl.bind(mod .. " + J", hl.dsp.focus({direction = "d"}),	{ description = "Move focus down" })
 
 -- Widnow resize
 hl.bind(mod .. " + R",	hl.dsp.layout("colresize +conf"),								{ repeating = true, description = "Resize column" })
