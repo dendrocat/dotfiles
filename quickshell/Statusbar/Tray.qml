@@ -58,7 +58,7 @@ Item {
                 onClicked: e => {
                     if (e.button === Qt.LeftButton) modelData.activate();
                     else {
-                        if (menu.active) menu.modelData.close(); // qmllint disable missing-property
+                        if (menu.active) menu.item.close(); // qmllint disable missing-property
                         else menu.open();
                     }
                     e.accepted = true;

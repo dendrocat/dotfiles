@@ -1,7 +1,7 @@
 @import                         "colors.rasi"
 
 * {
-	font:						"JetBrainsMono NF 11";
+	font:						"Google Sans Flex 12";
 
 	fg:							@primary;
 	bg:							@surface-container-low;
@@ -52,6 +52,7 @@ inputbar {
 }
 
 prompt {
+	font:						"JetBrainsMonoNL NF 12";
     text-color:                 inherit;
     background-color:           inherit;
 }

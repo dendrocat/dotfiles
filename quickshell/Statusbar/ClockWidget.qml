@@ -8,8 +8,8 @@ import qs.config
 MouseArea {
     id: root
 
-	acceptedButtons: Qt.LeftButton
-	hoverEnabled: true
+    acceptedButtons: Qt.LeftButton
+    hoverEnabled: true
 
     implicitHeight: Theme.sizes.height // qmllint disable missing-property
     implicitWidth: layout.width
@@ -38,13 +38,12 @@ MouseArea {
             id: dateText
 
             text: DateTime.date
-            size: Theme.font.sizes.small // qmllint disable missing-property
         }
     }
 
-	TimeTooltip {
-		anchorItem: root
-		side: StyledPopup.WindowSide.Center
-		visible: root.containsMouse
-	}
+    TimeTooltip {
+        anchorItem: root
+        side: StyledPopup.WindowSide.Center
+        visible: root.containsMouse
+    }
 }

@@ -32,7 +32,7 @@ PopupWindow {
 
     property point shift
     Component.onCompleted: {
-        shift = anchorItem.mapToGlobal(anchorItem.x, anchorItem.y);
+        shift = anchorItem.mapToItem(null, anchorItem.x, anchorItem.y);
     }
 
     component Anim: PropertyAnimation {

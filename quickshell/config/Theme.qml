@@ -9,17 +9,17 @@ Singleton {
 
     readonly property QtObject font: QtObject {
         readonly property QtObject family: QtObject {
-            readonly property string normal: "Adwaita Sans"
+            readonly property string normal: "Google Sans Flex"
             readonly property string monospace: "JetBrainsMono NF"
             readonly property string icon: "Material Symbols Rounded"
         }
 
         readonly property QtObject sizes: QtObject {
-            property int smallest: 11
-            property int smaller: 13
+            property int smallest: 10
+            property int smaller: 12
             property int small: 15
             property int normal: 16
-            property int large: 17
+            property int large: 18
 
             property int icon: 19
         }
@@ -54,9 +54,6 @@ Singleton {
     }
 
     readonly property QtObject battery: QtObject {
-        readonly property string chargeIcon: "󱐋"
-        readonly property string pluggedIcon: ""
-
         readonly property color criticalColor: "#dc143c"
         readonly property color lowColor: "#f5c71a"
         readonly property color chargeColor: "#3cb371"

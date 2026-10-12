@@ -39,13 +39,14 @@ MouseArea {
         RowLayout {
             id: row
             anchors.centerIn: parent
-            height: Math.max(parent.implicitHeight, icon.implicitHeight)
+            implicitHeight: Math.max(parent.implicitHeight, icon.implicitHeight)
+
             spacing: 2
 
             Icon {
                 id: icon
-                Layout.leftMargin: -6
-				Layout.alignment: Qt.AlignBaseline
+                Layout.leftMargin: -4
+                Layout.topMargin: 3
 
                 icon: root.isCharging ? "bolt" : "usb"
                 size: Theme.font.sizes.normal // qmllint disable missing-property
@@ -54,7 +55,6 @@ MouseArea {
 
             StyledText {
                 text: Math.round(root.value * 100)
-                size: Theme.font.sizes.small // qmllint disable missing-property
 
                 color: Theme.colors.bg // qmllint disable missing-property
             }

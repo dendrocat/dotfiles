@@ -35,7 +35,6 @@ StyledPopup {
                 const deviceStrings = BluetoothService.connectedDevices.map((d, idx) => `${String(idx + 1).padStart(2, ' ')}. ${d.name} (${Math.round(d.battery * 100)}%)`);
                 return deviceStrings.join("\n");
             }
-            size: Theme.font.sizes.small // qmllint disable missing-property
             visible: !root.noConnected
         }
     }

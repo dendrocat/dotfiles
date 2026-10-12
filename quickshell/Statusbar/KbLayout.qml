@@ -28,6 +28,5 @@ Item {
         anchors.centerIn: parent
 
         text: HyprKb.layout
-        size: Theme.font.sizes.small // qmllint disable missing-property
     }
 }

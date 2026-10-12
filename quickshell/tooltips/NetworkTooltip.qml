@@ -31,7 +31,6 @@ StyledPopup {
                 required property var modelData
 
                 spacing: 5
-                readonly property int size: Theme.font.sizes.small // qmllint disable missing-property
 
                 Icon {
                     icon: networkItem.modelData.connected ? "adjust" : "circle"
@@ -43,7 +42,6 @@ StyledPopup {
                             return `${networkItem.modelData.name} (${Math.round(networkItem.modelData.strength * 100)}%, ${networkItem.modelData.type})`;
                         return `No connection (${networkItem.modelData.type})`;
                     }
-                    size: networkItem.size
                 }
             }
         }
