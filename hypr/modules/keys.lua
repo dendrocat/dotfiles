@@ -16,7 +16,7 @@ hl.bind(mod .. " + K", hl.dsp.focus({direction = "u"}),	{ description = "Move fo
 hl.bind(mod .. " + J", hl.dsp.focus({direction = "d"}),	{ description = "Move focus down" })
 
 -- Widnow resize
-hl.bind(mod .. " + R",	hl.dsp.layout("colresize +conf"),								{ repeating = true, description = "Resize column" })
+hl.bind(mod .. " + R",	hl.dsp.layout("colresize -conf"),								{ repeating = true, description = "Resize column" })
 hl.bind(mod .. " + CTRL + L",	hl.dsp.window.resize({ x = 100,	 y = 0,		relative = true }),	{ repeating = true, description = "Increase window width with keyboard" })
 hl.bind(mod .. " + CTRL + H",	hl.dsp.window.resize({ x = -100, y = 0,		relative = true }),	{ repeating = true, description = "Reduce window width with keyboard" })
 hl.bind(mod .. " + CTRL + K",	hl.dsp.window.resize({ x = 0,	 y = 100,	relative = true }),	{ repeating = true, description = "Increase window height with keyboard" })
@@ -39,6 +39,7 @@ end
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),	{ description = "Toggle Fullscreen" })
 hl.bind(mod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),		{ description = "Toggle Maximize Window" })
 hl.bind(mod .. " + T", hl.dsp.window.float({ action = "toggle" }),								{ description = "Toggle Floating" })
+hl.bind(mod .. " + C", hl.dsp.window.center())
 
 -- Close window
 hl.bind(mod .. " + Q", hl.dsp.window.close())

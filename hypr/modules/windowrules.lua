@@ -73,6 +73,14 @@ hl.window_rule({
 	size = { 350, 600 },
 })
 
+hl.window_rule({
+	name = "sfml-test",
+	match = { title = "sfml" },
+
+	float = true,
+	center = true,
+})
+
 -- Swaync
 hl.layer_rule({
 	match = { namespace = "^(swaync-control-center)$" },
