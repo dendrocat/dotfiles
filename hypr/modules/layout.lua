@@ -10,7 +10,7 @@ hl.config({
 		allow_tearing = false,
 
 		col           = {
-			active_border   = PrimaryContainer,
+			active_border   = InversePrimary,
 			inactive_border = SurfaceContainerHighest,
 		}
 	},

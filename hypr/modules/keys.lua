@@ -45,9 +45,9 @@ hl.bind(mod .. " + C", hl.dsp.window.center())
 hl.bind(mod .. " + Q", hl.dsp.window.close())
 
 -- Mouse
-hl.bind("ALT + mouse:272", hl.dsp.window.drag(),							{ mouse = true, description = "Move window with the left mouse" })
-hl.bind("ALT + mouse:273", hl.dsp.window.resize(),							{ mouse = true, description = "Resize window with the right mouse" })
-hl.bind("ALT + mouse:274", hl.dsp.window.resize({ keep_aspect_ratio = 1 }), { mouse = true, description = "Resize with aspect ratio window with the middle mouse" })
+hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),							{ mouse = true, description = "Move window with the left mouse" })
+hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(),							{ mouse = true, description = "Resize window with the right mouse" })
+hl.bind(mod .. " + mouse:274", hl.dsp.window.resize({ keep_aspect_ratio = 1 }), { mouse = true, description = "Resize with aspect ratio window with the middle mouse" })
 
 -- Volume
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(qsIpc .. "audio increment"),	{ locked = true, repeating = true, description = "Increment volume" })
