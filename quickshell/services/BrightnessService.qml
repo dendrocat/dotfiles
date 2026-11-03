@@ -7,6 +7,7 @@ import qs.config
 
 Singleton {
     id: root
+    property real previous: 0
     property real brightness: 0
 
     readonly property Process initProc: Process {
@@ -16,25 +17,20 @@ Singleton {
             onStreamFinished: {
                 const [cur, max] = text.split(" ");
                 root.brightness = cur / max;
-                updateTimer.running = true;
             }
         }
     }
 
-    Timer {
-        id: updateTimer
-        interval: 10000
-        repeat: true
-        onTriggered: root.initProc.running = true
-    }
-
-    function setBrightness(value: real) {
-        value = Math.max(0, Math.min(1, value));
+    function setBrightness(value: real, save = false) {
+        value = Math.max(0.05, Math.min(1, value));
         const rounded = Math.round(value * 100);
 
         if (Math.round(brightness * 100) === rounded) return;
+		previous = brightness;
         brightness = value;
-        Quickshell.execDetached(["brightnessctl", "s", `${rounded}%`]);
+		let arr = ["brightnessctl", "s", `${rounded}%`]
+		if (save) arr.push("-s")
+        Quickshell.execDetached(arr);
     }
 
     function incrementBrightness() {
@@ -54,7 +50,7 @@ Singleton {
 
         function increment()	{ root.incrementBrightness(); }
         function decrement()	{ root.decrementBrightness(); }
-        function low()			{ root.setBrightness(Config.brightness.low); } // qmllint disable missing-property
-        function restore()		{ root.setBrightness(Config.brightness.base); } // qmllint disable missing-property
+        function low()			{ root.setBrightness(Config.brightness.low, true); } // qmllint disable missing-property
+        function restore()		{ root.setBrightness(root.previous); } // qmllint disable missing-property
     }
 }

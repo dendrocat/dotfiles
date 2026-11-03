@@ -1,4 +1,5 @@
 pragma Singleton
+
 import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Io

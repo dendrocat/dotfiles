@@ -18,10 +18,10 @@ ScrollMouseArea {
     required property string mutedIcon
     required property list<string> icons
 
-	acceptedButtons: Qt.LeftButton | Qt.RightButton
-	hoverEnabled: true
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
+    hoverEnabled: true
 
-	signal openControls()
+    signal openControls
 
     FilledCircularProgress {
         size: root.implicitHeight
@@ -36,25 +36,28 @@ ScrollMouseArea {
             icon: {
                 if (root.muted) return root.mutedIcon;
                 if (root.icons.length == 1) return root.icons[0];
-				const n = root.icons.length
+                const n = root.icons.length;
                 const idx = Math.min(n - 1, Math.floor(root.value * n));
                 return root.icons[idx];
             }
+			color: Utils.lerpColorSmoothed(Theme.colors.fg, Theme.colors.bg, root.value) // qmllint disable missing-property
+
+			outline: true
+			outlineColor: Utils.lerpColorSmoothed(Theme.colors.bg, Theme.colors.fg, Utils.normalize(root.value, 0.3, 0.6)) // qmllint disable missing-property
         }
     }
 
     onScrollUp: AudioService.incrementVolume(node)
     onScrollDown: AudioService.decrementVolume(node)
 
-	onClicked: event => {
-		if (event.button === Qt.LeftButton) AudioService.toggleMute(node)
-		else openControls()
-	}
+    onClicked: event => {
+        if (event.button === Qt.LeftButton) AudioService.toggleMute(node);
+        else openControls();
+    }
 
-	AudioTooltip {
-		anchorItem: root
-		node: root.node
-		visible: root.containsMouse
-	}
-
+    AudioTooltip {
+        anchorItem: root
+        node: root.node
+        visible: root.containsMouse
+    }
 }

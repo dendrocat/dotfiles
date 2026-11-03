@@ -1,7 +1,7 @@
 pragma Singleton
 
-import Quickshell
 import QtQuick
+import Quickshell
 
 Singleton {
     id: root
@@ -39,16 +39,16 @@ Singleton {
     readonly property QtObject colors: QtObject {
         readonly property color fg: root._colors.primary
         readonly property color bg: root._colors.surface_container_low
-        // readonly property color bg_alt: root._colors.surface_container_high
-        readonly property color on_bg: root._colors.secondary_container
-        readonly property color sep: root._colors.surface_bright
 
+        readonly property color on_bg: root._colors.on_secondary
+
+        readonly property color sep: root._colors.surface_bright
         readonly property color error: root._colors.error
     }
 
     readonly property QtObject workspace: QtObject {
-        readonly property color bg: root._colors.surface_container_high
-        readonly property color inactive: root._colors.surface_variant
+        readonly property color bg: root._colors.on_secondary
+        readonly property color inactive: root._colors.secondary_container
         readonly property color hover: root._colors.inverse_primary
         readonly property color active: root._colors.primary
     }

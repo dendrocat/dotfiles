@@ -8,6 +8,9 @@ Text {
     property int size: Theme.font.sizes.normal // qmllint disable missing-property
     property int weight: Font.Normal
 
+	property bool outline: false
+	property color outlineColor: Theme.colors.bg
+
     verticalAlignment: Text.AlignVCenter
 
     font {
@@ -17,4 +20,7 @@ Text {
     }
 
     color: Theme.colors.fg // qmllint disable missing-property
+
+	style: outline ? Text.Outline : Text.Normal
+	styleColor: outlineColor
 }

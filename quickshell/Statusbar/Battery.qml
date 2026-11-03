@@ -8,7 +8,7 @@ import qs.config
 MouseArea {
     id: root
 
-	hoverEnabled: true
+    hoverEnabled: true
 
     implicitHeight: Theme.sizes.inner_height // qmllint disable missing-property
     implicitWidth: bar.implicitWidth
@@ -46,24 +46,30 @@ MouseArea {
             Icon {
                 id: icon
                 Layout.leftMargin: -4
-                Layout.topMargin: 3
+                Layout.topMargin: 1
 
                 icon: root.isCharging ? "bolt" : "usb"
+                color: Utils.lerpColorSmoothed(Theme.colors.fg, Theme.colors.bg, Utils.normalize(root.value, 0.25, 0.3)) // qmllint disable missing-property
+
                 size: Theme.font.sizes.normal // qmllint disable missing-property
                 visible: root.isCharging || root.isPlugged
             }
 
             StyledText {
+                Layout.topMargin: 2.5
                 text: Math.round(root.value * 100)
 
-                color: Theme.colors.bg // qmllint disable missing-property
+                color: Utils.lerpColorSmoothed(Theme.colors.fg, Theme.colors.bg, Utils.normalize(root.value, 0.3, 0.6)) // qmllint disable missing-property
+
+                outline: true
+                outlineColor: Utils.lerpColorSmoothed(Theme.colors.bg, Theme.colors.fg, Utils.normalize(root.value, 0.3, 0.6)) // qmllint disable missing-property
             }
         }
     }
 
-	BatteryTooltip {
-		anchorItem: root
-		visible: root.containsMouse
-		// visible: true
-	}
+    BatteryTooltip {
+        anchorItem: root
+        visible: root.containsMouse
+        // visible: true
+    }
 }
