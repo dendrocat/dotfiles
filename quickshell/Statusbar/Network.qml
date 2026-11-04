@@ -28,7 +28,7 @@ MouseArea {
 		anchors.margins: 2
 
 		radius: height / 4
-		color: Theme.colors.on_bg // qmllint disable missing-property
+		color: Theme.colors.on_bg
 		visible: root.containsMouse
 	}
 
@@ -44,7 +44,7 @@ MouseArea {
             const idx = Math.min(n - 1, Math.floor(root.value * n));
             return root.icons[idx];
         }
-        color: Theme.colors.fg // qmllint disable missing-property
+        color: Theme.colors.fg
     }
 
     onClicked: e => {

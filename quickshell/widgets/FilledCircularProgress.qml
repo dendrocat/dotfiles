@@ -8,8 +8,8 @@ Item {
     property int size: Theme.sizes.inner_height // qmllint disable missing-property
     required property real value
 
-    property color progressColor: Theme.colors.fg // qmllint disable missing-property
-    property color backgroundColor: Theme.colors.on_bg // qmllint disable missing-property
+    property color progressColor: Theme.colors.fg
+    property color backgroundColor: Theme.colors.on_bg
 
     implicitWidth: size
     implicitHeight: size

@@ -106,10 +106,10 @@ StyledPopup {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: Theme._colors.primary_container
+                    color: Theme.colors.on_bg
                     opacity: 0.5
                     border.width: 1
-                    border.color: Theme.colors.fg // qmllint disable missing-property
+                    border.color: Theme.colors.fg
                     radius: 5
 
                     visible: mouse.containsMouse
@@ -120,7 +120,7 @@ StyledPopup {
                     Icon {
                         Layout.leftMargin: 5
                         icon: "chevron_left"
-                        color: Theme.colors.fg // qmllint disable missing-property
+                        color: Theme.colors.fg
                     }
 
                     StyledText {

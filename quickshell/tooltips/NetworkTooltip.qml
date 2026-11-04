@@ -34,7 +34,7 @@ StyledPopup {
 
                 Icon {
                     icon: networkItem.modelData.connected ? "adjust" : "circle"
-                    color: Theme.colors.fg // qmllint disable missing-property
+                    color: Theme.colors.fg
                 }
                 StyledText {
                     text: {

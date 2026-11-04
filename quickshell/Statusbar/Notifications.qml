@@ -15,13 +15,13 @@ MouseArea {
         anchors.margins: 2
 
         radius: height / 4
-        color: Theme.colors.on_bg // qmllint disable missing-property
+        color: Theme.colors.on_bg
 		visible: root.containsMouse
     }
 
     Icon {
         icon: "notifications"
         anchors.centerIn: parent
-        color: Theme.colors.fg // qmllint disable missing-property
+        color: Theme.colors.fg
     }
 }

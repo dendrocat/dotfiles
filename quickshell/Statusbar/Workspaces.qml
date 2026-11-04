@@ -12,7 +12,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Theme.workspace.bg // qmllint disable missing-property
+        color: Theme.workspace.bg
         radius: Theme.sizes.rounding // qmllint disable missing-property
     }
 
@@ -47,10 +47,10 @@ Item {
                     readonly property bool isFocused: !isEmpty && workspaceItem.workspace.focused
 
                     color: {
-                        if (isEmpty) return isHovered ? Theme.workspace.hover : Theme.workspace.inactive; // qmllint disable missing-property
-                        if (isFocused) return Theme.workspace.active; // qmllint disable missing-property
-                        if (isHovered) return Theme.workspace.hover; // qmllint disable missing-property
-                        return Theme.workspace.active; // qmllint disable missing-property
+						if (isEmpty) return isHovered ? Theme.workspace.hover : Theme.workspace.inactive; 
+						if (isFocused) return Theme.workspace.active;
+                        if (isHovered) return Theme.workspace.hover;
+                        return Theme.workspace.active;
                     }
 
                     Behavior on color {
@@ -67,7 +67,7 @@ Item {
                     text: workspaceItem.ws_id
                     size: Theme.font.sizes.small // qmllint disable missing-property
 
-                    color: Theme.colors.bg // qmllint disable missing-property
+                    color: Theme.colors.bg
                 }
 
                 onClicked: {

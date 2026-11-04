@@ -19,7 +19,7 @@ MouseArea {
         anchors.margins: 2
 
         radius: height / 4
-        color: Theme.colors.on_bg // qmllint disable missing-property
+        color: Theme.colors.on_bg
         visible: root.containsMouse
     }
 
@@ -32,7 +32,7 @@ MouseArea {
                 return "bluetooth_connected";
             return "bluetooth";
         }
-        color: Theme.colors.fg // qmllint disable missing-property
+        color: Theme.colors.fg
     }
 
     onClicked: {

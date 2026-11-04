@@ -5,7 +5,6 @@ import Quickshell
 
 Singleton {
     id: root
-    readonly property Colors _colors: Colors {}
 
     readonly property QtObject font: QtObject {
         readonly property QtObject family: QtObject {
@@ -36,27 +35,30 @@ Singleton {
         readonly property int spacing: 15
     }
 
-    readonly property QtObject colors: QtObject {
-        readonly property color fg: root._colors.primary
-        readonly property color bg: root._colors.surface_container_low
+    readonly property ThemeColors colors: ThemeColors {}
+    component ThemeColors: QtObject {
+        readonly property color fg: Colors.pallete.primary // qmllint disable missing-property
+        readonly property color bg: Colors.pallete.surface_container_low // qmllint disable missing-property
 
-        readonly property color on_bg: root._colors.on_secondary
+        readonly property color on_bg: Colors.pallete.on_secondary // qmllint disable missing-property
 
-        readonly property color sep: root._colors.surface_bright
-        readonly property color error: root._colors.error
+        readonly property color sep: Colors.pallete.surface_bright // qmllint disable missing-property
+        readonly property color error: Colors.pallete.error // qmllint disable missing-property
     }
 
-    readonly property QtObject workspace: QtObject {
-        readonly property color bg: root._colors.on_secondary
-        readonly property color inactive: root._colors.secondary_container
-        readonly property color hover: root._colors.inverse_primary
-        readonly property color active: root._colors.primary
+	readonly property ThemeWorkspace workspace : ThemeWorkspace {}
+    component ThemeWorkspace: QtObject {
+        readonly property color bg: Colors.pallete.on_secondary // qmllint disable missing-property
+        readonly property color inactive: Colors.pallete.secondary_container // qmllint disable missing-property
+        readonly property color hover: Colors.pallete.inverse_primary // qmllint disable missing-property
+        readonly property color active: Colors.pallete.primary // qmllint disable missing-property
     }
 
-    readonly property QtObject battery: QtObject {
+	readonly property ThemeBattery battery : ThemeBattery {}
+    component ThemeBattery: QtObject {
         readonly property color criticalColor: "#dc143c"
         readonly property color lowColor: "#f5c71a"
         readonly property color chargeColor: "#3cb371"
-        readonly property color color: root._colors.primary
+        readonly property color color: Colors.pallete.primary // qmllint disable missing-property
     }
 }

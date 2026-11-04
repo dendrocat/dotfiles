@@ -28,7 +28,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: Theme.workspace.bg // qmllint disable missing-property
+        color: Theme.workspace.bg
         radius: Theme.sizes.rounding // qmllint disable missing-property
     }
 

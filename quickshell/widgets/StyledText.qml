@@ -19,7 +19,7 @@ Text {
         weight: root.weight
     }
 
-    color: Theme.colors.fg // qmllint disable missing-property
+    color: Theme.colors.fg
 
 	style: outline ? Text.Outline : Text.Normal
 	styleColor: outlineColor

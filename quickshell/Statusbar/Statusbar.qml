@@ -35,7 +35,7 @@ Scope {
                     right: barContent.right
                 }
 
-                color: Theme.colors.bg // qmllint disable missing-property
+                color: Theme.colors.bg
             }
 
             Item {
@@ -56,7 +56,7 @@ Scope {
                     corner: RoundCorner.CornerEnum.TopLeft
 
                     implicitSize: Theme.sizes.rounding // qmllint disable missing-property
-                    color: Theme.colors.bg // qmllint disable missing-property
+                    color: Theme.colors.bg
                 }
 
                 RoundCorner {
@@ -70,7 +70,7 @@ Scope {
                     corner: RoundCorner.CornerEnum.TopRight
 
                     implicitSize: Theme.sizes.rounding // qmllint disable missing-property
-                    color: Theme.colors.bg // qmllint disable missing-property
+                    color: Theme.colors.bg
                 }
             }
 

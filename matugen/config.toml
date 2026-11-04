@@ -39,8 +39,8 @@ input_path = "~/.config/matugen/templates/colors.rasi"
 output_path = "~/.config/rofi/style/colors.rasi"
 
 [templates.quickshell]
-input_path = "~/.config/matugen/templates/quickshell.qml"
-output_path = "~/.config/quickshell/config/Colors.qml"
+input_path = "~/.config/matugen/templates/colors.json"
+output_path = "~/.config/quickshell/config/colors.json"
 
 [templates.qt5ct]
 input_path = "~/.config/matugen/templates/qt_ct.conf"

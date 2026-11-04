@@ -28,13 +28,13 @@ MouseArea {
         value: root.value
 
         progressColor: {
-            if (root.isCharging) return Theme.battery.chargeColor; // qmllint disable missing-property
-            if (root.isCritical) return Theme.battery.criticalColor; // qmllint disable missing-property
-            if (root.isLow) return Theme.battery.lowColor; // qmllint disable missing-property
-            return Theme.battery.color; // qmllint disable missing-property
+            if (root.isCharging) return Theme.battery.chargeColor;
+            if (root.isCritical) return Theme.battery.criticalColor;
+            if (root.isLow) return Theme.battery.lowColor;
+            return Theme.battery.color;
         }
 
-        backgroundColor: Theme.colors.on_bg // qmllint disable missing-property
+        backgroundColor: Theme.colors.on_bg
 
         RowLayout {
             id: row
@@ -49,7 +49,7 @@ MouseArea {
                 Layout.topMargin: 1
 
                 icon: root.isCharging ? "bolt" : "usb"
-                color: Utils.lerpColorSmoothed(Theme.colors.fg, Theme.colors.bg, Utils.normalize(root.value, 0.25, 0.3)) // qmllint disable missing-property
+                color: Colors.lerpSmoothed(Theme.colors.fg, Theme.colors.bg, Utils.normalize(root.value, 0.25, 0.3))
 
                 size: Theme.font.sizes.normal // qmllint disable missing-property
                 visible: root.isCharging || root.isPlugged
@@ -59,10 +59,10 @@ MouseArea {
                 Layout.topMargin: 2.5
                 text: Math.round(root.value * 100)
 
-                color: Utils.lerpColorSmoothed(Theme.colors.fg, Theme.colors.bg, Utils.normalize(root.value, 0.3, 0.6)) // qmllint disable missing-property
+                color: Colors.lerpSmoothed(Theme.colors.fg, Theme.colors.bg, Utils.normalize(root.value, 0.3, 0.6))
 
                 outline: true
-                outlineColor: Utils.lerpColorSmoothed(Theme.colors.bg, Theme.colors.fg, Utils.normalize(root.value, 0.3, 0.6)) // qmllint disable missing-property
+                outlineColor: Colors.lerpSmoothed(Theme.colors.bg, Theme.colors.fg, Utils.normalize(root.value, 0.3, 0.6))
             }
         }
     }
@@ -70,6 +70,5 @@ MouseArea {
     BatteryTooltip {
         anchorItem: root
         visible: root.containsMouse
-        // visible: true
     }
 }

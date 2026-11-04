@@ -26,8 +26,8 @@ ScrollMouseArea {
     FilledCircularProgress {
         size: root.implicitHeight
 
-        progressColor: Theme.colors.fg // qmllint disable missing-property
-        backgroundColor: Theme.colors.on_bg // qmllint disable missing-property
+        progressColor: Theme.colors.fg
+        backgroundColor: Theme.colors.on_bg
 
         value: root.value
 
@@ -40,10 +40,10 @@ ScrollMouseArea {
                 const idx = Math.min(n - 1, Math.floor(root.value * n));
                 return root.icons[idx];
             }
-			color: Utils.lerpColorSmoothed(Theme.colors.fg, Theme.colors.bg, root.value) // qmllint disable missing-property
+			color: Colors.lerpSmoothed(Theme.colors.fg, Theme.colors.bg, root.value)
 
 			outline: true
-			outlineColor: Utils.lerpColorSmoothed(Theme.colors.bg, Theme.colors.fg, Utils.normalize(root.value, 0.3, 0.6)) // qmllint disable missing-property
+			outlineColor: Colors.lerpSmoothed(Theme.colors.bg, Theme.colors.fg, Utils.normalize(root.value, 0.3, 0.6))
         }
     }
 

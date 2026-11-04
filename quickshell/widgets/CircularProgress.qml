@@ -8,8 +8,8 @@ Item {
     property int size: Theme.sizes.inner_height // qmllint disable missing-property
     required property real value
 
-    property color progressColor: Theme.colors.fg // qmllint disable missing-property
-    property color backgroundColor: Theme.colors.on_bg // qmllint disable missing-property
+    property color progressColor: Theme.colors.fg
+    property color backgroundColor: Theme.colors.on_bg
 
     implicitWidth: size
     implicitHeight: size
@@ -18,12 +18,6 @@ Item {
     readonly property real degree: Math.max(0, Math.min(1, value)) * 360
     readonly property real center: size / 2
     readonly property real radius: size / 2 - lineWidth
-
-    // Rectangle {
-    // 	anchors.fill: parent
-    // 	color: root.backgroundColor
-    // 	radius: root.size
-    // }
 
     Shape {
         anchors.fill: parent

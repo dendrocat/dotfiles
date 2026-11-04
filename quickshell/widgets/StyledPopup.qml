@@ -78,7 +78,7 @@ PopupWindow {
             bottomLeftRadius: 5
             bottomRightRadius: 5
 
-            color: Theme.colors.bg // qmllint disable missing-property
+            color: Theme.colors.bg
         }
 
         RoundCorner {
@@ -88,7 +88,7 @@ PopupWindow {
             anchors.right: parent.left
             anchors.rightMargin: -Theme.sizes.rounding // qmllint disable missing-property
 
-            color: Theme.colors.bg // qmllint disable missing-property
+            color: Theme.colors.bg
         }
         RoundCorner {
             corner: RoundCorner.CornerEnum.TopLeft
@@ -97,7 +97,7 @@ PopupWindow {
             anchors.left: parent.right
             anchors.leftMargin: -Theme.sizes.rounding // qmllint disable missing-property
 
-            color: Theme.colors.bg // qmllint disable missing-property
+            color: Theme.colors.bg
         }
     }
 

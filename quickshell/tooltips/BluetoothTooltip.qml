@@ -25,7 +25,7 @@ StyledPopup {
 
         Rectangle {
             Layout.fillWidth: true
-            color: Theme.colors.sep // qmllint disable missing-property
+            color: Theme.colors.sep
             implicitHeight: 1
             visible: !root.noConnected
         }
