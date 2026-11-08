@@ -37,12 +37,28 @@ config.formatters.black = {
 	stdin = true,
 }
 config.formatters.clang_format = {
-	args = { "--style={BasedOnStyle: LLVM, UseTab: Always, TabWidth: 4, IndentWidth: 4}" },
+	args = function(_, ctx)
+		local root = vim.fs.root(ctx.filename, function(name)
+			return name == ".git" or name == ".clang-format" or name == "CMakeLists.txt"
+		end) or vim.fn.getcwd()
+		local config_path = root .. "/.clang-format"
+		local style = "{BasedOnStyle: LLVM, UseTab: Always, TabWidth: 4, IndentWidth: 4}"
+
+		if vim.fn.filereadable(config_path) == 1 then
+			style = "file:" .. config_path
+		end
+
+		return {
+			"--style=" .. style,
+			"--assume-filename", "$FILENAME",
+		}
+	end,
 	stdin = true,
 }
 config.formatters['*'] = {}
 
 config.formatters_by_ft = {
+	yaml = { 'prettier' },
 	json = { 'prettier' },
 	jsonc = { 'prettier' },
 	javascript = { 'prettier' },
