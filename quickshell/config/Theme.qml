@@ -33,6 +33,9 @@ Singleton {
 
         readonly property int rounding: 10
         readonly property int spacing: 15
+
+		readonly property int edge: 35
+		readonly property int edgeRounding: 15
     }
 
     readonly property ThemeColors colors: ThemeColors {}
