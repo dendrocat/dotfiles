@@ -34,12 +34,16 @@ for i = 1, 10 do
 	hl.bind(mod .. " + " .. key,		 hl.dsp.focus({ workspace = i }),		{ description = "Focus on workspace " .. i })
 	hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }), { description = "Move window to workspace " .. i })
 end
+hl.bind(mod .. " + mouse_up",	hl.dsp.focus({ workspace = "r-1" }),	{ description = "Focus on previous workspace" })
+hl.bind("mouse:276",			hl.dsp.focus({ workspace = "r-1" }),	{ description = "Focus on previous workspace" })
+hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "r+1" }),	{ description = "Focus on next workspace" })
+hl.bind("mouse:275",			hl.dsp.focus({ workspace = "r+1" }),	{ description = "Focus on next workspace" })
 
 -- Window mods
 hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }),	{ description = "Toggle Fullscreen" })
 hl.bind(mod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }),		{ description = "Toggle Maximize Window" })
 hl.bind(mod .. " + T", hl.dsp.window.float({ action = "toggle" }),								{ description = "Toggle Floating" })
-hl.bind(mod .. " + C", hl.dsp.window.center())
+hl.bind(mod .. " + C", hl.dsp.window.center(),													{ description = "Center floating window" })
 
 -- Close window
 hl.bind(mod .. " + Q", hl.dsp.window.close())
