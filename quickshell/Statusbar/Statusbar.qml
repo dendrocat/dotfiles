@@ -33,15 +33,15 @@ Scope {
                 anchors.left: parent.left
                 anchors.bottom: parent.bottom
 
-                implicitWidth: barContent.leftWidth + Theme.sizes.edge + Theme.sizes.margin
-                implicitHeight: Theme.sizes.height
+                implicitWidth: barContent.leftWidth + Theme.sizes.edge + Theme.sizes.margin * 1.5
+                implicitHeight: Theme.sizes.height + Theme.sizes.rounding
 
                 Rectangle {
                     id: leftRect
                     anchors.left: parent.left
 
-                    implicitWidth: barContent.leftWidth + Theme.sizes.margin
-                    implicitHeight: parent.implicitHeight
+                    implicitWidth: barContent.leftWidth + Theme.sizes.margin * 1.5
+                    implicitHeight: Theme.sizes.height
 
                     color: Theme.colors.bg
                 }
@@ -51,8 +51,8 @@ Scope {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
 
-                    corner: BarEdge.Side.Left
-                    edgeHeight: parent.implicitHeight
+                    side: BarEdge.Side.Left
+                    edgeHeight: Theme.sizes.height
                     edgeWidth: Theme.sizes.edge
                 }
 
@@ -77,14 +77,14 @@ Scope {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
 
-                implicitWidth: barContent.rightWidth + Theme.sizes.edge + Theme.sizes.margin
-                implicitHeight: Theme.sizes.height
+                implicitWidth: barContent.rightWidth + Theme.sizes.edge + Theme.sizes.margin * 1.5
+                implicitHeight: Theme.sizes.height + Theme.sizes.rounding
 
                 Rectangle {
                     id: rightRect
                     anchors.right: parent.right
 
-                    implicitWidth: barContent.rightWidth + Theme.sizes.margin
+                    implicitWidth: barContent.rightWidth + Theme.sizes.margin * 1.5
                     implicitHeight: Theme.sizes.height
                     color: Theme.colors.bg
                 }
@@ -94,8 +94,8 @@ Scope {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
 
-                    corner: BarEdge.Side.Right
-                    edgeHeight: parent.implicitHeight
+                    side: BarEdge.Side.Right
+                    edgeHeight: Theme.sizes.height
                     edgeWidth: Theme.sizes.edge
                 }
 
@@ -120,14 +120,14 @@ Scope {
                 anchors.left: parent.left
                 anchors.right: parent.right
 
-                implicitWidth: barContent.centerWidth + Theme.sizes.edge * 2 + Theme.sizes.margin
+                implicitWidth: barContent.centerWidth + Theme.sizes.edge * 2 + Theme.sizes.margin * 2
                 implicitHeight: Theme.sizes.height
 
                 Rectangle {
                     id: centerRect
                     anchors.centerIn: parent
 
-                    implicitWidth: barContent.centerWidth + Theme.sizes.margin
+                    implicitWidth: barContent.centerWidth + Theme.sizes.margin * 2
                     implicitHeight: Theme.sizes.height
                     color: Theme.colors.bg
                 }
@@ -136,7 +136,7 @@ Scope {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
 
-                    corner: BarEdge.Side.Right
+                    side: BarEdge.Side.Right
                     edgeHeight: parent.implicitHeight
                     edgeWidth: Theme.sizes.edge
                 }
@@ -145,7 +145,7 @@ Scope {
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
 
-                    corner: BarEdge.Side.Left
+                    side: BarEdge.Side.Left
                     edgeHeight: parent.implicitHeight
                     edgeWidth: Theme.sizes.edge
                 }

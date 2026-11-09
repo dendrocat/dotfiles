@@ -7,8 +7,8 @@ Item {
     id: root
 
     enum Side { Left, Right }
-    property var corner: BarEdge.Side.Left
-    readonly property bool isLeft: corner === BarEdge.Side.Left
+    property var side: BarEdge.Side.Left
+    readonly property bool isLeft: side === BarEdge.Side.Left
 
     property int edgeHeight: Theme.sizes.height
     implicitHeight: edgeHeight
@@ -46,11 +46,13 @@ Item {
         if (inRange(a2)) return a2;
         return Math.atan2(Math.max(0.001, _h - 2 * _r), Math.max(0.001, _w - 2 * _r));
     }
-	readonly property real alphaDeg: root.alpha * 180 / Math.PI
+    readonly property real alphaDeg: root.alpha * 180 / Math.PI
 
     Shape {
         id: shape
 
+        layer.enabled: true
+        layer.smooth: true
         preferredRendererType: Shape.CurveRenderer
 
         ShapePath {
