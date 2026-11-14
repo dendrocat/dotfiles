@@ -25,11 +25,11 @@ Singleton {
     }
 
     readonly property QtObject sizes: QtObject {
-        readonly property int height: 36
+        readonly property int height: 32
         readonly property int margin: 16
 
-        readonly property int inner_height: 26
-        readonly property int inner_margin: 8
+        readonly property int inner_height: 24
+        readonly property int inner_margin: 6
 
         readonly property int rounding: 10
         readonly property int spacing: 15

@@ -23,7 +23,7 @@ MouseArea {
         id: bar
         anchors.centerIn: parent
         implicitWidth: Theme.sizes.inner_height * 2 // qmllint disable missing-property
-        implicitHeight: Theme.sizes.inner_height * 0.8 // qmllint disable missing-property
+        implicitHeight: root.implicitHeight * 0.9 // qmllint disable missing-property
 
         value: root.value
 

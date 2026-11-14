@@ -8,7 +8,7 @@ window {
 	location:					south;
 	anchor:						south;
 
-	y-offset:					-20px;
+	y-offset:					-15px;
 }
 
 inputbar {

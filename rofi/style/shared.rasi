@@ -12,6 +12,11 @@
 
 // Window
 window {
+    location:                    center;
+    anchor:                      center;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
     margin:                     0px;
     padding:                    0px;
 

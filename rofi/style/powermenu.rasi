@@ -8,11 +8,6 @@ configuration {
 
 // Window
 window {
-    location:                   center;
-    anchor:                     center;
-    x-offset:                   100px;
-    y-offset:					0px;
-
 	width:						600px;
 }
 

@@ -21,11 +21,6 @@ configuration {
 }
 
 window {
-    location:                    center;
-    anchor:                      center;
-    x-offset:                    0px;
-    y-offset:                    0px;
-
 	width: 700px;
 }
 
